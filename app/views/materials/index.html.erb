@@ -1,0 +1,7 @@
+<h1>Index of Materials</h1>
+<ul>
+<%= link_to "Add Material", new_building_material_path %>
+  <% @materials.each do |material| %>
+    <li><%= material.title %></li>
+  <% end %>
+</ul>
