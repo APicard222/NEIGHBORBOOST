@@ -2,6 +2,6 @@
 <ul>
 <%= link_to "Add Material", new_building_material_path %>
   <% @materials.each do |material| %>
-    <li><%= material.title %></li>
+    <li><%= link_to material.title, building_material_path(@building, material) %></li>
   <% end %>
 </ul>

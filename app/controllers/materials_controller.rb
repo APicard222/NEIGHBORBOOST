@@ -1,10 +1,12 @@
 class MaterialsController < ApplicationController
   def index
     @materials = Material.all
+    @building = Building.find(2)
   end
 
   def show
     @material = Material.find(params[:id])
+    @building = Building.find(2)
   end
 
   def new
