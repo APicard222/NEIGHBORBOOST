@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :building
-  has_many :messages, :documents, :demands, :materials
+  has_many :messages
+  has_many :documents
+  has_many :demands
+  has_many :materials
 
   validates :user_name, presence: true, uniqueness: true
   validates :first_name, presence: true
