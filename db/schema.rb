@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(version: 2021_11_29_132915) do
     t.date "end_date"
     t.string "status"
     t.bigint "building_id", null: false
-    t.string "responder"
-    t.bigint "user_id", null: false
+    t.bigint "responder_id"
+    t.bigint "requester_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["building_id"], name: "index_demands_on_building_id"
-    t.index ["user_id"], name: "index_demands_on_user_id"
+    t.index ["requester_id"], name: "index_demands_on_requester_id"
+    t.index ["responder_id"], name: "index_demands_on_responder_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -91,7 +92,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_132915) do
   end
 
   add_foreign_key "demands", "buildings"
-  add_foreign_key "demands", "users"
+  add_foreign_key "demands", "users", column: "requester_id"
+  add_foreign_key "demands", "users", column: "responder_id"
   add_foreign_key "documents", "buildings"
   add_foreign_key "documents", "users"
   add_foreign_key "materials", "buildings"

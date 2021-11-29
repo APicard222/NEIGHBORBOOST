@@ -8,10 +8,12 @@ class CreateDemands < ActiveRecord::Migration[6.0]
       t.date :end_date
       t.string :status
       t.references :building, null: false, foreign_key: true
-      t.string :responder
-      t.references :user, null: false, foreign_key: true
+      t.references :responder
+      t.references :requester
 
       t.timestamps
     end
+    add_foreign_key :demands, :users, column: :responder_id
+    add_foreign_key :demands, :users, column: :requester_id
   end
 end
