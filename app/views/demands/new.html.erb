@@ -1,0 +1,11 @@
+<div class='container'>
+  <h1>Add a Demand</h1>
+  <%= simple_form_for [@building, @demand] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :category %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.submit "Add" %>
+  <% end %>
+</div>
