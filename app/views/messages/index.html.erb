@@ -1,14 +1,16 @@
-<h1>#<%= @building.id %></h1>
+<div class="container">
+  <h1>#<%= @building.id %></h1>
 
-<div id="messages" data-building-id="<%= @building.id %>">
-  <% @building.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
+  <div id="messages" data-building-id="<%= @building.id %>">
+    <% @building.messages.each do |message| %>
+      <div class="message-container" id="message-<%= message.id %>">
+        <i class="author">
 
-        <span><%= message.user.user_name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
-    </div>
-  <% end %>
+          <span><%= message.user.user_name %></span>
+          <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        </i>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

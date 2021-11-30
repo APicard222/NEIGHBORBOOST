@@ -19,7 +19,7 @@
               <p><%= material.description%></p>
               <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
             </div>
-            <%= link_to('Edit', '#', class: "button_book") %>
+            <%= link_to('Edit', edit_material_path(material), class: "button_book") %>
             <%= link_to('Delete', material_path(material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book") %>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-index-user avatar-bordered" />
           </div>

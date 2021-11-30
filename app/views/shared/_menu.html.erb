@@ -5,11 +5,8 @@
     <i class="material-icons">dashboard</i>
   <% end %>
 
-  <a href="./" class="menu__item" data-tooltip="Messages">
-    <i class="material-icons">message</i>
-    </a>
     <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages"}) do %>
-      <i class="material-icons">group</i>
+      <i class="material-icons">message</i>
     <% end %>
   <% if current_user.present? %>
     <%= link_to(demands_path, class: "menu__item", data: {tooltip: "Demands"}) do %>
