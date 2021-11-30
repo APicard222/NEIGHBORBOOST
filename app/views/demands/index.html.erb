@@ -11,7 +11,7 @@
       </div>
     </div>
   <% end %>
-  <%= link_to('Add new demand', new_building_demand_path(@building)) %>
+  <div class='card-demand-add-btn' data-action="click->demands-index#addModal"><i class="far fa-plus-square"></i> New demand</div>
   <div class='new-demand-container' data-demands-index-target='add'>
     <div class='add-demand-form'>
       <%= render 'demands/new' %>
