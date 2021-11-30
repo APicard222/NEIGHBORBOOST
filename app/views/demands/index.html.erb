@@ -1,14 +1,21 @@
-<div class='container'>
+<div class='container' data-controller="demands-index">
   <h1>Demands</h1>
   <% @demands.each do |demand| %>
-    <p><%= demand.title %> - <small><%= User.find(demand.requester_id).user_name %></small></p>
     <div class="card-demand">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="card-demand-infos">
         <h2><%= demand.title %></h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+        <p><%= demand.description %></p>
+        <p><small><%= User.find(demand.requester_id).user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#addModal"></i>
       </div>
     </div>
   <% end %>
-  <%= link_to('Add new dwmand', new_building_demand_path(@building)) %>
+  <%= link_to('Add new demand', new_building_demand_path(@building)) %>
+  <div class='new-demand-container' data-demands-index-target='add'>
+    <div class='add-demand-form'>
+      <%= render 'demands/new' %>
+      <i class="far fa-times-circle close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeModal"></i>
+    </div>
+  </div>
 </div>
