@@ -1,14 +1,17 @@
-<div class="show-demand-container" data-demands-index-target='show'>
-  <div class="show-demand-header">
+<div class="show-card-demand-container">
+  <div class="show-card-demand-header">
     <img src= <%= image_path('tools.png') %> alt="tools">
     <h1>Title</h1>
   </div>
-  <div class="show-demand-description">
+  <hr>
+  <div class="show-card-demand-description">
     <p>description</p>
     <p>date</p>
   </div>
-  <div class="show-demand-btns">
-    <i class="fas fa-check"></i> <i class="fas fa-undo-alt"></i>
+  <hr>
+  <div class="show-card-demand-btns">
+    <div class="btn-accept"><i class="fas fa-check"></i>Accept</div>
+    <div class="btn-decline"><i class="fas fa-undo-alt"></i>Decline</div>
   </div>
-  <i class="far fa-times-circle close-add-demand-form" aria-hidden="true"></i>
+  <i class="far fa-times-circle close-show-demand" aria-hidden="true"></i>
 </div>

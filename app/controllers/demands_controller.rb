@@ -7,7 +7,7 @@ class DemandsController < ApplicationController
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: 'demands/add_demand_card', locals: { demands: @demand }, formats: [:html] }
+      format.text { render partial: 'demands/add_demand_card', locals: { demand: @demand }, formats: [:html] }
     end
   end
 

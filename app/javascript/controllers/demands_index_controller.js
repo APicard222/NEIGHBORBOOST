@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "add", "form", "show" ]
+  static targets = [ "add", "form", "show", "info"]
 
   connect() {
     console.log(this.addTarget)
@@ -18,6 +18,13 @@ export default class extends Controller {
   }
 
   showModal() {
+    fetch(`/demands/${this.infoTarget.dataset.id}`, { headers: { 'Accept': 'text/plain' } })
+      .then(response => response.text())
+      .then((data) => {
+        this.showTarget.innerHTML = data
+      })
+    // fetch()
+    console.log(this.infoTarget.dataset.id);
     this.showTarget.style.display = 'flex'
   }
 }
