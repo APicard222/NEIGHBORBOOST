@@ -1,4 +1,15 @@
 <h1>Welcome to the material show</h1>
-<%= @material.title %>
-<%= @material.description %>
+
+<div class="card-trip-show">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-show-infos">
+    <div>
+      <h2><%= @material.title%></h2>
+      <p><%= @material.description%></p>
+      <%= link_to('Book', '#') %>
+    </div>
+    <h2 class="card-trip-index-pricing"><%= @material.user.user_name%></h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-show-user avatar-bordered" />
+  </div>
+</div>
 <%= link_to "Back", building_materials_path(@building) %>
