@@ -1,0 +1,16 @@
+.card-trip-outside-frame .badge {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 80px;
+  color: white;
+  border-radius: 2px;
+}
+
+.available {
+  background-color:  green;
+}
+
+.notavailable {
+  background-color:  red;
+}

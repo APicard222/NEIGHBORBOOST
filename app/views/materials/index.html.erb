@@ -3,21 +3,23 @@
 <%= link_to "Add Material", new_building_material_path(@building) %>
 <div class="card-list">
   <% @materials.each do |material| %>
-    <div class="card-trip-index">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-index-infos">
-        <div>
-          <h2><%= link_to material.title, building_material_path(@building, material) %></h2>
-          <p><%= material.description%></p>
-        <% if current_user == material.user %>
-          <%= link_to('Edit', edit_building_material_path(@building, material)) %>
-          <%= link_to('Delete', building_material_path(@building, material), method: :delete, data: { confirm: "Are you sure?" }) %>
-        <% else %>
-          <%= link_to('Book', '#') %>
-        <% end %>
+    <div class="card-trip-outside-frame">
+          <% if material.available %>
+            <span class="badge available">Available</span>
+          <% else %>
+            <span class="badge notavailable">In Use</span>
+          <% end %>
+      <div class="card-trip-index">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-index-infos">
+          <div>
+            <h2><%= link_to material.title, building_material_path(@building, material) %></h2>
+            <p><%= material.description%></p>
+            <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
+          </div>
+          <%= link_to('Book', '#', class: "button_book") %>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-index-user avatar-bordered" />
         </div>
-        <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-index-user avatar-bordered" />
       </div>
     </div>
   <% end %>
