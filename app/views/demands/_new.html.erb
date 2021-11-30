@@ -1,5 +1,5 @@
 <h1>Add a Demand</h1>
-<%= simple_form_for [@building, @demand], html: { data: { demands_index_target: 'form' }} do |f| %>
+<%= simple_form_for @demand, html: { data: { demands_index_target: 'form' }} do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :category %>

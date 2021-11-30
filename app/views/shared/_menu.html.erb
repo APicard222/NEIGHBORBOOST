@@ -1,5 +1,5 @@
 <nav class="menu">
-  <% @building = Building.find(current_user.building.id) %>
+
 
   <%= link_to(dashboard_users_path, class: "menu__item", data: {tooltip: "Dashboard"}) do %>
     <i class="material-icons">dashboard</i>
@@ -8,15 +8,15 @@
   <a href="./" class="menu__item" data-tooltip="Messages">
     <i class="material-icons">message</i>
   </a>
+  <% if current_user.present? %>
+    <%= link_to(demands_path, class: "menu__item", data: {tooltip: "Demands"}) do %>
+      <i class="material-icons">group</i>
+    <% end %>
 
-  <%= link_to(building_demands_path(@building), class: "menu__item", data: {tooltip: "Demands"}) do %>
-    <i class="material-icons">group</i>
+    <%= link_to(materials_path, class: "menu__item", data: {tooltip: "Objects"}) do %>
+      <i class="material-icons">construction</i>
+    <% end %>
   <% end %>
-
-  <%= link_to(building_materials_path(@building), class: "menu__item", data: {tooltip: "Objects"}) do %>
-    <i class="material-icons">construction</i>
-  <% end %>
-
   <a href="./" class="menu__item" data-tooltip="Documents">
     <i class="material-icons">forward_to_inbox</i>
   </a>
