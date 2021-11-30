@@ -9,11 +9,11 @@
     <i class="material-icons">message</i>
   </a>
   <% if current_user.present? %>
-    <%= link_to(building_demands_path(current_user.building), class: "menu__item", data: {tooltip: "Demands"}) do %>
+    <%= link_to(demands_path, class: "menu__item", data: {tooltip: "Demands"}) do %>
       <i class="material-icons">group</i>
     <% end %>
 
-    <%= link_to(building_materials_path(current_user.building), class: "menu__item", data: {tooltip: "Objects"}) do %>
+    <%= link_to(materials_path, class: "menu__item", data: {tooltip: "Objects"}) do %>
       <i class="material-icons">construction</i>
     <% end %>
   <% end %>

@@ -2,7 +2,7 @@
   <h1>Hey! This is your Dashboard</h1>
 
   <h2>Here are your objects and their status</h2>
-  <%= link_to "Add Object", new_building_material_path(@building) %>
+  <%= link_to "Add Object", new_material_path %>
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
@@ -15,12 +15,12 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
           <div class="card-trip-index-infos">
             <div>
-              <h2><%= link_to material.title, building_material_path(@building, material) %></h2>
+              <h2><%= link_to material.title, material_path(material) %></h2>
               <p><%= material.description%></p>
               <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
             </div>
             <%= link_to('Edit', '#', class: "button_book") %>
-            <%= link_to('Delete', building_material_path(@building, material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book") %>
+            <%= link_to('Delete', material_path(material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book") %>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-index-user avatar-bordered" />
           </div>
         </div>

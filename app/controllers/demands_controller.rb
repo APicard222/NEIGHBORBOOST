@@ -2,7 +2,6 @@ class DemandsController < ApplicationController
   # before_action :new, :create
 
   def index
-
     @demands = current_user.building.demands
     @demand = Demand.new
 
@@ -13,13 +12,12 @@ class DemandsController < ApplicationController
   end
 
   def create
-    @building = Building.find(current_user.building.id)
     @demand = Demand.new(demand_params)
-    @demand.building = @building
+    @demand.building = current_user.building
     @demand.requester_id = current_user.id
 
     if @demand.save
-      redirect_to building_demands_path(@building)
+      redirect_to demands_path
     else
       render :new
     end
