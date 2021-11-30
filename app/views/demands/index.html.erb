@@ -1,4 +1,6 @@
-<h1>Demands</h1>
-<% @demands.each do |demand| %>
-  <%= demand.title %>
-<% end %>
+<div class='container'>
+  <h1>Demands</h1>
+  <% @demands.each do |demand| %>
+    <p><%= demand.title %> - <small><%= User.find(demand.requester_id).user_name %></small></p>
+  <% end %>
+</div>
