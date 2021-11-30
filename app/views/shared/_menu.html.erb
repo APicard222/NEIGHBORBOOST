@@ -1,20 +1,21 @@
 <nav class="menu">
-  <a href="./" class="menu__item" data-tooltip="Dashboard">
+  <% @building = Building.find(current_user.building.id) %>
+
+  <%= link_to(dashboard_users_path, class: "menu__item", data: {tooltip: "Dashboard"}) do %>
     <i class="material-icons">dashboard</i>
-  </a>
+  <% end %>
 
   <a href="./" class="menu__item" data-tooltip="Messages">
     <i class="material-icons">message</i>
-    <p class="icon_text"> "test"</p>
   </a>
 
-  <a href="./" class="menu__item" data-tooltip="Demands">
+  <%= link_to(building_demands_path(@building), class: "menu__item", data: {tooltip: "Demands"}) do %>
     <i class="material-icons">group</i>
-  </a>
+  <% end %>
 
-  <a href="./" class="menu__item" data-tooltip="Materials">
+  <%= link_to(building_materials_path(@building), class: "menu__item", data: {tooltip: "Objects"}) do %>
     <i class="material-icons">construction</i>
-  </a>
+  <% end %>
 
   <a href="./" class="menu__item" data-tooltip="Documents">
     <i class="material-icons">forward_to_inbox</i>
