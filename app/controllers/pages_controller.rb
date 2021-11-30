@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+  def dashboard
+    @building = Building.find(current_user.building.id)
+    @materials = Material.where(user_id: current_user)
+    @demands = Demand.where(user_id: current_user)
+  end
 end

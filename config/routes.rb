@@ -8,4 +8,9 @@ Rails.application.routes.draw do
     resources :documents, only: %i[index]
     resources :messages, only: %i[index]
   end
+  resources :users do
+    collection do
+      get :dashboard, to: 'pages#dashboard'
+    end
+  end
 end

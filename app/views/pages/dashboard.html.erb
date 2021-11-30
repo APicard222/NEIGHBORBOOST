@@ -1,6 +1,7 @@
-<h1>Index of Materials</h1>
+<h1>Hey! This is your Dashboard</h1>
 
-<%= link_to "Add Material", new_building_material_path(@building) %>
+<h2>Here are your objects and their status</h2>
+<%= link_to "Add Object", new_building_material_path(@building) %>
 <div class="card-list">
   <% @materials.each do |material| %>
     <div class="card-trip-outside-frame">
@@ -17,10 +18,13 @@
             <p><%= material.description%></p>
             <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
           </div>
-          <%= link_to('Book', '#', class: "button_book") %>
+          <%= link_to('Edit', '#', class: "button_book") %>
+          <%= link_to('Delete', building_material_path(@building, material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book") %>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-index-user avatar-bordered" />
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
+<h2>Here are your demands</h2>

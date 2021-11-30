@@ -1,6 +1,6 @@
 class MaterialsController < ApplicationController
   def index
-    @materials = Material.all
+    @materials = Material.where.not(user: current_user)
     @building = Building.find(current_user.building.id)
   end
 
@@ -22,7 +22,7 @@ class MaterialsController < ApplicationController
     @material.building = @building
 
     if @material.save!
-      redirect_to building_materials_path(@building)
+      redirect_to dashboard_users_path
     else
       render :new
     end
@@ -45,7 +45,7 @@ class MaterialsController < ApplicationController
     @material = Material.find(params[:id])
     @material.building = @building
     @material.destroy
-    redirect_to building_materials_path(@building)
+    redirect_to dashboard_users_path
   end
 
   private
