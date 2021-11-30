@@ -32,7 +32,7 @@ class MaterialsController < ApplicationController
   def update
     @material = Material.find(params[:id])
     @material.update(material_params)
-    redirect_to materials_path(@building)
+    redirect_to materials_path
   end
 
   def destroy
