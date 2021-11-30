@@ -1,6 +1,7 @@
 class MaterialsController < ApplicationController
+
   def index
-    @materials = Material.all
+    @materials = Material.where.not(user: current_user)
   end
 
   def show
@@ -15,9 +16,10 @@ class MaterialsController < ApplicationController
     @material = Material.new(material_params)
     @material.user = current_user
     @material.available = true
+    @material.building = current_user.building
 
-    if @material.save
-      redirect_to materials_path
+    if @material.save!
+      redirect_to dashboard_users_path
     else
       render :new
     end
@@ -35,9 +37,9 @@ class MaterialsController < ApplicationController
 
   def destroy
     @material = Material.find(params[:id])
+    @material.building = current_user.building
     @material.destroy
-
-    redirect_to materials_path
+    redirect_to dashboard_users_path
   end
 
   private

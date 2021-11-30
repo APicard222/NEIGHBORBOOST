@@ -1,0 +1,40 @@
+.new-demand-container {
+    display: none;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 100;
+
+    .add-demand-form {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      align-self: center;
+      width: 50%;
+      //height: 60%;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+
+      h1 {
+        color: gray;
+      }
+  }
+
+  .close-add-demand-form {
+    position: absolute;
+    font-size: 30px;
+    top: 10px;
+    right: 10px;
+    color: red;
+  }
+
+  .close-add-demand-form:hover {
+    color: rgb(232, 108, 108);
+  }
+}

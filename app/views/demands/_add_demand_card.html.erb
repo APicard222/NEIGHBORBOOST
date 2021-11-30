@@ -1,0 +1,9 @@
+<div class="card-demand">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-demand-infos">
+    <h2><%= demand.title %></h2>
+    <p><%= demand.description %></p>
+    <p><small><%= User.find(demand.requester_id).user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+    <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#addModal"></i>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<h1>What object do you want to share with your Neighboors</h1>
+
+<%= simple_form_for @material  do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Create Material", class: "sign-btn" %>
+<% end %>

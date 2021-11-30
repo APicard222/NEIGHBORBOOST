@@ -1,0 +1,54 @@
+.card-demand {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
+
+.card-demand img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-demand h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-demand p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-demand .card-demand-infos {
+  padding: 16px;
+}
+
+.card-more-info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: gray;
+}
+
+.card-more-info:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.card-more-info-size {
+  font-size: 24px;
+}
+
+.card-demand-add-btn {
+  font-size: 30px;
+}
