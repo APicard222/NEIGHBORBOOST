@@ -1,6 +1,6 @@
 class MaterialsController < ApplicationController
   def index
-    @materials = Material.all
+    @materials = Material.where.not(user: current_user)
     @building = Building.find(current_user.building.id)
   end
 

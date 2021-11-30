@@ -1,4 +1,20 @@
 <h1>Welcome to the material show</h1>
-<%= @material.title %>
-<%= @material.description %>
+
+<div class="card-trip-show">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-show-infos">
+    <div>
+      <h2><%= @material.title%></h2>
+      <p><%= @material.description%></p>
+      <h2 class="card-trip-index-pricing"><%= @material.user.user_name%></h2>
+    </div>
+    <%= link_to('Book', '#', class: "button_book") %>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-show-user avatar-bordered" />
+  </div>
+</div>
+<% if @material.available %>
+  <p><%= "You can Book this item now"  %></p>
+<% else %>
+  <p><%= "This item isn't available right now" %></p>
+<% end %>
 <%= link_to "Back", building_materials_path(@building) %>
