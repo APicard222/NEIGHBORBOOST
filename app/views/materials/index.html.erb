@@ -1,7 +1,11 @@
 <h1>Index of Materials</h1>
 <ul>
-<%= link_to "Add Material", new_building_material_path %>
+<%= link_to "Add Material", new_building_material_path(@building) %>
   <% @materials.each do |material| %>
-    <li><%= link_to material.title, building_material_path(@building, material) %></li>
+    <li><%= link_to material.title, building_material_path(@building, material) %> <%= material.user.user_name%></li>
+    <% if current_user == material.user %>
+      <%= link_to('Edit', edit_building_material_path(@building, material)) %>
+      <%= link_to('Delete', building_material_path(@building, material), method: :delete, data: { confirm: "Are you sure?" }) %>
+    <% end %>
   <% end %>
 </ul>
