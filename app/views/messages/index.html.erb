@@ -1,5 +1,5 @@
 <h1>#<%= @building.id %></h1>
-<% raise %>
+
 <div id="messages" data-building-id="<%= @building.id %>">
   <% @building.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
