@@ -5,6 +5,7 @@ date_end = date_start + 1
 puts "Erasing the DB..."
 Demand.destroy_all
 Material.destroy_all
+Message.destroy_all
 User.destroy_all
 Building.destroy_all
 puts "DB erased!"
@@ -50,5 +51,16 @@ demand2.requester_id = user1.id
 demand2.building = building1
 demand2.save!
 puts "Demand created!"
+
+puts "Creating Messages..."
+message1 = Message.new(content: "Ceci est un message test")
+message1.user = user1
+message1.building = building1
+message1.save!
+message2 = Message.new(content: "Ceci est un message test de l'user 2")
+message2.user = user2
+message2.building = building1
+message2.save!
+puts "Messages created!"
 
 puts "Finish ...!!!"

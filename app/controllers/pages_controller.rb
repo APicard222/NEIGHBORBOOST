@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   def dashboard
     @building = Building.find(current_user.building.id)
     @materials = Material.where(user_id: current_user)
-    @demands = Demand.where(user_id: current_user)
+    @demands = Demand.where(requester_id: current_user)
+    @acceptances = Demand.where(responder_id: current_user)
   end
 end
