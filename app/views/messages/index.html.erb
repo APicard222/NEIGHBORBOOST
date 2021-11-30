@@ -4,12 +4,11 @@
   <% @building.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
       <i class="author">
-        <span><%= message.user.nickname %></span>
+
+        <span><%= message.user.user_name %></span>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>
       <p><%= message.content %></p>
     </div>
   <% end %>
 </div>
-
-# http://localhost:3000/buildings/3/messages
