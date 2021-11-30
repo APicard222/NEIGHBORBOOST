@@ -1,25 +1,22 @@
 class MaterialsController < ApplicationController
+
   def index
     @materials = Material.where.not(user: current_user)
-    @building = Building.find(current_user.building.id)
   end
 
   def show
     @material = Material.find(params[:id])
-    @building = Building.find(current_user.building.id)
   end
 
   def new
     @material = Material.new
-    @building = Building.find(current_user.building.id)
   end
 
   def create
     @material = Material.new(material_params)
     @material.user = current_user
     @material.available = true
-    @building = Building.find(current_user.building.id)
-    @material.building = @building
+    @material.building = current_user.building
 
     if @material.save!
       redirect_to dashboard_users_path
@@ -30,20 +27,17 @@ class MaterialsController < ApplicationController
 
   def edit
     @material = Material.find(params[:id])
-    @building = Building.find(current_user.building.id)
   end
 
   def update
-    @building = Building.find(current_user.building.id)
     @material = Material.find(params[:id])
     @material.update(material_params)
-    redirect_to building_materials_path(@building)
+    redirect_to materials_path(@building)
   end
 
   def destroy
-    @building = Building.find(current_user.building.id)
     @material = Material.find(params[:id])
-    @material.building = @building
+    @material.building = current_user.building
     @material.destroy
     redirect_to dashboard_users_path
   end

@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Index of Materials</h1>
 
-  <%= link_to "Add Material", new_building_material_path(@building) %>
+  <%= link_to "Add Material", new_material_path %>
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
@@ -14,7 +14,7 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
           <div class="card-trip-index-infos">
             <div>
-              <h2><%= link_to material.title, building_material_path(@building, material) %></h2>
+              <h2><%= link_to material.title, material_path(material) %></h2>
               <p><%= material.description%></p>
               <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
             </div>
