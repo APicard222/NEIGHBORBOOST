@@ -1,0 +1,6 @@
+<h1>Let's Edit your Object</h1>
+<%= simple_form_for [@building, @material] do |f|%>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <%= f.submit "save your changes" %>
+<% end %>
