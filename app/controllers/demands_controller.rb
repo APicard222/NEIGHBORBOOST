@@ -6,12 +6,12 @@ class DemandsController < ApplicationController
   end
 
   def new
-    @building = Building.find(7)
+    @building = Building.find(current_user.building.id)
     @demand = Demand.new
   end
 
   def create
-    @building = Building.find(7)
+    @building = Building.find(current_user.building.id)
     @demand = Demand.new(demand_params)
     @demand.building = @building
     @demand.requester_id = current_user.id
