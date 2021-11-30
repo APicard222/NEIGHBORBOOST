@@ -1,11 +1,12 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "add", "form" ]
+  static targets = [ "add", "form", "show" ]
 
   connect() {
-    console.log(this.addTarget);
+    console.log(this.addTarget)
     console.log(this.formTarget)
+    console.log(this.showTarget)
   }
 
   addModal() {
@@ -14,5 +15,9 @@ export default class extends Controller {
 
   closeModal() {
     this.addTarget.style.display = 'none'
+  }
+
+  showModal() {
+    this.showTarget.style.display = 'flex'
   }
 }

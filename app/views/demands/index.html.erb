@@ -7,15 +7,20 @@
         <h2><%= demand.title %></h2>
         <p><%= demand.description %></p>
         <p><small><%= User.find(demand.requester_id).user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#addModal"></i>
+        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#showModal"></i>
       </div>
     </div>
   <% end %>
-  <%= link_to('Add new demand', new_demand_path) %>
+  
+  <!-- > Modal add demand  <!-->
+  <div class='card-demand-add-btn' data-action="click->demands-index#addModal"><i class="far fa-plus-square"></i> New demand </div>
   <div class='new-demand-container' data-demands-index-target='add'>
     <div class='add-demand-form'>
       <%= render 'demands/new' %>
       <i class="far fa-times-circle close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeModal"></i>
     </div>
   </div>
+
+  <!-- > Modal show demand  <!-->
+  <%= render 'demands/show_demand' %>
 </div>

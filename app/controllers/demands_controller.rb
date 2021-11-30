@@ -11,6 +11,14 @@ class DemandsController < ApplicationController
     end
   end
 
+  def show
+    @demand = Demand.find(params[:id])
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'demands/show_demand', locals: { demand: @demand }, formats: [:html] }
+    end
+  end
+
   def create
     @demand = Demand.new(demand_params)
     @demand.building = current_user.building
