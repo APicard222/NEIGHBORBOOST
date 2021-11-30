@@ -2,5 +2,13 @@
   <h1>Demands</h1>
   <% @demands.each do |demand| %>
     <p><%= demand.title %> - <small><%= User.find(demand.requester_id).user_name %></small></p>
+    <div class="card-demand">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-demand-infos">
+        <h2><%= demand.title %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
   <% end %>
+  <%= link_to('Add new dwmand', new_building_demand_path(@building)) %>
 </div>

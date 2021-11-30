@@ -2,6 +2,7 @@ class DemandsController < ApplicationController
   # before_action :new, :create
 
   def index
+    @building = Building.find(current_user.building.id)
     @demands = Demand.all
   end
 
