@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :demands, only: %i[index new create delete show]
   resources :materials
   resources :documents, only: %i[index]
-  resources :messages, only: %i[index]
+  resources :messages, only: %i[index create]
   resources :buildings, only: %i[show]
   resources :users do
     collection do
