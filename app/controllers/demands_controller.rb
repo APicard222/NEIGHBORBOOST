@@ -13,6 +13,7 @@ class DemandsController < ApplicationController
 
   def show
     @demand = Demand.find(params[:id])
+
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'demands/show_demand', locals: { demand: @demand }, formats: [:html] }
@@ -31,9 +32,15 @@ class DemandsController < ApplicationController
     end
   end
 
+  def update
+    @demand = Demand.find(params[:id])
+    @demand.status = params[:status]
+    @demand.update(demand_params)
+  end
+
   private
 
   def demand_params
-    params.require(:demand).permit(:title, :description, :category, :start_date, :end_date)
+    params.require(:demand).permit(:title, :description, :category, :start_date, :end_date, :status)
   end
 end

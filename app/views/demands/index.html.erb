@@ -7,7 +7,12 @@
         <h2><%= demand.title %></h2>
         <p><%= demand.description %></p>
         <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+        <% if demand.status == 't' %>
+          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+        <% else %>
+          <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+        <% end %>
+      <%#<i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>%>
       </div>
     </div>
   <% end %>
