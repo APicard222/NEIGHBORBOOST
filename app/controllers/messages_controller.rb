@@ -10,11 +10,16 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
+      BuildingChannel.broadcast_to(
+        current_user.building,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
       redirect_to messages_path
     else
       render :new
     end
   end
+
 
   private
 
