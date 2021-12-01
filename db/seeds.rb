@@ -22,6 +22,9 @@ user1.save!
 user2 = User.new(user_name: 'SSeb', first_name: 'Seb', last_name: 'Saunier', email: 's.s@gmail.com', password: '123456')
 user2.building = building1
 user2.save!
+user3 = User.new(user_name: 'b-nicod', first_name: 'Bernie', last_name: 'Nicod', email: 'b.n@gmail.com', password: '123456')
+user3.building = building1
+user3.save!
 puts "Users created!"
 
 puts "Creating Materials..."
@@ -41,6 +44,18 @@ material4 = Material.new(title: 'Tandem bi-place', description: "L'assistance é
 material4.user = user2
 material4.building = building1
 material4.save!
+material5 = Material.new(title: 'Grid test', description: 'Ligne 1', available: true)
+material5.user = user3
+material5.building = building1
+material5.save!
+material6 = Material.new(title: 'Grid test', description: 'Ligne descriptive', available: true)
+material6.user = user3
+material6.building = building1
+material6.save!
+material7 = Material.new(title: 'Grid test', description: "Ligne descriptive", available: true)
+material7.user = user3
+material7.building = building1
+material7.save!
 puts "Materials created!"
 
 puts "Creating demands ..."
