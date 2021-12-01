@@ -36,7 +36,7 @@ material2 = Material.new(title: 'Planche pour repasser', description: 'Vos chemi
 material2.user = user1
 material2.building = building1
 material2.save!
-material3 = Material.new(title: 'Appareil à Raclette', description: "Lhiver approche", available: true)
+material3 = Material.new(title: 'Appareil à Raclette', description: "Je mets à disposition mon appareil à raclette XXL pouvant acceuilir 8 convives simultanéments. C'est avec plaisir que je vous mets cet objet à disposition. La planête nous en sera que reconaissante.   ", available: true)
 material3.user = user2
 material3.building = building1
 material3.save!
