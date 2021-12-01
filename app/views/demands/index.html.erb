@@ -1,23 +1,13 @@
 <div class='container' data-controller="demands-index">
   <h1>Demands</h1>
-  <% @demands.each do |demand| %>
-    <div class="card-demand" data-demands-index-target="info" data-id="<%= demand.id %>">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-demand-infos">
-        <h2><%= demand.title %></h2>
-        <p><%= demand.description %></p>
-        <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-        <% if demand.status == 't' %>
-          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
-        <% else %>
-          <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  <div class="card-demands" data-demands-index-target="list">
+    <%= render 'list', demands: @demands %>
+  </div>
+
+  <!-- > Button add  <!-->
+  <div class='card-demand-add-btn' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> New demand </div>
 
   <!-- > Modal add demand  <!-->
-  <div class='card-demand-add-btn' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> New demand </div>
   <div class='new-demand-container' data-demands-index-target='add'>
     <div class='add-demand-form'>
       <%= render 'demands/new' %>

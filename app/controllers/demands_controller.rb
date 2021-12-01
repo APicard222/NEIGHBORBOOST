@@ -37,6 +37,12 @@ class DemandsController < ApplicationController
     @demand.status = params[:status]
     @demand.responder_id = current_user.id
     @demand.update(demand_params)
+    @demands = Demand.where.not(requester_id: current_user)
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'demands/list', locals: { demands: @demands }, formats: [:html] }
+    end
   end
 
   private

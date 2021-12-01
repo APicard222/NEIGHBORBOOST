@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "add", "form", "show", "info"]
+  static targets = [ "add", "form", "show", "info", "list"]
 
   connect() {
   }
@@ -33,7 +33,6 @@ export default class extends Controller {
   updateStatus(evt) {
     const id = evt.target.closest('.show-card-demand-container').dataset.id
     const url = `/demands/${id}`
-
     function getMetaValue(name) {
       const element = document.head.querySelector(`meta[name="${name}"]`)
 
@@ -54,9 +53,11 @@ export default class extends Controller {
     })
       .then(response => response.text())
       .then((data) => {
-        console.log(data);
+        console.log(evt.target.closest('.card-demand'));
+        this.listTarget.innerHTML = data
+        this.closeShowModal()
+
       })
 
-    this.closeShowModal()
   }
 }
