@@ -9,22 +9,25 @@ export default class extends Controller {
     console.log(this.showTarget)
   }
 
-  addModal() {
+  openAddModal() {
     this.addTarget.style.display = 'flex'
   }
 
-  closeModal() {
+  closeAddModal() {
     this.addTarget.style.display = 'none'
   }
 
-  showModal() {
+  openShowModal() {
     fetch(`/demands/${this.infoTarget.dataset.id}`, { headers: { 'Accept': 'text/plain' } })
       .then(response => response.text())
       .then((data) => {
         this.showTarget.innerHTML = data
       })
-    // fetch()
-    console.log(this.infoTarget.dataset.id);
+
     this.showTarget.style.display = 'flex'
+  }
+
+  closeShowModal() {
+    this.showTarget.style.display = 'none'
   }
 }

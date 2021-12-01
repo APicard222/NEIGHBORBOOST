@@ -2,7 +2,7 @@ class DemandsController < ApplicationController
   # before_action :new, :create
 
   def index
-    @demands = current_user.building.demands
+    @demands = Demand.where.not(requester_id: current_user)
     @demand = Demand.new
 
     respond_to do |format|
