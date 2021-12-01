@@ -16,10 +16,10 @@ building1.save!
 puts "Building created!"
 
 puts "Creating Users..."
-user1 = User.new(user_name: 'NG', first_name: 'Boris', last_name: 'Paillard', email: 'b.p@gmail.com', password: '123456')
+user1 = User.new(user_name: 'Boris__pap', first_name: 'Boris', last_name: 'Paillard', email: 'b.p@gmail.com', password: '123456')
 user1.building = building1
 user1.save!
-user2 = User.new(user_name: 'BP', first_name: 'Seb', last_name: 'Saunier', email: 's.s@gmail.com', password: '123456')
+user2 = User.new(user_name: 'SSeb', first_name: 'Seb', last_name: 'Saunier', email: 's.s@gmail.com', password: '123456')
 user2.building = building1
 user2.save!
 puts "Users created!"
