@@ -27,8 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initBuildingCable } from '../channels/building_channel';
 
 document.addEventListener('turbolinks:load', () => {
+  initBuildingCable();
   // Call your functions here, e.g:
   // initSelect2();
 });
