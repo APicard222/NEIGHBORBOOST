@@ -31,7 +31,8 @@ export default class extends Controller {
   }
 
   updateStatus(evt) {
-    const url = `/demands/${evt.target.closest('.show-card-demand-container').dataset.id}`
+    const id = evt.target.closest('.show-card-demand-container').dataset.id
+    const url = `/demands/${id}`
 
     function getMetaValue(name) {
       const element = document.head.querySelector(`meta[name="${name}"]`)
@@ -47,7 +48,8 @@ export default class extends Controller {
         "X-CSRF-Token": getMetaValue("csrf-token")
       },
       body: JSON.stringify({
-        status: true
+        status: false,
+        responder_id: id
       })
     })
       .then(response => response.text())
@@ -55,6 +57,6 @@ export default class extends Controller {
         console.log(data);
       })
 
-    closeShowModal()
+    this.closeShowModal()
   }
 }
