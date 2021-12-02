@@ -12,7 +12,7 @@ Building.destroy_all
 puts "DB erased!"
 
 puts "Creating Building..."
-building1 = Building.new(code: 'test_1', address: 'Renens')
+building1 = Building.new(code: 'bienvenue', address: 'Renens', name: "Les Acacias")
 building1.save!
 puts "Building created!"
 
