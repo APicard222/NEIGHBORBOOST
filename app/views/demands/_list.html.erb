@@ -7,10 +7,10 @@
       <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
       <% if demand.status == 'posted' %>
         <% # do if user responder %>
-        <% if current_user == demand.responder_id %>
-          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
-        <% else %>
+        <% if current_user == demand.requester %>
           <i class="fa fa-info-circle card-info card-more-info-size" aria-hidden="true" ></i>
+        <% else %>
+          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
         <% end %>
       <% else %>
         <% if current_user.id == demand.requester.id %>
