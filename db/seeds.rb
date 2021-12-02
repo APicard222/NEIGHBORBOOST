@@ -123,13 +123,13 @@ demand2 = Demand.new(title: 'Promener Boushka', description: 'Trop occupé vendr
 demand2.requester_id = user1.id
 demand2.building = building1
 demand2.save!
-demand3 = Demand.new(title: 'Cours de Maths pour ma fille (13 ans)', description: 'Ma fille est vraiment nulle en math, je désespère.', end_date: date_end, start_date: date_start, status: 'posted')
+demand3 = Demand.new(title: 'Cours de Maths pour ma fille (13 ans)', description: 'Ma fille est vraiment nulle en math, je désespère.', end_date: date_end, start_date: date_start, status: 'confirmed')
 demand3.requester_id = user1.id
+demand3.responder_id = user3.id
 demand3.building = building1
 demand3.save!
-demand4 = Demand.new(title: 'Je fissure. Qui veut cuisiner pour moi cette semaine?', description: 'Je vous indémnise 9CHF par repas du soir', end_date: date_end, start_date: date_start, status: 'confirmed')
+demand4 = Demand.new(title: 'Je fissure. Qui veut cuisiner pour moi cette semaine?', description: 'Je vous indémnise 9CHF par repas du soir', end_date: date_end, start_date: date_start, status: 'posted')
 demand4.requester_id = user2.id
-demand4.responder_id = user3.id
 demand4.building = building1
 demand4.save!
 puts "Demand created!"

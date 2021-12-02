@@ -1,5 +1,20 @@
 <nav class="menu">
 
+ <div>
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+  </div>
+
 
   <%= link_to(dashboard_users_path, class: "menu__item", data: {tooltip: "Dashboard"}) do %>
     <i class="material-icons">dashboard</i>
