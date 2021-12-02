@@ -9,10 +9,12 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email", class:"input" } %>
-              <div class="form-actions actions">
-                <%= render "devise/shared/links" %>
-              </div>
-              </div>
+            </div>
+            <div class="group">
+              <%= f.button :submit, "Sign up", class:"button" %>
+            </div>
+            <div class="form-actions actions">
+              <%= render "devise/shared/links" %>
             </div>
           </div> 
         <% end %>
