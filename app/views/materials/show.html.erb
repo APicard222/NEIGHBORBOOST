@@ -1,22 +1,49 @@
-<div class="container">
+<div class="show-container">
   <h1>Welcome to the material show</h1>
 
   <div class="card-trip-show">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <%= cl_image_tag @material.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-trip-show-infos">
-      <div>
-        <h2><%= @material.title%></h2>
-        <p><%= @material.description%></p>
-        <h2 class="card-trip-index-pricing"><%= @material.user.user_name%></h2>
+        <div class="show-material-title">
+          <h2> <%= @material.title%></h2>
+        </div>
+        <div class="show-material-description">
+          <i class="fas fa-question-circle"></i>
+          <p><%= @material.description%></p>
+        </div>
+        <div class="show-material-owner">
+          <%= cl_image_tag @material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered small" %>
+          <% if current_user == @material.user%>
+          <h2>Vous êtes le propriétaire</h2>
+          <% else %>
+            <h2 class="card-trip-index-pricing"> - <%= @material.user.first_name %><%= @material.user.last_name %></h2>
+          <% end %>
+        </div>
+        <div class="show-material-available">
+          <% if @material.available %>
+            <p><%= "'#{@material.title}' is currently availbale "  %></p>
+          <% else %>
+            <p><%= "Come back soon ... #{@material.title} is reserved" %></p>
+          <% end %>
+        </div>
+    </div>
+    <div class="card-show-calendar">
+      <div class="card-show-calendar-overview" style="object-fit:contain">
+        <%= month_calendar do |date| %>
+          <%= date.strftime("%d") %>
+        <% end %>
       </div>
-      <%= link_to('Book', '#', class: "button_book") %>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-show-user avatar-bordered" />
+      <div class="card-show-booking">
+        <% if current_user == @material.user%>
+        <% else %>
+        <%= link_to('Book', '#', class: "button_book_show") %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <% if @material.available %>
-    <p><%= "You can Book this item now"  %></p>
-  <% else %>
-    <p><%= "This item isn't available right now" %></p>
-  <% end %>
-  <%= link_to "Back", materials_path %>
+    <% if current_user == @material.user %>
+      <%= link_to "Back", dashboard_users_path, class: "button_book" %>
+    <% else %>
+      <%= link_to "Back", materials_path, class: "button_book" %>
+    <% end %>
 </div>

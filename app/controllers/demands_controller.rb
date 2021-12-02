@@ -2,17 +2,18 @@ class DemandsController < ApplicationController
   # before_action :new, :create
 
   def index
-    @demands = current_user.building.demands
+    @demands = Demand.where.not(requester_id: current_user)
     @demand = Demand.new
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: 'demands/add_demand_card', locals: { demands: @demand }, formats: [:html] }
+      format.text { render partial: 'demands/add_demand_card', locals: { demand: @demand }, formats: [:html] }
     end
   end
 
   def show
     @demand = Demand.find(params[:id])
+
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'demands/show_demand', locals: { demand: @demand }, formats: [:html] }
@@ -23,6 +24,7 @@ class DemandsController < ApplicationController
     @demand = Demand.new(demand_params)
     @demand.building = current_user.building
     @demand.requester_id = current_user.id
+    @demand.status = 'posted'
 
     if @demand.save
       redirect_to demands_path
@@ -31,9 +33,22 @@ class DemandsController < ApplicationController
     end
   end
 
+  def update
+    @demand = Demand.find(params[:id])
+    @demand.status = params[:status]
+    @demand.responder_id = current_user.id unless @demand.requester_id == current_user.id
+    @demand.update(demand_params)
+    @demands = Demand.where.not(requester_id: current_user)
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'demands/list', locals: { demands: @demands }, formats: [:html] }
+    end
+  end
+
   private
 
   def demand_params
-    params.require(:demand).permit(:title, :description, :category, :start_date, :end_date)
+    params.require(:demand).permit(:title, :description, :category, :start_date, :end_date, :status)
   end
 end

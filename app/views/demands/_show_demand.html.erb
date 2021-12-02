@@ -1,14 +1,23 @@
-<div class="show-demand-container" data-demands-index-target='show'>
-  <div class="show-demand-header">
+<div class="show-card-demand-container" data-id="<%= demand.id %>">
+  <div class="show-card-demand-header">
     <img src= <%= image_path('tools.png') %> alt="tools">
-    <h1>Title</h1>
+    <h1><%= demand.title %></h1>
   </div>
-  <div class="show-demand-description">
-    <p>description</p>
-    <p>date</p>
+  <hr>
+  <div class="show-card-demand-description">
+    <p><%= demand.description %></p>
+    <p>Start: <%= demand.start_date %></p>
+    <p>End: <%= demand.end_date %></p>
+    <p><small><strong>Author:</strong> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
   </div>
-  <div class="show-demand-btns">
-    <i class="fas fa-check"></i> <i class="fas fa-undo-alt"></i>
+  <hr>
+  <div class="show-card-demand-btns">
+    <% if demand.requester == current_user %>
+      <div class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
+      <div class="btn-decline"><i class="fas fa-undo-alt"></i>Decline</div>
+    <% else %>
+      <div class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></
+    <% end %>
   </div>
-  <i class="far fa-times-circle close-add-demand-form" aria-hidden="true"></i>
+  <i class="far fa-times-circle close-show-demand" aria-hidden="true" data-action="click->demands-index#closeShowModal"></i>
 </div>

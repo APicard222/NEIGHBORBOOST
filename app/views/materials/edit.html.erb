@@ -1,6 +1,16 @@
-<h1>Let's Edit your Object</h1>
-<%= simple_form_for @material do |f|%>
-            <%= f.input :title %>
-            <%= f.input :description %>
-            <%= f.submit "save your changes" %>
-<% end %>
+<div class="form-wrap">
+  <div class="form-html">
+    <div class="form-form">
+      <h2 style="color:white;">Let's Edit your Object</h2>
+        <div class="group">
+            <div class="label">
+                <%= simple_form_for @material do |f|%>
+                    <%= f.input :title %>
+                    <%= f.input :description %>
+                    <%= f.submit "SAVE YOUR CHANGES", class:"input" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>  

@@ -1,6 +1,5 @@
 .exterior-container-materials {
   width: 90%;
-  background-color: beige;
   margin: 0px auto;
 }
 
@@ -33,6 +32,15 @@
   margin: 0;
 }
 
+.card-trip-index a {
+  color: rgb(73, 73, 73);
+}
+
+.card-trip-index a:hover {
+  color: rgb(37, 37, 37);
+  text-decoration: none;
+}
+
 .card-trip-index p {
   font-size: 12px;
   opacity: .7;
@@ -40,7 +48,7 @@
 }
 
 .card-trip-index-infos {
-  height: 80px;
+  height: 70px;
 }
 
 .card-trip-index .card-trip-index-infos {
@@ -53,7 +61,7 @@
 
 .card-trip-index-infos .card-trip-index-user {
   position: absolute;
-  right: 16px;
+  right: 12px;
   top: -20px;
   width: 40px;
 }
@@ -72,6 +80,13 @@
   text-decoration: none;
   color: white;
   background-color: rgb(107, 107, 107);
+}
+
+.card-trip-title-username {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media(max-width: 1200px) {
