@@ -13,9 +13,10 @@
   <hr>
   <div class="show-card-demand-btns">
     <% if demand.requester == current_user %>
+      <div class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
       <div class="btn-decline"><i class="fas fa-undo-alt"></i>Decline</div>
     <% else %>
-      <div class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
+      <div class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></
     <% end %>
   </div>
   <i class="far fa-times-circle close-show-demand" aria-hidden="true" data-action="click->demands-index#closeShowModal"></i>

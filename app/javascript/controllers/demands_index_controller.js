@@ -33,6 +33,7 @@ export default class extends Controller {
   updateStatus(evt) {
     const id = evt.target.closest('.show-card-demand-container').dataset.id
     const url = `/demands/${id}`
+
     function getMetaValue(name) {
       const element = document.head.querySelector(`meta[name="${name}"]`)
 
@@ -48,15 +49,12 @@ export default class extends Controller {
       },
       body: JSON.stringify({
         status: false,
-        responder_id: id
       })
     })
       .then(response => response.text())
       .then((data) => {
-        console.log(evt.target.closest('.card-demand'));
         this.listTarget.innerHTML = data
         this.closeShowModal()
-
       })
 
   }

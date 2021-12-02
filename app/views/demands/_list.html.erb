@@ -5,10 +5,18 @@
       <h2><%= demand.title %></h2>
       <p><%= demand.description %></p>
       <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-      <% if demand.status == 't' %>
+      <% if demand.status == 'posted' %>
         <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
       <% else %>
-        <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+        <% if current_user.id = demand.requester.id %>
+          <% if demand.status == 'accepted'%>
+            <i class="fa fa-info-circle card-demand-accepted card-more-info-size" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+          <% end %>
+        <% else %>
+          <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+        <% end %>
       <% end %>
     </div>
   </div>
