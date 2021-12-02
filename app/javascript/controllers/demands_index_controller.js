@@ -31,6 +31,7 @@ export default class extends Controller {
   }
 
   updateStatus(evt) {
+    const status = evt.target.dataset.status
     const id = evt.target.closest('.show-card-demand-container').dataset.id
     const url = `/demands/${id}`
 
@@ -48,7 +49,7 @@ export default class extends Controller {
         "X-CSRF-Token": getMetaValue("csrf-token")
       },
       body: JSON.stringify({
-        status: false,
+        status: status,
       })
     })
       .then(response => response.text())
