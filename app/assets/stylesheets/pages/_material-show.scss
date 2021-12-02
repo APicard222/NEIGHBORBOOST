@@ -95,8 +95,10 @@
 }
 
 .show-material-owner {
+  display: flex;
   align-items: center;
   margin-top: auto;
+  margin-bottom: 15px;
 }
 
 .show-material-available {
@@ -113,4 +115,5 @@
 
 .show-material-description {
   align-items: center;
+  flex-grow: 1;
 }

@@ -2,7 +2,7 @@
   <h1>Welcome to the material show</h1>
 
   <div class="card-trip-show">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <%= cl_image_tag @material.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-trip-show-infos">
         <div class="show-material-title">
           <h2> <%= @material.title%></h2>
@@ -12,8 +12,12 @@
           <p><%= @material.description%></p>
         </div>
         <div class="show-material-owner">
-          <i class="fas fa-user"></i>
-          <h2 class="card-trip-index-pricing"><%= @material.user.user_name %> - <%= @material.user.first_name %><%= @material.user.last_name %></h2>
+          <%= cl_image_tag @material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered small" %>
+          <% if current_user == @material.user%>
+          <h2>Vous êtes le propriétaire</h2>
+          <% else %>
+            <h2 class="card-trip-index-pricing"> - <%= @material.user.first_name %><%= @material.user.last_name %></h2>
+          <% end %>
         </div>
         <div class="show-material-available">
           <% if @material.available %>
@@ -30,9 +34,16 @@
         <% end %>
       </div>
       <div class="card-show-booking">
+        <% if current_user == @material.user%>
+        <% else %>
         <%= link_to('Book', '#', class: "button_book_show") %>
+        <% end %>
       </div>
     </div>
   </div>
-  <%= link_to "Back", materials_path, class: "button_book" %>
+    <% if current_user == @material.user %>
+      <%= link_to "Back", dashboard_users_path, class: "button_book" %>
+    <% else %>
+      <%= link_to "Back", materials_path, class: "button_book" %>
+    <% end %>
 </div>
