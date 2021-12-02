@@ -1,12 +1,60 @@
 .simple-calendar .day {
   height: 12px;
   font-size: 12px;
+  text-align: center;
+}
+
+.simple-calendar table {
+  border: 0px;
+}
+
+.simple-calendar td {
+  padding: 6px;
+  vertical-align: top;
+  width: 14%;
+  border: 0px;
+}
+
+.simple-calendar th {
+  text-align: center;
+  border: 0px;
+}
+
+.simple-calendar .today {
+  color: #dd0909;
+  background-color: white;
+}
+
+.simple-calendar .past {
+  text-decoration: line-through;
+  color: rgb(185, 185, 185);
+}
+
+.simple-calendar .prev-month {
+  background: rgb(255, 255, 255);
+}
+
+.simple-calendar .next-month {
+  background: rgb(231, 231, 231);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: white;
 }
 
 .calendar-heading {
   font-size: 14px;
   display: flex;
   justify-content: space-between;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 5px;
+  a {
+    color: rgb(65, 65, 65);
+  }
+  a:hover {
+    color: black;
+  }
 }
 
 .table-striped {
