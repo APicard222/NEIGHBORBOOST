@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="demands-index">
   <h1>Hey! This is your Dashboard</h1>
 
   <h2>Here are your objects and their status</h2>
@@ -29,17 +29,19 @@
   </div>
 
   <h2>Here are your requested demands</h2>
-  <% @demands.each do |demand| %>
-    <div class="card-demand">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-demand-infos">
-        <h2><%= demand.title %></h2>
-        <p><%= demand.description %></p>
-        <p><small><%= User.find(demand.requester_id).user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#addModal"></i>
+  <div data-demands-dashboard-target="list">
+    <% @demands.each do |demand| %>
+      <div class="card-demand" data-id="<%= demand.id %>">>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-demand-infos">
+          <h2><%= demand.title %></h2>
+          <p><%= demand.description %></p>
+          <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   <h2>Here are your accepted demands</h2>
   <% @acceptances.each do |acceptance| %>
     <div class="card-demand">
@@ -47,9 +49,13 @@
       <div class="card-demand-infos">
         <h2><%= acceptance.title %></h2>
         <p><%= acceptance.description %></p>
-        <p><small><%= User.find(acceptance.requester_id).user_name %> - <%= acceptance.created_at.strftime("%a, %d %B, %Y") %></small></p>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#addModal"></i>
+        <p><small><%= acceptance.requester.user_name %> - <%= acceptance.created_at.strftime("%a, %d %B, %Y") %></small></p>
+        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
       </div>
     </div>
   <% end %>
+
+  <!-- > Modal show demand  <!-->
+  <div class="show-demand-container" data-demands-index-target='show'>
+  </div>
 </div>

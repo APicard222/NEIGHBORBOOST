@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
   end
+
   def dashboard
     @materials = Material.where(user_id: current_user)
     @demands = Demand.where(requester_id: current_user)
