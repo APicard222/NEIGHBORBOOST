@@ -28,19 +28,10 @@
   </div>
 
   <h2>Here are your requested demands</h2>
-  <div data-demands-dashboard-target="list">
-    <% @demands.each do |demand| %>
-      <div class="card-demand" data-id="<%= demand.id %>">>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-demand-infos">
-          <h2><%= demand.title %></h2>
-          <p><%= demand.description %></p>
-          <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
-        </div>
-      </div>
-    <% end %>
+  <div class="card-demands" data-demands-index-target="list">
+    <%= render 'demands/list', demands: @demands %>
   </div>
+
   <h2>Here are your accepted demands</h2>
   <% @acceptances.each do |acceptance| %>
     <div class="card-demand">
