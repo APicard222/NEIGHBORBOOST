@@ -24,6 +24,7 @@ class DemandsController < ApplicationController
     @demand = Demand.new(demand_params)
     @demand.building = current_user.building
     @demand.requester_id = current_user.id
+    @demand.status = 'posted'
 
     if @demand.save
       redirect_to demands_path
@@ -35,7 +36,7 @@ class DemandsController < ApplicationController
   def update
     @demand = Demand.find(params[:id])
     @demand.status = params[:status]
-    @demand.responder_id = current_user.id
+    @demand.responder_id = current_user.id unless @demand.requester_id == current_user.id
     @demand.update(demand_params)
     @demands = Demand.where.not(requester_id: current_user)
 
