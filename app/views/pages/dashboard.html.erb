@@ -1,8 +1,10 @@
 <div class="container" data-controller="demands-index">
-  <h1>Hey! This is your Dashboard</h1>
+  <h1><%= current_user.first_name%>'s Dashboard</h1>
 
-  <h2>Here are your objects and their status</h2>
-  <%= link_to "Add Object", new_material_path %>
+  <h2>Your contribution to the Warehouse</h2>
+  <div class="add_material">
+    <%= link_to "Add Material", new_material_path, class: "add_material_button" %>
+  </div>
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
@@ -18,8 +20,6 @@
               <h2><%= link_to material.title, material_path(material) %></h2>
               <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
             </div>
-            <%= link_to('Edit', edit_material_path(material), class: "button_book") %>
-            <%= link_to('Delete', material_path(material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book") %>
             <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
           </div>
         </div>
@@ -27,7 +27,7 @@
     <% end %>
   </div>
 
-  <h2>Here are your requested demands</h2>
+  <h2>Your pending demands...</h2>
   <div data-demands-dashboard-target="list">
     <% @demands.each do |demand| %>
       <div class="card-demand" data-id="<%= demand.id %>">>
@@ -41,7 +41,8 @@
       </div>
     <% end %>
   </div>
-  <h2>Here are your accepted demands</h2>
+  
+  <h2>Don't forget your commitment</h2>
   <% @acceptances.each do |acceptance| %>
     <div class="card-demand">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
