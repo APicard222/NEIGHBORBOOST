@@ -13,11 +13,11 @@
         <div class="card-trip-index">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
           <div class="card-trip-index-infos">
-            <div>
+            <div class="card-trip-title-username">
               <h2><%= link_to material.title, material_path(material) %></h2>
-              <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
+              <p class="card-trip-index-pricing"><%= material.user.user_name%></p>
             </div>
-            <%= link_to('Book', '#', class: "button_book") %>
+            <%= link_to('Book', material_path(material), class: "button_book") %>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-index-user avatar-bordered" />
           </div>
         </div>
