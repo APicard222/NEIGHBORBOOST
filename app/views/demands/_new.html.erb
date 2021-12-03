@@ -3,6 +3,7 @@
   <%= f.input :title, input_html: { class: 'input' } %>
   <%= f.input :description, :input_html => { :class => 'input' } %>
   <%= f.input :category %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :start_date, as: :date, html5: true %>
   <%= f.input :end_date, as: :date, html5: true %>
   <%= f.button :submit %>
