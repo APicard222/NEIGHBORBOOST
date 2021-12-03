@@ -1,9 +1,10 @@
-<h1>Add a Demand</h1>
+<h2 style="color:white;">Add a Demand</h2>
 <%= simple_form_for @demand, html: { data: { demands_index_target: 'form' }} do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :title, input_html: { class: 'input' } %>
+  <%= f.input :description, :input_html => { :class => 'input' } %>
   <%= f.input :category %>
   <%= f.input :start_date, as: :date, html5: true %>
   <%= f.input :end_date, as: :date, html5: true %>
   <%= f.button :submit %>
 <% end %>
+

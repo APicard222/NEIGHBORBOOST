@@ -9,6 +9,7 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 100;
+    
 
     .add-demand-form {
       display: flex;
@@ -17,12 +18,15 @@
       align-self: center;
       width: 50%;
       //height: 60%;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px 60px;
+      background:url(city-view-filter.jpg) no-repeat center;
       border-radius: 10px;
+   
 
-      h1 {
+      h2 {
         color: gray;
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
     }
 
@@ -31,10 +35,14 @@
     font-size: 30px;
     top: 10px;
     right: 10px;
-    color: red;
+    color: rgb(255, 255, 255);
   }
 
   .close-add-demand-form:hover {
-    color: rgb(232, 108, 108);
+    color: rgb(185, 184, 184);
   }
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
