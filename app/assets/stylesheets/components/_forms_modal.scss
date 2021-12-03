@@ -15,20 +15,22 @@
 	border:none;
 	border-radius:25px;
 	background:rgba(255,255,255,.1);
-    width:100%;
-	color:#fff;
+  width:100%;
+	color:rgb(255, 255, 255);
 	display:block;
 }
 
-.simple_form .btn 
-{
-    width:100%;
-	background:#1161ee;
-    border:none;
-	padding:15px 20px;
-	border-radius:25px;
-    color: white;
-    top:20px;
-    
+.simple_form .textcontent {
+  color: black !important;
 }
 
+.simple_form .btn
+{
+  width:100%;
+	background:#1161ee;
+  border:none;
+	padding:15px 20px;
+	border-radius:25px;
+  color: white;
+  top:20px;
+}
