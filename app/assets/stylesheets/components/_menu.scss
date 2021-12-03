@@ -14,6 +14,7 @@ html {
   display: flex;
   flex-direction: column;
   flex: 1;
+  z-index: 1;
 }
 
 .menu__item {
@@ -41,7 +42,6 @@ html {
   background-color: #FFBE00;
   text-decoration: none;
   color: black;
-
 }
 
 .menu__item > i {
@@ -97,4 +97,16 @@ html {
   flex-grow: 1;
   align-items: flex-end;
   margin-bottom: 20px;
+}
+
+.menu_login {
+  color: #00A6B4;
+  background-color: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.menu_login:hover {
+  text-decoration: none;
+  color: #666666;
 }

@@ -1,6 +1,6 @@
 <% demands.each do |demand| %>
   <div class="card-demand" data-demands-index-target="info" data-id="<%= demand.id %>">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <%= cl_image_tag demand.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-demand-infos">
       <h2><%= demand.title %></h2>
       <p><%= demand.description %></p>

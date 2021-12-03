@@ -1,7 +1,6 @@
 require 'date'
 require "open-uri"
-date_start = Date.new()
-date_end = date_start + 1
+date = Date.today
 
 puts "Erasing the DB..."
 Demand.destroy_all
@@ -33,6 +32,7 @@ user2.photo.attach(
   content_type: 'image/png'
 )
 user2.save!
+puts "No worries, already 2 users created..."
 user3 = User.new(user_name: 'Ed', first_name: 'Eddie', last_name: 'Smith', email: 'b.n@gmail.com', password: '123456')
 user3.building = building1
 user3.photo.attach(
@@ -41,6 +41,14 @@ user3.photo.attach(
   content_type: 'image/png'
 )
 user3.save!
+user4 = User.new(user_name: 'P_Duchampt', first_name: 'Paloma', last_name: 'Duchampt', email: 'p.d@gmail.com', password: '123456')
+user4.building = building1
+user4.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638525216/user_4_za2bua.jpg'),
+  filename: "u4.png",
+  content_type: 'image/png'
+)
+user4.save!
 puts "Users created!"
 
 puts "Creating Materials..."
@@ -111,26 +119,65 @@ material7.photo.attach(
   content_type: 'image/png'
 )
 material7.save!
+puts "Warehouse is filling up nicely :))"
+material8 = Material.new(title: "Raquettes à neige", description: "Hello les voisins. J'aimerais mettre à disposition de l'entrepôt mes superbes raquettes à neige afin que vous puissiez profiter pleinement des belles journées hivernales qui nous attendent. Elle sont compatibles pour les pointures allant du 36 au 43. N'hésitez pas! Evadez vous !", available: true)
+material8.user = user4
+material8.building = building1
+material8.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638526039/raquettes_ghk3oz.jpg'),
+  filename: "m8.png",
+  content_type: 'image/png'
+)
+material8.save!
+material9 = Material.new(title: "Filet de Volley extérieur", description: "Avant que je n'oublie. J'aimerais aussi vous faire profiter de ce filet de Volley extérieur. Il est très léger et simple à l'utilisation. Le ballon n'est cependant pas fourni. Idéal pour les journées d'été. On peut l'insatller n'importe ou et les parties sont très amusantes.", available: true)
+material9.user = user4
+material9.building = building1
+material9.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638526040/filet_de_volley_jgsxlp.jpg'),
+  filename: "m9.png",
+  content_type: 'image/png'
+)
+material9.save!
 puts "Materials created!"
 
 puts "Creating demands ..."
-demand1 = Demand.new(title: 'Baby-sitting', description: 'Needed baby-sitter for friday evening', end_date: date_end, start_date: date_start, status: "confirmed")
-demand1.responder_id = user1.id
-demand1.requester_id = user2.id
+demand1 = Demand.new(title: 'Baby-sitting de Noé Samedi soir', description: 'Nous avons une soirée au Bristol samedi soir, et aimerions déléguer la garde de notre enfant (5ans). Nourriture + indémnisation prévue', end_date: date + 1, start_date: date + 1, status: "confirmed")
+demand1.responder_id = user2.id
+demand1.requester_id = user1.id
 demand1.building = building1
+demand1.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638527419/babysitting_ujau1x.jpg'),
+  filename: "d1.png",
+  content_type: 'image/png'
+)
 demand1.save!
-demand2 = Demand.new(title: 'Promener Boushka', description: 'Trop occupé vendredi soir', end_date: date_end, start_date: date_start, status: 'posted')
-demand2.requester_id = user1.id
+demand2 = Demand.new(title: "S'occuper de Boushka vendredi soir ", description: "Ayant prévue de sortir ce vendredi soir, je cherche un voisin pour garder mon chien pendant cette nuit là. Cookies à la clé 🍪", end_date: date, start_date: date, status: 'posted')
+demand2.requester_id = user4.id
 demand2.building = building1
+demand2.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638527419/promenade_chien_mdvlku.png'),
+  filename: "d2.png",
+  content_type: 'image/png'
+)
 demand2.save!
-demand3 = Demand.new(title: 'Cours de Maths pour ma fille (13 ans)', description: 'Ma fille est vraiment nulle en math, je désespère.', end_date: date_end, start_date: date_start, status: 'confirmed')
-demand3.requester_id = user1.id
+demand3 = Demand.new(title: 'Cours de Maths pour ma fille (13 ans)', description: "Ma fille est vraiment nulle en math, comme ses parentes d'ailleurs... L'idée serait de trouver un répétiteur tous les vendredis soirs", end_date: date + 2, start_date: date + 2, status: 'confirmed')
+demand3.requester_id = user2.id
 demand3.responder_id = user3.id
 demand3.building = building1
+demand3.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638527419/coursmath_srzroq.jpg'),
+  filename: "d3.png",
+  content_type: 'image/png'
+)
 demand3.save!
-demand4 = Demand.new(title: 'Je fissure. Qui veut cuisiner pour moi cette semaine?', description: 'Je vous indémnise 9CHF par repas du soir', end_date: date_end, start_date: date_start, status: 'posted')
-demand4.requester_id = user2.id
+demand4 = Demand.new(title: 'Qui veut cuisiner pour moi cette semaine?', description: "Je fissure... Je n'ai plus la motivation de cuisiner et je manges des Pizza sodebo tous les soirs. Si une âme charitable voudrait bien m'aider, je propose d'indémniser 9CHF par repas du soir.", end_date: date + 7, start_date: date + 2, status: 'posted')
+demand4.requester_id = user3.id
 demand4.building = building1
+demand4.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638527419/cuisine_ygsuh0.jpg'),
+  filename: "d4.png",
+  content_type: 'image/png'
+)
 demand4.save!
 puts "Demand created!"
 
