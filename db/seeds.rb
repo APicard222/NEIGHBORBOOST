@@ -162,7 +162,6 @@ demand2.photo.attach(
 demand2.save!
 demand3 = Demand.new(title: 'Cours de Maths pour ma fille (13 ans)', description: "Ma fille est vraiment nulle en math, comme ses parentes d'ailleurs... L'idée serait de trouver un répétiteur tous les vendredis soirs", end_date: date + 2, start_date: date + 2, status: 'posted')
 demand3.requester_id = user2.id
-demand3.responder_id = user3.id
 demand3.building = building1
 demand3.photo.attach(
   io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638527419/coursmath_srzroq.jpg'),
