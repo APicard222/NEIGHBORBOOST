@@ -1,0 +1,34 @@
+.simple_form label{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+
+.simple_form .btn{
+	text-transform:uppercase;
+}
+
+.form-form .group .input,
+.simple_form .form-control.string,
+.simple_form .form-control.text,
+.simple_form .form-control.date {
+	border:none;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+    width:100%;
+	color:#fff;
+	display:block;
+}
+
+.simple_form .btn 
+{
+    width:100%;
+	background:#1161ee;
+    border:none;
+	padding:15px 20px;
+	border-radius:25px;
+    color: white;
+    top:20px;
+    
+}
+
