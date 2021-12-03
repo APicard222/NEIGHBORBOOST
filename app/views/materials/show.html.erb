@@ -29,7 +29,7 @@
     </div>
     <div class="card-show-calendar">
       <div class="card-show-calendar-overview" style="object-fit:contain">
-        <%= month_calendar do |date| %>
+        <%= month_calendar(events: @meetings) do |date, meetings| %>
           <%= date.strftime("%d") %>
         <% end %>
       </div>
