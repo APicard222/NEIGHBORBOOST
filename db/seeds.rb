@@ -54,7 +54,7 @@ puts "Users created!"
 puts "Creating Materials..."
 puts "Downloading images..."
 puts "Image downloaded !"
-material1 = Material.new(title: 'SUP de qualité', description: "J'ai reçu ce superbe Stand up Paddle pour mon anniversaire mais je m'en sers que très peu car trop lourd pour moi... Si vous voulez l'utiliser, laissez moi un petit message. Il est en parfait état.", available: true)
+material1 = Material.new(title: 'SUP de qualité', description: "J'ai reçu ce superbe Stand up Paddle pour mon anniversaire mais je m'en sers que très peu car trop lourd pour moi... Si vous voulez l'utiliser, laissez moi un petit message. Il est en parfait état.", available: true, start_time: date + 1, end_time: date + 6)
 material1.user = user1
 material1.building = building1
 material1.photo.attach(
@@ -64,7 +64,7 @@ material1.photo.attach(
 )
 puts "Passed ?"
 material1.save!
-material2 = Material.new(title: 'Boîte à Outil', description: "Salut les voisins! Je vous mets à disposition de l'entrepôt ma superbe boîte à outil qui n'arrête pas de me sauver la vie dans cet immeuble... Ce n'est pas le sujet. N'hésitez pas à la réserver c'est avec plaisir que je vous la prête contre une petite Bière 🍺 ", available: false)
+material2 = Material.new(title: 'Boîte à Outil', description: "Salut les voisins! Je vous mets à disposition de l'entrepôt ma superbe boîte à outil qui n'arrête pas de me sauver la vie dans cet immeuble... Ce n'est pas le sujet. N'hésitez pas à la réserver c'est avec plaisir que je vous la prête contre une petite Bière 🍺 ", start_time: date + 5, end_time: date + 7, available: true)
 material2.user = user1
 material2.building = building1
 material2.photo.attach(
@@ -73,7 +73,7 @@ material2.photo.attach(
   content_type: 'image/png'
 )
 material2.save!
-material3 = Material.new(title: 'Appareil à Raclette', description: "Je mets à disposition mon appareil à raclette XXL pouvant acceuilir 8 convives simultanéments. C'est avec plaisir que je vous mets cet objet à disposition. La planête nous en sera que reconaissante.   ", available: true)
+material3 = Material.new(title: 'Appareil à Raclette', description: "Je mets à disposition mon appareil à raclette XXL pouvant acceuilir 8 convives simultanéments. C'est avec plaisir que je vous mets cet objet à disposition. La planête nous en sera que reconaissante.   ", start_time: date + 12, end_time: date + 12, available: true)
 material3.user = user2
 material3.building = building1
 material3.photo.attach(
@@ -83,7 +83,7 @@ material3.photo.attach(
 )
 puts "A mon avis ça beuge... Après je dis ça je dis rien"
 material3.save!
-material4 = Material.new(title: 'Tandem bi-place', description: "Bonjour l'entrepôt. Je possède ce superbe tandem bi-place dont je me sers presque plus. Objet incluant une assistance éléctrique de plus de 70km, au combien suffisant pour se rendre compte qu'on est très proche de son compagnon... Amitiés, Franziska", available: false)
+material4 = Material.new(title: 'Tandem bi-place', description: "Bonjour l'entrepôt. Je possède ce superbe tandem bi-place dont je me sers presque plus. Objet incluant une assistance éléctrique de plus de 70km, au combien suffisant pour se rendre compte qu'on est très proche de son compagnon... Amitiés, Franziska", available: true)
 material4.user = user2
 material4.building = building1
 material4.photo.attach(
@@ -101,7 +101,7 @@ material5.photo.attach(
   content_type: 'image/png'
 )
 material5.save!
-material6 = Material.new(title: 'Echelle', description: "Bonjour à tous ! Ici Gérard, le voisin du 5ième. Je n'ai pas tout à fait compris le fonctionnement de ce nouveau outil... A vrai dire je préferais le papier. Mais voila, si quelqun à besoin d'une échelle, j'ai ce qu'il vous faut.", available: true)
+material6 = Material.new(title: 'Echelle', description: "Bonjour à tous ! Ici Gérard, le voisin du 5ième. Je n'ai pas tout à fait compris le fonctionnement de ce nouveau outil... A vrai dire je préferais le papier. Mais voila, si quelqun à besoin d'une échelle, j'ai ce qu'il vous faut.", start_time: date - 2, end_time: date, available: false)
 material6.user = user3
 material6.building = building1
 material6.photo.attach(
@@ -110,7 +110,7 @@ material6.photo.attach(
   content_type: 'image/png'
 )
 material6.save!
-material7 = Material.new(title: "Luge d'hiver en Bois", description: "Une Formule 1 de la neige. M'étant brisé une vertèbre en tombant de l'échelle de Gérard, je ne vais pas pouvoir utiliser mon bolide cet hiver. A votre disposition si besoin. Elle m'est cependant très chère car je possède le record des Diablerets 💨  ", available: true)
+material7 = Material.new(title: "Luge d'hiver en Bois", description: "Une Formule 1 de la neige. M'étant brisé une vertèbre en tombant de l'échelle de Gérard, je ne vais pas pouvoir utiliser mon bolide cet hiver. A votre disposition si besoin. Elle m'est cependant très chère car je possède le record des Diablerets 💨  ", start_time: date + 13, end_time: date + 14, available: true)
 material7.user = user3
 material7.building = building1
 material7.photo.attach(
@@ -160,7 +160,7 @@ demand2.photo.attach(
   content_type: 'image/png'
 )
 demand2.save!
-demand3 = Demand.new(title: 'Cours de Maths pour ma fille (13 ans)', description: "Ma fille est vraiment nulle en math, comme ses parentes d'ailleurs... L'idée serait de trouver un répétiteur tous les vendredis soirs", end_date: date + 2, start_date: date + 2, status: 'confirmed')
+demand3 = Demand.new(title: 'Cours de Maths pour ma fille (13 ans)', description: "Ma fille est vraiment nulle en math, comme ses parentes d'ailleurs... L'idée serait de trouver un répétiteur tous les vendredis soirs", end_date: date + 2, start_date: date + 2, status: 'posted')
 demand3.requester_id = user2.id
 demand3.responder_id = user3.id
 demand3.building = building1
@@ -182,22 +182,26 @@ demand4.save!
 puts "Demand created!"
 
 puts "Creating Messages..."
-message1 = Message.new(content: "Ceci est un message test")
+message1 = Message.new(content: "Vraiment top cette appli. Je me réjouis d'apprendre à vous connaître :)")
 message1.user = user1
 message1.building = building1
 message1.save!
-message2 = Message.new(content: "Ceci est un message test de l'user 2")
+message2 = Message.new(content: "En effet Jaques, j'ai rempli l'entrepôt avec les objets dont je n'avais plus besoin. N'hésitez pas à aller y jeter un coup d'oeil.")
 message2.user = user2
 message2.building = building1
 message2.save!
-message3 = Message.new(content: "La forme ou quoi ? Qui est chaud pour un petit squash?")
-message3.user = user2
+message3 = Message.new(content: "Idem, j'y ai ajouté des choses aussi. Mes pneus d'été sont toujours disponible d'ailleurs.")
+message3.user = user3
 message3.building = building1
 message3.save!
-message4 = Message.new(content: "Tu peux créer une demande pour cette question si tu veux aussi...")
+message4 = Message.new(content: "Mon c'est Jack, pas Jaques... Ton appareil à Raclette, super idée. J'ai noté 🫕")
 message4.user = user1
 message4.building = building1
 message4.save!
+message5 = Message.new(content: "Hello les voisins, vous avez de l'eau chaude encore ? ")
+message5.user = user4
+message5.building = building1
+message5.save!
 puts "Messages created!"
 
 puts "Finish ...!!!"
