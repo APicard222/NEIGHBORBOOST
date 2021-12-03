@@ -52,6 +52,6 @@ class DemandsController < ApplicationController
   private
 
   def demand_params
-    params.require(:demand).permit(:title, :description, :start_date, :end_date, :status)
+    params.require(:demand).permit(:title, :description, :start_date, :end_date, :status, :photo)
   end
 end
