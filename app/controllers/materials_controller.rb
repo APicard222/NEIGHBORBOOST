@@ -6,6 +6,8 @@ class MaterialsController < ApplicationController
 
   def show
     @material = Material.find(params[:id])
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @meetings = Material.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week, id: params[:id])
   end
 
   def new
@@ -32,7 +34,7 @@ class MaterialsController < ApplicationController
   def update
     @material = Material.find(params[:id])
     @material.update(material_params)
-    redirect_to dashboard_users_path
+    redirect_to material_path(@material)
   end
 
   def destroy
@@ -45,6 +47,6 @@ class MaterialsController < ApplicationController
   private
 
   def material_params
-    params.require(:material).permit(:title, :description)
+    params.require(:material).permit(:title, :description, :photo)
   end
 end

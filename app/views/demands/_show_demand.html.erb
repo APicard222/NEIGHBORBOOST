@@ -1,21 +1,27 @@
 <div class="show-card-demand-container" data-id="<%= demand.id %>">
   <div class="show-card-demand-header">
-    <img src= <%= image_path('tools.png') %> alt="tools">
+    <%= cl_image_tag demand.photo.key, height: 250, width: 350, crop: :fill %>
     <h1><%= demand.title %></h1>
   </div>
   <hr>
   <div class="show-card-demand-description">
-    <p><%= demand.description %></p>
-    <p>Start: <%= demand.start_date %></p>
-    <p>End: <%= demand.end_date %></p>
-    <p><small><strong>Author:</strong> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+    <% if demand.requester == current_user %>
+      <p><%= demand.responder.first_name %> <%= demand.responder.last_name %> accepte de vous aider.</p>
+    <% else %>
+      <p><%= demand.description %></p>
+      <div class="show-card-date-accept">
+        <p>Start: <%= demand.start_date %> End: <%= demand.end_date %></p>
+      </div>
+        <p><small><strong>Author:</strong> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+    <% end %>
   </div>
   <hr>
   <div class="show-card-demand-btns">
-    <% if demand.requester == current_user %>
-      <div class="btn-decline"><i class="fas fa-undo-alt"></i>Decline</div>
+    <% if demand.requester.id == current_user.id %>
+      <div class="btn-accept" data-status="confirmer" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
+      <div data-status="posted" class="btn-decline" data-action="click->demands-index#updateStatus"><i class="fas fa-undo-alt"></i>Decline</div>
     <% else %>
-      <div class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
+      <div data-status="accepted" class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
     <% end %>
   </div>
   <i class="far fa-times-circle close-show-demand" aria-hidden="true" data-action="click->demands-index#closeShowModal"></i>

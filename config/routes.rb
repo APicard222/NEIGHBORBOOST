@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :demands, only: %i[index new create delete show update]
   resources :materials
   resources :documents, only: %i[index]
@@ -12,4 +11,5 @@ Rails.application.routes.draw do
       get :dashboard, to: 'pages#dashboard'
     end
   end
+  get '/user' => "materials#index", :as => :user_root
 end

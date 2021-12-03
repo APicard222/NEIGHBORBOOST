@@ -1,55 +1,51 @@
-<div class="container">
-  <h1>Hey! This is your Dashboard</h1>
+<div class="container" data-controller="demands-index">
+  <h1><%= current_user.first_name%>'s Dashboard</h1>
 
-  <h2>Here are your objects and their status</h2>
-  <%= link_to "Add Object", new_material_path %>
+  <h2>Your contribution to the Warehouse</h2>
+  <div class="add_material">
+    <%= link_to "Add Material", new_material_path, class: "add_material_button" %>
+  </div>
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
-            <% if material.available %>
-              <span class="badge available">Available</span>
-            <% else %>
-              <span class="badge notavailable">In Use</span>
-            <% end %>
+          <% if material.available %>
+            <span class="badge available">Available</span>
+          <% else %>
+            <span class="badge notavailable">In Use</span>
+          <% end %>
         <div class="card-trip-index">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-trip-index-infos">
             <div>
               <h2><%= link_to material.title, material_path(material) %></h2>
-              <p><%= material.description%></p>
               <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
             </div>
-            <%= link_to('Edit', edit_material_path(material), class: "button_book") %>
-            <%= link_to('Delete', material_path(material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book") %>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-index-user avatar-bordered" />
+            <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 
-  <h2>Here are your requested demands</h2>
-  <% @demands.each do |demand| %>
-    <div class="card-demand">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-demand-infos">
-        <h2><%= demand.title %></h2>
-        <p><%= demand.description %></p>
-        <p><small><%= User.find(demand.requester_id).user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#addModal"></i>
-      </div>
-    </div>
-  <% end %>
-  <h2>Here are your accepted demands</h2>
+  <h2>Your pending demands...</h2>
+  <div class="card-demands" data-demands-index-target="list">
+    <%= render 'demands/list', demands: @demands %>
+   </div>
+  
+  <h2>Don't forget your commitment</h2>
   <% @acceptances.each do |acceptance| %>
     <div class="card-demand">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="card-demand-infos">
         <h2><%= acceptance.title %></h2>
         <p><%= acceptance.description %></p>
-        <p><small><%= User.find(acceptance.requester_id).user_name %> - <%= acceptance.created_at.strftime("%a, %d %B, %Y") %></small></p>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#addModal"></i>
+        <p><small><%= acceptance.requester.user_name %> - <%= acceptance.created_at.strftime("%a, %d %B, %Y") %></small></p>
+        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
       </div>
     </div>
   <% end %>
+
+  <!-- > Modal show demand  <!-->
+  <div class="show-demand-container" data-demands-index-target='show'>
+  </div>
 </div>

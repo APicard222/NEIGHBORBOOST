@@ -38,11 +38,18 @@
   top: 10px;
   right: 10px;
   color: gray;
+
+  &:hover {
+    color: green;
+    cursor: pointer;
+  }
 }
 
-.card-more-info:hover {
-  color: green;
-  cursor: pointer;
+.card-info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: gray;
 }
 
 .card-demand-not-available {
@@ -50,6 +57,18 @@
   top: 10px;
   right: 10px;
   color: red;
+}
+
+.card-demand-accepted {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: orange;
+}
+
+.card-demand-accepted:hover {
+  color: rgb(244, 178, 52);
+  cursor: pointer;
 }
 
 .card-more-info-size {

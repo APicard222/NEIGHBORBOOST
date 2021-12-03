@@ -24,6 +24,7 @@ class DemandsController < ApplicationController
     @demand = Demand.new(demand_params)
     @demand.building = current_user.building
     @demand.requester_id = current_user.id
+    @demand.status = 'posted'
 
     if @demand.save
       redirect_to demands_path
@@ -35,9 +36,12 @@ class DemandsController < ApplicationController
   def update
     @demand = Demand.find(params[:id])
     @demand.status = params[:status]
-    @demand.responder_id = current_user.id
+
+    @demand.responder_id = current_user.id unless @demand.requester_id == current_user.id
+
     @demand.update(demand_params)
-    @demands = Demand.where.not(requester_id: current_user)
+
+    @demands = current_user.id == @demand.requester_id ? Demand.where(requester_id: current_user) : Demand.where.not(requester_id: current_user)
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
@@ -48,6 +52,6 @@ class DemandsController < ApplicationController
   private
 
   def demand_params
-    params.require(:demand).permit(:title, :description, :category, :start_date, :end_date, :status)
+    params.require(:demand).permit(:title, :description, :start_date, :end_date, :status, :photo)
   end
 end

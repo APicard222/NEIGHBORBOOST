@@ -23,7 +23,7 @@
   border-top: 0.5px solid grey;
   height: 18%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   text-align: center;
   align-items: center;
   margin-bottom: 0%;
@@ -45,6 +45,23 @@
   border-style: solid;
   border-color: rgb(85, 85, 85);
   border-radius: 4px;
+}
+
+.button_book_delete {
+  color: rgb(160, 160, 160);
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgb(202, 202, 202);
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.button_book_delete:hover {
+  text-decoration: none;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.664);
 }
 
 .simple-calendar {
@@ -95,8 +112,10 @@
 }
 
 .show-material-owner {
+  display: flex;
   align-items: center;
   margin-top: auto;
+  margin-bottom: 15px;
 }
 
 .show-material-available {
@@ -113,4 +132,5 @@
 
 .show-material-description {
   align-items: center;
+  flex-grow: 1;
 }

@@ -2,7 +2,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 220px 0;
+  padding: 260px 0;
 }
 
 .banner h1 {
@@ -26,18 +26,21 @@
   padding: 8px 24px;
   border-radius: 4px;
   background: #1EDD88;
- transition: background 0.3s ease;
+  text-align: center;
+  margin: 0;
+  width: 200px;
 }
 
 .btn-flat:hover {
   background: #1BCB7F;
   color: white;
+  text-decoration: none;
 }
 
 .about h2 {
   font-family: "Nunito", "Helvetica", "sans-serif";
   font-size: 40px;
-  color: 	#C53B5A;
+  color: 	#A9B63D;
   opacity: .7;
   padding-top: 20px;
   padding-bottom: 20px;

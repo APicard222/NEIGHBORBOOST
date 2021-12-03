@@ -1,14 +1,27 @@
 <% demands.each do |demand| %>
   <div class="card-demand" data-demands-index-target="info" data-id="<%= demand.id %>">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <%= cl_image_tag demand.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-demand-infos">
       <h2><%= demand.title %></h2>
       <p><%= demand.description %></p>
       <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-      <% if demand.status == 't' %>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+      <% if demand.status == 'posted' %>
+        <% # do if user responder %>
+        <% if current_user == demand.requester %>
+          <i class="fa fa-info-circle card-info card-more-info-size" aria-hidden="true" ></i>
+        <% else %>
+          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+        <% end %>
       <% else %>
-        <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+        <% if current_user.id == demand.requester.id %>
+          <% if demand.status == 'accepted'%>
+            <i class="fa fa-info-circle card-demand-accepted card-more-info-size" data-action="click->demands-index#openShowModal" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+          <% end %>
+        <% else %>
+          <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+        <% end %>
       <% end %>
     </div>
   </div>

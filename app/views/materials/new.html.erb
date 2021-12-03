@@ -1,17 +1,17 @@
 <div class="form-wrap">
   <div class="form-html">
     <div class="form-form">
-      <h2 style="color:white;">What object do you want to share with your Neighboors</h2>
+      <h2 style="color:white;">Let's share some cool objects with your Neighboors</h2>
         <div class="group">
           <div class="label">
             <%= simple_form_for @material  do |f| %>
               <%= f.input :title %>
               <%= f.input :description %>
               <%= f.input :photo, as: :file %>
-              <%= f.submit "CREATE MATERIAL", class:"button" %>
+              <%= f.submit "ADD MATERIAL", class:"input" %>
             <% end %>
           </div>
         </div>
     </div>
   </div>
-</div>  
+</div>
