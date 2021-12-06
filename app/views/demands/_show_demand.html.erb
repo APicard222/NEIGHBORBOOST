@@ -1,6 +1,6 @@
 <div class="show-card-demand-container" data-id="<%= demand.id %>">
   <div class="show-card-demand-header">
-    <img src= <%= image_path('tools.png') %> alt="tools">
+    <%= cl_image_tag demand.photo.key, height: 250, width: 350, crop: :fill %>
     <h1><%= demand.title %></h1>
   </div>
   <hr>
@@ -9,9 +9,10 @@
       <p><%= demand.responder.first_name %> <%= demand.responder.last_name %> accepte de vous aider.</p>
     <% else %>
       <p><%= demand.description %></p>
-      <p>Start: <%= demand.start_date %></p>
-      <p>End: <%= demand.end_date %></p>
-      <p><small><strong>Author:</strong> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+      <div class="show-card-date-accept">
+        <p>Start: <%= demand.start_date %> End: <%= demand.end_date %></p>
+      </div>
+        <p><small><strong>Author:</strong> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
     <% end %>
   </div>
   <hr>

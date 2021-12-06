@@ -1,5 +1,5 @@
 <div class="messages-container">
-  <h1>#<%= @building.id %></h1>
+  <h1><%= @building.name  %>'s Chat</h1>
 
  <div class="messages" id="messages" data-building-id="<%= @building.id %>">
     <% @building.messages.each do |message| %>
@@ -30,10 +30,8 @@
 
 
   <%= simple_form_for @message  do |f| %>
-    <%= f.input :content, label: false, placeholder: "Message #", class: "textcontent" %>
-
-
-  <%= f.button :submit do %>
+    <%= f.input :content, input_html: { class: 'textcontent' },label: false, placeholder: "Message #" %>
+    <%= f.button :submit do %>
     <i class="far fa-save"></i>
   <% end %>
 <% end %>

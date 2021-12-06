@@ -1,10 +1,14 @@
 <% demands.each do |demand| %>
   <div class="card-demand" data-demands-index-target="info" data-id="<%= demand.id %>">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <%= cl_image_tag demand.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-demand-infos">
       <h2><%= demand.title %></h2>
       <p><%= demand.description %></p>
-      <p><small><%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+      <% if demand.requester_id == current_user.id %>
+        <p><small>You posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+      <% else %>
+        <p><small><%= demand.requester.user_name %> posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+      <% end %>
       <% if demand.status == 'posted' %>
         <% # do if user responder %>
         <% if current_user == demand.requester %>

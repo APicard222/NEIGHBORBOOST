@@ -1,8 +1,3 @@
-
-
-
-
-
 <nav class="menu">
   <%= link_to(root_path, class: "menu__item_first") do %>
     <%= image_tag "logo_NBB.svg", class: "logo" %>
@@ -24,7 +19,7 @@
       <%= link_to(materials_path, class: "menu__item", data: {tooltip: "Objects"}) do %>
         <i class="material-icons">construction</i>
       <% end %>
-    <a href="./" class="menu__item" data-tooltip="Documents">
+    <a href="#" class="menu__item" data-tooltip="Documents">
       <i class="material-icons">forward_to_inbox</i>
     </a>
   <% end %>
@@ -35,7 +30,7 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
     <% else %>
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <%= link_to "Login", new_user_session_path, class: "menu_login" %>
     <% end %>
 </div>
 

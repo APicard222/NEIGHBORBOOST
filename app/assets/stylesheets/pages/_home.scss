@@ -28,12 +28,15 @@
   padding: 8px 24px;
   border-radius: 4px;
   background: #1EDD88;
- transition: background 0.3s ease;
+  text-align: center;
+  margin: 0;
+  width: 200px;
 }
 
 .btn-flat:hover {
   background: #1BCB7F;
   color: white;
+  text-decoration: none;
 }
 
 .about h2 {
