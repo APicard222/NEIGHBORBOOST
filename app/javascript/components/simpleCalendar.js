@@ -1,3 +1,5 @@
+import Toastify from 'toastify-js'
+
 const getStartDay = (evt, start) => {
   if (start == 0) {
     evt.target.classList.add('start-booking')
@@ -23,8 +25,56 @@ const renderBooking = (days) => {
   })
 }
 
+const btnBooking = (start_day, end_day, month, year) => {
+  const btn = document.querySelector('#booking')
+  const id = document.querySelector('.card-trip-show').dataset.id
+  const url = `/materials/${id}/bookings`
+
+  function getMetaValue(name) {
+    const element = document.head.querySelector(`meta[name="${name}"]`)
+
+    return element.getAttribute("content")
+  }
+
+  btn.addEventListener('click', () => {
+    console.log(url);
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'text/plain',
+        'Content-type': 'application/json',
+        "X-CSRF-Token": getMetaValue("csrf-token")
+      },
+      body: JSON.stringify({
+        start_time: `${year}-${month}-${start_day}`,
+        end_time: `${year}-${month}-${end_day}`
+      })
+    })
+      .then(response => response.text())
+      .then((data) => {
+        Toastify({
+          text: "Reservation créée avec succès!",
+          duration: 3000,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "left", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+        }).showToast();
+        setTimeout(() => {
+
+        }, 4000);
+        window.location.href = "/users/dashboard";
+      })
+    })
+}
+
 const simpleCalendar = () => {
   const calendar = document.querySelector('.simple-calendar')
+  const calendarMonth = document.querySelector('.calendar-title')
   let tableRows = []
   let start = 0
   let end = 0
@@ -42,8 +92,20 @@ const simpleCalendar = () => {
     days.forEach(day => {
       day.addEventListener('click', evt => {
 
-        if (Array.from(evt.target.classList).find(name => name == 'past')) {
-          alert('Vous avez choisi un jour qui est déjà passé')
+        if (Array.from(evt.target.classList).find(name => (name == 'past') || (name == 'has-events'))) {
+          Toastify({
+            text: "Vous ne pouvez pas choisir ce jour!",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+          }).showToast();
+
           return
         }
 
@@ -62,8 +124,11 @@ const simpleCalendar = () => {
           let endIdx = days.findIndex(day => Array.from(day.classList).find(className => className == 'end-booking'))
 
           for (let idx = startIdx; idx <= endIdx; idx++ ) {
-            days[idx].classList.add('start-booking')
+            days[ idx ].classList.add('start-booking')
           }
+
+          // add event to btn booking
+          btnBooking(start, end, calendarMonth.innerText.split(' ')[0], calendarMonth.innerText.split(' ')[1])
         }
 
         // set start day

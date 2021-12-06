@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_104212) do
+ActiveRecord::Schema.define(version: 2021_12_06_104019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,9 @@ ActiveRecord::Schema.define(version: 2021_12_03_104212) do
     t.bigint "booker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "material_id"
     t.index ["booker_id"], name: "index_bookings_on_booker_id"
+    t.index ["material_id"], name: "index_bookings_on_material_id"
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -125,6 +127,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_104212) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "materials"
   add_foreign_key "bookings", "users", column: "booker_id"
   add_foreign_key "demands", "buildings"
   add_foreign_key "demands", "users", column: "requester_id"
