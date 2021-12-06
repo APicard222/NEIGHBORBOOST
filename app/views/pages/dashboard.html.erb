@@ -16,7 +16,7 @@
         <div class="card-trip-index">
           <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-trip-index-infos">
-            <div>
+            <div class="card-trip-title-username">
               <h2><%= link_to material.title, material_path(material) %></h2>
               <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
             </div>
@@ -39,7 +39,7 @@
       <div class="card-demand-infos">
         <h2><%= acceptance.title %></h2>
         <p><%= acceptance.description %></p>
-        <p><small><%= acceptance.requester.user_name %> - <%= acceptance.created_at.strftime("%a, %d %B, %Y") %></small></p>
+        <p><small><%= acceptance.requester.user_name %> - <%= acceptance.start_date.strftime("%a, %d %B, %Y") %></small></p>
         <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
       </div>
     </div>
