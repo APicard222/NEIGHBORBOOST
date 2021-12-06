@@ -1,0 +1,12 @@
+<h2 style="color:white;">Let's share some cool objects with your Neighboors</h2>
+<div class="group">
+  <div class="label">
+    <%= simple_form_for @material  do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description, as: :text %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
+

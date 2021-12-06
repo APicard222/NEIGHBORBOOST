@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "add", "form", "show", "info", "list"]
+  static targets = [ "add", "form", "show", "info", "list", "edit"]
 
   connect() {
   }
@@ -14,6 +14,16 @@ export default class extends Controller {
     this.addTarget.style.display = 'none'
   }
 
+  // edit 
+
+  openEditModal() {
+    this.editTarget.style.display = 'flex'
+  }
+
+  closeEditModal() {
+    this.editTarget.style.display = 'none'
+  }
+//
   openShowModal(evt) {
     const url = `/demands/${evt.target.closest(".card-demand").dataset.id}`
 
