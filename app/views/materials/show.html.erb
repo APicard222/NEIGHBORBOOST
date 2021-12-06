@@ -1,4 +1,4 @@
-<div class="show-container">
+<div class="show-container" data-controller="demands-index">
   <h1>Welcome to the material show</h1>
 
   <div class="card-trip-show">
@@ -48,4 +48,13 @@
     <% else %>
       <%= link_to "Back", materials_path, class: "button_book" %>
     <% end %>
+
+
+  <!-- > Modal add demand  <!-->
+  <div class='new-demand-container' data-demands-index-target='edit'>
+    <div class='add-demand-form'>
+      <%= render 'materials/edit' %>
+      <i class="fas fa-times close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeEditModal"></i>
+    </div>
+  </div>
 </div>

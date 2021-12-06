@@ -3,7 +3,7 @@
 
   <h2>Your contribution to the Warehouse</h2>
   <div class="add_material">
-    <%= link_to "Add Material", new_material_path, class: "add_material_button" %>
+  <div class='card-demand-add-btn' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
   </div>
   <div class="card-list">
     <% @materials.each do |material| %>
@@ -44,6 +44,14 @@
       </div>
     </div>
   <% end %>
+
+<!-- > Modal add demand  <!-->
+  <div class='new-demand-container' data-demands-index-target='add'>
+    <div class='add-demand-form'>
+      <%= render 'materials/edit' %>
+      <i class="fas fa-times close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeAddModal"></i>
+    </div>
+  </div>
 
   <!-- > Modal show demand  <!-->
   <div class="show-demand-container" data-demands-index-target='show'>

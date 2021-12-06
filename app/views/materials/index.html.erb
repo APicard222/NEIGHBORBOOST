@@ -1,4 +1,4 @@
-<div class="exterior-container-materials">
+<div class="exterior-container-materials" data-controller="demands-index">
   <h1>Your Building's Warehouse</h1>
 
   <div class="add_material">
@@ -26,4 +26,16 @@
       </div>
     <% end %>
   </div>
+</div>
+
+  <!-- > Modal add demand  <!-->
+<div class='new-demand-container' data-demands-index-target='add'>
+  <div class='add-demand-form'>
+    <%= render 'materials/new' %>
+    <i class="fas fa-times close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeAddModal"></i>
+  </div>
+</div>
+
+<!-- > Modal show demand  <!-->
+<div class="show-demand-container" data-demands-index-target='show'>
 </div>
