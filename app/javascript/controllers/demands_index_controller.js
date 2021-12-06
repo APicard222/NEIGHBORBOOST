@@ -67,6 +67,5 @@ export default class extends Controller {
         this.listTarget.innerHTML = data
         this.closeShowModal()
       })
-
   }
 }

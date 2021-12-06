@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :documents
   has_many :demands
   has_many :materials
+  has_many :bookings
   has_one_attached :photo
 
   validates :user_name, presence: true, uniqueness: true
