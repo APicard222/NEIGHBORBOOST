@@ -12,10 +12,13 @@ class PagesController < ApplicationController
   end
 
   def my_materials
-
+    @materials = Material.where(user_id: current_user)
+    @material = Material.new
   end
 
   def my_demands
-    
+    @demands = Demand.where(requester_id: current_user)
+    @demand = Demand.new
+    @acceptances = Demand.where(responder_id: current_user)
   end
 end

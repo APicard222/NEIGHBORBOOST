@@ -6,7 +6,7 @@
       <%= link_to "Entrepôt", materials_path, class: "add_material_button" %>
       <%= link_to "Mes Objets", materials_users_path, class: "add_material_button_selected" %>
     </div>
-    <%= link_to "Ajouter Objet", new_material_path, class: "add_material_button" %>
+    <div class='add_material_button' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
   </div>
   <div class="card-list">
     <% @materials.each do |material| %>
@@ -28,5 +28,13 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+    <!-- > Modal add demand  <!-->
+  <div class='new-demand-container' data-demands-index-target='add'>
+    <div class='add-demand-form'>
+      <%= render 'materials/new' %>
+      <i class="fas fa-times close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeAddModal"></i>
+    </div>
   </div>
 </div>
