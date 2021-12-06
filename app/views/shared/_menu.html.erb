@@ -3,8 +3,6 @@
 
 
 
-
-
 <nav class="menu">
   <%= link_to(root_path, class: "menu__item_first") do %>
     <%= image_tag "logo_NBB.svg", class: "logo" %>
@@ -13,6 +11,7 @@
   <% if current_user.present? %>
     <%= link_to(dashboard_users_path, class: "menu__item", data: {tooltip: "Dashboard"}) do %>
       <i class="material-icons">dashboard</i>
+
     <% end %>
 
       <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages"}) do %>
