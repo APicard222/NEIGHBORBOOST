@@ -44,12 +44,6 @@
       </div>
     </div>
   </div>
-    <% if current_user == @material.user %>
-      <%= link_to "Back", dashboard_users_path, class: "button_book" %>
-    <% else %>
-      <%= link_to "Back", materials_path, class: "button_book" %>
-    <% end %>
-
 
   <!-- > Modal add demand  <!-->
   <div class='new-demand-container' data-demands-index-target='edit'>

@@ -21,7 +21,7 @@ class MaterialsController < ApplicationController
     @material.building = current_user.building
 
     if @material.save!
-      redirect_to dashboard_users_path
+      redirect_to materials_users_path
     else
       render :new
     end

@@ -10,4 +10,12 @@ class PagesController < ApplicationController
     @acceptances = Demand.where(responder_id: current_user)
     @material = Material.new
   end
+
+  def my_materials
+
+  end
+
+  def my_demands
+    
+  end
 end
