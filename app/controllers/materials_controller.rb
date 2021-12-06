@@ -2,6 +2,7 @@ class MaterialsController < ApplicationController
 
   def index
     @materials = Material.where.not(user: current_user)
+    @material = Material.new
   end
 
   def show
@@ -20,7 +21,7 @@ class MaterialsController < ApplicationController
     @material.available = true
     @material.building = current_user.building
 
-    if @material.save!
+    if @material.save
       redirect_to materials_users_path
     else
       render :new
