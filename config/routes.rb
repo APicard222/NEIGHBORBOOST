@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :dashboard, to: 'pages#dashboard'
+      get :materials, to: 'pages#my_materials'
+      get :demands, to: 'pages#my_demands'
     end
   end
   get '/user' => "materials#index", :as => :user_root

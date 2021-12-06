@@ -22,7 +22,7 @@ class DemandsController < ApplicationController
     @demand.status = 'posted'
 
     if @demand.save
-      redirect_to demands_path
+      redirect_back fallback_location: root_path
     else
       render :new
     end

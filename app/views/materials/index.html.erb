@@ -2,8 +2,12 @@
   <h1>Your Building's Warehouse</h1>
 
   <div class="add_material">
-    <%= link_to "Add Material", new_material_path, class: "add_material_button" %>
+    <div>
+      <%= link_to "Entrepôt", materials_path, class: "add_material_button_selected" %>
+      <%= link_to "Mes Objets", materials_users_path, class: "add_material_button" %>
+    </div>
   </div>
+
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
