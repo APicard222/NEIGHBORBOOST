@@ -4,6 +4,7 @@
     <h1><%= demand.title %></h1>
   </div>
   <hr>
+  <div class="line"></div>
   <div class="show-card-demand-description">
     <% if demand.requester == current_user %>
       <p><%= demand.responder.first_name %> <%= demand.responder.last_name %> accepte de vous aider.</p>

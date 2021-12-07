@@ -28,12 +28,15 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initBuildingCable } from '../channels/building_channel';
-import { showNavbar } from '../components/navBar';
+import { showNavbar, menuItem } from '../components/navBar';
+import { showFooter} from '../components/messages';
 import { simpleCalendar } from '../components/simpleCalendar'
 
 document.addEventListener('turbolinks:load', () => {
   initBuildingCable();
   showNavbar();
+  showFooter();
+  menuItem();
   simpleCalendar();
 });
 

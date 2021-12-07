@@ -2,15 +2,23 @@
   position: absolute;
   right: 7px;
   top: 7px;
-  width: 80px;
-  color: white;
   border-radius: 2px;
 }
 
 .available {
   background-color:  green;
+  color: white;
+  width: 80px;
 }
 
 .notavailable {
   background-color:  red;
+  color: white;
+  width: 80px;
+}
+
+.booking {
+  background-color: white;
+  color: black;
+  width: 110px;
 }

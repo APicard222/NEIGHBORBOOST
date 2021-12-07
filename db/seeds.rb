@@ -54,7 +54,7 @@ puts "Users created!"
 puts "Creating Materials..."
 puts "Downloading images..."
 puts "Image downloaded !"
-material1 = Material.new(title: 'SUP de qualité', description: "J'ai reçu ce superbe Stand up Paddle pour mon anniversaire mais je m'en sers que très peu car trop lourd pour moi... Si vous voulez l'utiliser, laissez moi un petit message. Il est en parfait état.", available: true, start_time: date + 1, end_time: date + 6)
+material1 = Material.new(title: 'SUP de qualité', description: "J'ai reçu ce superbe Stand up Paddle pour mon anniversaire mais je m'en sers que très peu car trop lourd pour moi... Si vous voulez l'utiliser, laissez moi un petit message. Il est en parfait état.", start_time: date + 1, end_time: date + 6)
 material1.user = user1
 material1.building = building1
 material1.photo.attach(
@@ -64,7 +64,7 @@ material1.photo.attach(
 )
 puts "Passed ?"
 material1.save!
-material2 = Material.new(title: 'Boîte à Outil', description: "Salut les voisins! Je vous mets à disposition de l'entrepôt ma superbe boîte à outil qui n'arrête pas de me sauver la vie dans cet immeuble... Ce n'est pas le sujet. N'hésitez pas à la réserver c'est avec plaisir que je vous la prête contre une petite Bière 🍺 ", start_time: date + 5, end_time: date + 7, available: true)
+material2 = Material.new(title: 'Boîte à Outil', description: "Salut les voisins! Je vous mets à disposition de l'entrepôt ma superbe boîte à outil qui n'arrête pas de me sauver la vie dans cet immeuble... Ce n'est pas le sujet. N'hésitez pas à la réserver c'est avec plaisir que je vous la prête contre une petite Bière 🍺 ", start_time: date + 5, end_time: date + 7)
 material2.user = user1
 material2.building = building1
 material2.photo.attach(
@@ -73,7 +73,7 @@ material2.photo.attach(
   content_type: 'image/png'
 )
 material2.save!
-material3 = Material.new(title: 'Appareil à Raclette', description: "Je mets à disposition mon appareil à raclette XXL pouvant acceuilir 8 convives simultanéments. C'est avec plaisir que je vous mets cet objet à disposition. La planête nous en sera que reconaissante.   ", start_time: date + 12, end_time: date + 12, available: true)
+material3 = Material.new(title: 'Appareil à Raclette', description: "Je mets à disposition mon appareil à raclette XXL pouvant acceuilir 8 convives simultanéments. C'est avec plaisir que je vous mets cet objet à disposition. La planête nous en sera que reconaissante.   ", start_time: date + 12, end_time: date + 12)
 material3.user = user2
 material3.building = building1
 material3.photo.attach(
@@ -83,7 +83,7 @@ material3.photo.attach(
 )
 puts "A mon avis ça beuge... Après je dis ça je dis rien"
 material3.save!
-material4 = Material.new(title: 'Tandem bi-place', description: "Bonjour l'entrepôt. Je possède ce superbe tandem bi-place dont je me sers presque plus. Objet incluant une assistance éléctrique de plus de 70km, au combien suffisant pour se rendre compte qu'on est très proche de son compagnon... Amitiés, Franziska", available: true)
+material4 = Material.new(title: 'Tandem bi-place', description: "Bonjour l'entrepôt. Je possède ce superbe tandem bi-place dont je me sers presque plus. Objet incluant une assistance éléctrique de plus de 70km, au combien suffisant pour se rendre compte qu'on est très proche de son compagnon... Amitiés, Franziska")
 material4.user = user2
 material4.building = building1
 material4.photo.attach(
@@ -92,7 +92,7 @@ material4.photo.attach(
   content_type: 'image/png'
 )
 material4.save!
-material5 = Material.new(title: 'Jeux de 4 pneus Été', description: "Je viens d'emménager ici. Vivant auparavant en France je possédais une superbe 206. Elle n'a malheureusement pas passée le contrôle technique. Si jamais vous êtes intéressés par ce train de pneu, je vous l'offre volontiers. Mieux vaut donner que jeter.", available: true)
+material5 = Material.new(title: 'Jeux de 4 pneus Été', description: "Je viens d'emménager ici. Vivant auparavant en France je possédais une superbe 206. Elle n'a malheureusement pas passée le contrôle technique. Si jamais vous êtes intéressés par ce train de pneu, je vous l'offre volontiers. Mieux vaut donner que jeter.")
 material5.user = user3
 material5.building = building1
 material5.photo.attach(
@@ -101,7 +101,7 @@ material5.photo.attach(
   content_type: 'image/png'
 )
 material5.save!
-material6 = Material.new(title: 'Echelle', description: "Bonjour à tous ! Ici Gérard, le voisin du 5ième. Je n'ai pas tout à fait compris le fonctionnement de ce nouveau outil... A vrai dire je préferais le papier. Mais voila, si quelqun à besoin d'une échelle, j'ai ce qu'il vous faut.", start_time: date - 2, end_time: date, available: false)
+material6 = Material.new(title: 'Echelle', description: "Bonjour à tous ! Ici Gérard, le voisin du 5ième. Je n'ai pas tout à fait compris le fonctionnement de ce nouveau outil... A vrai dire je préferais le papier. Mais voila, si quelqun à besoin d'une échelle, j'ai ce qu'il vous faut.", start_time: date - 2, end_time: date)
 material6.user = user3
 material6.building = building1
 material6.photo.attach(
@@ -110,7 +110,7 @@ material6.photo.attach(
   content_type: 'image/png'
 )
 material6.save!
-material7 = Material.new(title: "Luge d'hiver en Bois", description: "Une Formule 1 de la neige. M'étant brisé une vertèbre en tombant de l'échelle de Gérard, je ne vais pas pouvoir utiliser mon bolide cet hiver. A votre disposition si besoin. Elle m'est cependant très chère car je possède le record des Diablerets 💨  ", start_time: date + 13, end_time: date + 14, available: true)
+material7 = Material.new(title: "Luge d'hiver en Bois", description: "Une Formule 1 de la neige. M'étant brisé une vertèbre en tombant de l'échelle de Gérard, je ne vais pas pouvoir utiliser mon bolide cet hiver. A votre disposition si besoin. Elle m'est cependant très chère car je possède le record des Diablerets 💨  ", start_time: date + 13, end_time: date + 14)
 material7.user = user3
 material7.building = building1
 material7.photo.attach(
@@ -120,7 +120,7 @@ material7.photo.attach(
 )
 material7.save!
 puts "Warehouse is filling up nicely :))"
-material8 = Material.new(title: "Raquettes à neige", description: "Hello les voisins. J'aimerais mettre à disposition de l'entrepôt mes superbes raquettes à neige afin que vous puissiez profiter pleinement des belles journées hivernales qui nous attendent. Elle sont compatibles pour les pointures allant du 36 au 43. N'hésitez pas! Evadez vous !", available: true)
+material8 = Material.new(title: "Raquettes à neige", description: "Hello les voisins. J'aimerais mettre à disposition de l'entrepôt mes superbes raquettes à neige afin que vous puissiez profiter pleinement des belles journées hivernales qui nous attendent. Elle sont compatibles pour les pointures allant du 36 au 43. N'hésitez pas! Evadez vous !")
 material8.user = user4
 material8.building = building1
 material8.photo.attach(
@@ -129,7 +129,7 @@ material8.photo.attach(
   content_type: 'image/png'
 )
 material8.save!
-material9 = Material.new(title: "Filet de Volley extérieur", description: "Avant que je n'oublie. J'aimerais aussi vous faire profiter de ce filet de Volley extérieur. Il est très léger et simple à l'utilisation. Le ballon n'est cependant pas fourni. Idéal pour les journées d'été. On peut l'insatller n'importe ou et les parties sont très amusantes.", available: true)
+material9 = Material.new(title: "Filet de Volley extérieur", description: "Avant que je n'oublie. J'aimerais aussi vous faire profiter de ce filet de Volley extérieur. Il est très léger et simple à l'utilisation. Le ballon n'est cependant pas fourni. Idéal pour les journées d'été. On peut l'insatller n'importe ou et les parties sont très amusantes.")
 material9.user = user4
 material9.building = building1
 material9.photo.attach(

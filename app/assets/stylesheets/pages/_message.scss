@@ -9,7 +9,7 @@ p {
   margin: 0 auto;
   padding-bottom: 20px;
   background-color: 	#F2F2F2;
-
+  height: calc(100vh - 50px);
 }
 
 .message-container {
@@ -24,12 +24,16 @@ p {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
-
 }
 .messages{
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+}
+
+#messages {
+  overflow: scroll;
+  height: 65vh;
 }
 
 .message-align-right{
@@ -44,7 +48,6 @@ p {
 
 .span1 {
   font-weight: bold;
- ;
 }
 
 .span2 {
@@ -61,11 +64,8 @@ p {
 }
 
 .box-message  {
-
   position: sticky;
   width: 100%;
   bottom: 0;
-  padding-top: 20px;
-  margin-top: 80px;
-
+  background-color:#F4F4F4;
 }
