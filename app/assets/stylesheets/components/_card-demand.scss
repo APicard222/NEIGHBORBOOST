@@ -42,6 +42,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  padding-top: 10px;
 }
 
 .card-demand p {
@@ -50,6 +51,10 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.card-demand-paragraph {
+  flex-grow: 1;
 }
 
 .card-demand-half p {
@@ -65,7 +70,9 @@
 }
 
 .card-demand .card-demand-infos {
-  padding: 16px;
+  padding: 8px;
+  padding-bottom: 0px;
+  height: 100%;
 }
 
 .card-demand-half .card-demand-half-infos {
@@ -122,4 +129,8 @@
 
 .card-demand-add-btn {
   font-size: 30px;
+}
+
+.show-demand-owner {
+  display: flex;
 }

@@ -9,6 +9,8 @@ class PagesController < ApplicationController
     @demands = Demand.where(requester_id: current_user)
     @acceptances = Demand.where(responder_id: current_user)
     @material = Material.new
+    @bookings = Booking.where(booker_id: current_user).order('start_time ASC')
+    @booking = Booking.exists?(booker_id: current_user)
   end
 
   def my_materials

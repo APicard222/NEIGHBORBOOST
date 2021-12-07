@@ -1,17 +1,17 @@
 <div class="container" data-controller="demands-index">
   <h1 class= "title" style="text-align:center" ><%= current_user.first_name%>'s Dashboard</h1>
 
-  <h2>Your contribution to the Warehouse</h2>
+  <h2>Votre contribution à l'Entrepôt</h2>
   <div class="add_material">
-  <div class='card-demand-add-btn' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
+    <div class='add_material_button' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
   </div>
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
           <% if material.available %>
-            <span class="badge available">Available</span>
+            <span class="badge available">Disponible</span>
           <% else %>
-            <span class="badge notavailable">In Use</span>
+            <span class="badge notavailable">Reservé</span>
           <% end %>
         <div class="card-trip-index">
           <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
@@ -26,6 +26,28 @@
       </div>
     <% end %>
   </div>
+  <% if @booking == false %>
+    <h2>Vous n'avez actuellement aucune réservation</h2>
+  <% else %>
+    <h2>Vos réservations</h2>
+    <div class="card-list">
+      <% @bookings.each do |booking| %>
+        <div class="card-trip-outside-frame">
+          <span class="badge booking"><%= booking.start_time.strftime("%d %b") %> to <%= booking.end_time.strftime("%d %b") %></span>
+          <div class="card-trip-index">
+            <%= cl_image_tag booking.material.photo.key, height: 300, width: 400, crop: :fill %>
+            <div class="card-trip-index-infos">
+              <div class="card-trip-title-username">
+                <h2><%= link_to booking.material.title, material_path(booking) %></h2>
+                <h2 class="card-trip-index-pricing"><%= booking.material.user.user_name%></h2>
+              </div>
+              <%= cl_image_tag booking.material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
     <div class="row">
     <div class="col-sm">
