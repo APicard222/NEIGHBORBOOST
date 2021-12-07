@@ -1,20 +1,24 @@
-
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+  font-family: 'brandon-grotesque', sans-serif;
+}
 .messages-container {
   width: 70%;
   margin: 0 auto;
+  padding-bottom: 20px;
 
 }
 
 .message-container {
-  border: 0.1px solid;
-  margin: 15px 0px;
-  padding:15px 20px 15px 55px;
-  width: 800px;
-  font-family: 'Roboto', sans-serif;
+  border: 5px solid #067790;
+  margin: 10px 0px;
+  padding: 5px 20px;
+  width: 700px;
+  font-size: 12px;
   -moz-box-shadow: 0 0 5px #888;
   -webkit-box-shadow: 0 0 5px#888;
   box-shadow: 0 0 5px #888;
-  text-shadow: 2px 2px 2px #ccc;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -23,6 +27,7 @@
 .messages{
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
 }
 
 .message-align-right{
@@ -53,68 +58,12 @@
   height: 250px;
 }
 
-.button-13 {
-  background-color: #fff;
-  border: 1px solid #d5d9d9;
-  border-radius: 8px;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  box-sizing: border-box;
-  color: #0f1111;
-  cursor: pointer;
-  display: inline-block;
- font-family: 'Roboto', sans-serif;
-  font-size: 13px;
-  line-height: 29px;
-  padding: 0 10px 0 11px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  width: 100px;
-}
+.box-message  {
 
-.button-13:hover {
-  background-color: #f7fafa;
-}
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding-top: 20px;
+  margin-top: 80px;
 
-.button-13:focus {
-  border-color: #008296;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  outline: 0;
-}
-
-.button-13 {
-  background-color: #fff;
-  border: 1px solid #d5d9d9;
-  border-radius: 8px;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  box-sizing: border-box;
-  color: #0f1111;
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Roboto', sans-serif;
-  font-size: 13px;
-  line-height: 29px;
-  padding: 0 10px 0 11px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  width: 100px;
-}
-
-.button-13:hover {
-  background-color: #f7fafa;
-}
-
-.button-13:focus {
-  border-color: #008296;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  outline: 0;
 }
