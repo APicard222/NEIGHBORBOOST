@@ -1,4 +1,14 @@
 // Specific CSS for your home-page
+h1 {
+  font-family: 'Sora';
+  font-size: 3em;
+  letter-spacing: -2px;
+  border-bottom: 2px solid black;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+
 .banner {
   background-size: cover;
   background-position: center;
