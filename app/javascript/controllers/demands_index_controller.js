@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "add", "form", "show", "info", "list"]
+  static targets = [ "add", "form", "form_edit_mat", "show", "info", "list", "edit"]
 
   connect() {
   }
@@ -12,6 +12,14 @@ export default class extends Controller {
 
   closeAddModal() {
     this.addTarget.style.display = 'none'
+  }
+
+  openEditModal() {
+    this.editTarget.style.display = 'flex'
+  }
+
+  closeEditModal() {
+    this.editTarget.style.display = 'none'
   }
 
   openShowModal(evt) {
@@ -57,6 +65,5 @@ export default class extends Controller {
         this.listTarget.innerHTML = data
         this.closeShowModal()
       })
-
   }
 }

@@ -3,7 +3,7 @@
 
   <h2>Your contribution to the Warehouse</h2>
   <div class="add_material">
-    <%= link_to "Add Material", new_material_path, class: "add_material_button" %>
+  <div class='card-demand-add-btn' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
   </div>
   <div class="card-list">
     <% @materials.each do |material| %>
@@ -27,23 +27,38 @@
     <% end %>
   </div>
 
-  <h2>Your pending demands...</h2>
-  <div class="card-demands" data-demands-index-target="list">
-    <%= render 'demands/list', demands: @demands %>
-   </div>
-
-  <h2>Don't forget your commitment</h2>
-  <% @acceptances.each do |acceptance| %>
-    <div class="card-demand">
-    <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
-      <div class="card-demand-infos">
-        <h2><%= acceptance.title %></h2>
-        <p><%= acceptance.description %></p>
-        <p><small><%= acceptance.requester.user_name %> - <%= acceptance.start_date.strftime("%a, %d %B, %Y") %></small></p>
-        <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
+    <div class="row">
+    <div class="col-sm">
+      <h2>Tes demandes</h2>
+      <div data-demands-index-target="list">
+        <%= render 'demands/list', demands: @demands %>
       </div>
     </div>
-  <% end %>
+    <div class="col-sm">
+      <h2>Tes engagements</h2>
+      <% @acceptances.each do |acceptance| %>
+        <div class="card-demand-half">
+          <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
+          <div class="card-demand-half-infos">
+            <h2><%= acceptance.title %></h2>
+            <div class="card-half-paragraph">
+              <p><%= acceptance.description %></p>
+            </div>
+            <p><small><%= acceptance.requester.user_name %> - <%= acceptance.start_date.strftime("%a, %d %B, %Y") %></small></p>
+            <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<!-- > Modal add demand  <!-->
+  <div class='new-demand-container' data-demands-index-target='add'>
+    <div class='add-demand-form'>
+      <%= render 'materials/new' %>
+      <i class="fas fa-times close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeAddModal"></i>
+    </div>
+  </div>
 
   <!-- > Modal show demand  <!-->
   <div class="show-demand-container" data-demands-index-target='show'>

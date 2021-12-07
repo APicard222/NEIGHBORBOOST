@@ -134,4 +134,8 @@
 .show-material-description {
   align-items: center;
   flex-grow: 1;
+
+  p {
+    font-size: 12px;
+  }
 }

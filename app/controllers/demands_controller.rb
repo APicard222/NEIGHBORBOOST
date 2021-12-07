@@ -4,11 +4,6 @@ class DemandsController < ApplicationController
   def index
     @demands = Demand.where.not(requester_id: current_user)
     @demand = Demand.new
-
-    respond_to do |format|
-      format.html # Follow regular flow of Rails
-      format.text { render partial: 'demands/add_demand_card', locals: { demand: @demand }, formats: [:html] }
-    end
   end
 
   def show
@@ -27,7 +22,7 @@ class DemandsController < ApplicationController
     @demand.status = 'posted'
 
     if @demand.save
-      redirect_to demands_path
+      redirect_back fallback_location: root_path
     else
       render :new
     end

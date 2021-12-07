@@ -1,9 +1,13 @@
-<div class="exterior-container-materials">
+<div class="exterior-container-materials" data-controller="demands-index">
   <h1 style="text-align:center">Your Building's Warehouse</h1>
 
   <div class="add_material">
-    <%= link_to "Add Material", new_material_path, class: "add_material_button" %>
+    <div>
+      <%= link_to "Entrepôt", materials_path, class: "add_material_button_selected" %>
+      <%= link_to "Mes Objets", materials_users_path, class: "add_material_button" %>
+    </div>
   </div>
+
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
@@ -26,4 +30,16 @@
       </div>
     <% end %>
   </div>
+</div>
+
+  <!-- > Modal add demand  <!-->
+<div class='new-demand-container' data-demands-index-target='add'>
+  <div class='add-demand-form'>
+    <%= render 'materials/new' %>
+    <i class="fas fa-times close-add-demand-form" aria-hidden="true" data-action="click->demands-index#closeAddModal"></i>
+  </div>
+</div>
+
+<!-- > Modal show demand  <!-->
+<div class="show-demand-container" data-demands-index-target='show'>
 </div>

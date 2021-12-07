@@ -96,7 +96,8 @@
 
 .add_material {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
 .add_material_button {
@@ -113,6 +114,22 @@
   text-decoration: none;
   color: white;
   background-color: rgb(107, 107, 107);
+}
+
+.add_material_button_selected {
+  color: rgb(255, 255, 255);
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgb(202, 202, 202);
+  background-color: rgb(107, 107, 107);
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.add_material_button_selected:hover {
+  text-decoration: none;
+  color: white;
 }
 
 @media(max-width: 1200px) {
