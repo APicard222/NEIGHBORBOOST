@@ -24,48 +24,40 @@
   overflow: hidden;
   height: 150px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   position: relative;
   margin: 20px 0;
+  border-radius: .8rem;
 }
 
 .card-demand img {
-  min-width: 22rem;
   max-width: 22rem;
-  height: 35rem;
   width: 120px;
-  transform: translateX(-2rem);
   position: relative;
   object-fit: cover;
   box-shadow: 0 0 3px rgba(0,0,0,0.2);
-  object-fit: cover;
-  display: block;
+  
+  
 }
 
-.card-demand img {
+.card-demand  img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  padding: 10px;
+  align-self: center;
 }
 
-.line {
-  width: 80%;
-  margin-left: 10%;
-  background-color: #42414e;
-  opacity: .2;
-}
 
-.card-demand-half img {
+.card-demand-half > img {
   height: 100%;
   width: 150px;
   object-fit: cover;
 }
 
 .card-demand h2 {
+  padding-left: 20px;
   padding-top: 20px;
   font-size: 18px;
   font-weight: bold;
@@ -79,17 +71,10 @@
   padding-top: 10px;
 }
 
-.card-demand p {
-  padding-top: 20px;
-  font-size: 14px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
 .card-demand-paragraph {
   flex-grow: 1;
+  padding: 20px 50px 0px 20px;
+
 }
 
 .card-demand-half p {
@@ -168,4 +153,6 @@
 
 .show-demand-owner {
   display: flex;
+  padding-left: 20px;
+  padding-top: 60px;
 }
