@@ -1,12 +1,23 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .card-demand {
   overflow: hidden;
-  height: 120px;
+  height: 250px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   position: relative;
-  margin: 20px 0;
+  margin: 20px;
+  align-items: center;
+  border-radius: .8rem;
+  max-width: 58rem;
 }
 
 .card-demand-half {
@@ -21,9 +32,31 @@
 }
 
 .card-demand img {
-  height: 100%;
+  min-width: 22rem;
+  max-width: 22rem;
+  height: 35rem;
   width: 120px;
+  transform: translateX(-2rem);
+  position: relative;
   object-fit: cover;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  object-fit: cover;
+  display: block;
+}
+
+.card-demand img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  padding: 10px;
+}
+
+.line {
+  width: 80%;
+  margin-left: 10%;
+  background-color: #42414e;
+  opacity: .2;
 }
 
 .card-demand-half img {
@@ -33,6 +66,7 @@
 }
 
 .card-demand h2 {
+  padding-top: 20px;
   font-size: 18px;
   font-weight: bold;
   margin: 0;
@@ -46,6 +80,7 @@
 }
 
 .card-demand p {
+  padding-top: 20px;
   font-size: 14px;
   line-height: 1.4;
   opacity: .7;
