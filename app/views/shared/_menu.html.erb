@@ -6,21 +6,19 @@
   <% if current_user.present? %>
     <%= link_to(dashboard_users_path, class: "menu__item", data: {tooltip: "Dashboard", item: 'dashboard'}) do %>
       <i class="material-icons">dashboard</i>
-
+    <% end %>
+    <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages", item: 'messages'}) do %>
+      <i class="fas fa-comments good_color"></i>
+    <% end %>
+    <%= link_to(demands_path, class: "menu__item", data: {tooltip: "Demandes", item: 'demands'}) do %>
+      <i class="material-icons">question_answer</i>
     <% end %>
 
-      <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages", item: 'messages'}) do %>
-        <i class="fas fa-comments"></i>
-      <% end %>
-      <%= link_to(demands_path, class: "menu__item", data: {tooltip: "Demandes", item: 'demands'}) do %>
-        <i class="material-icons">question_answer</i>
-      <% end %>
-
-      <%= link_to(materials_path, class: "menu__item", data: {tooltip: "Objects", item: 'materials'}) do %>
-        <i class="material-icons">warehouse</i>
-      <% end %>
+    <%= link_to(materials_path, class: "menu__item", data: {tooltip: "Objects", item: 'materials'}) do %>
+      <i class="material-icons">warehouse</i>
+    <% end %>
     <a href="#" class="menu__item" data-tooltip="Documents" data-item='documents'>
-      <i class="fas fa-folder-open"></i>
+      <i class="fas fa-folder-open good_color"></i>
     </a>
   <% end %>
   <div class="avatar_picture">
