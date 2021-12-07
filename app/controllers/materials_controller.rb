@@ -2,12 +2,13 @@ class MaterialsController < ApplicationController
 
   def index
     @materials = Material.where.not(user: current_user)
+    @material = Material.new
   end
 
   def show
     @material = Material.find(params[:id])
     start_date = params.fetch(:start_date, Date.today).to_date
-    @meetings = Material.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week, id: params[:id])
+    @bookings = @material.bookings.where(start_time: start_date.beginning_of_month..start_date.end_of_month)
   end
 
   def new
@@ -20,8 +21,8 @@ class MaterialsController < ApplicationController
     @material.available = true
     @material.building = current_user.building
 
-    if @material.save!
-      redirect_to dashboard_users_path
+    if @material.save
+      redirect_to materials_users_path
     else
       render :new
     end

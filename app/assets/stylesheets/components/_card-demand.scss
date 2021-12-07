@@ -20,6 +20,17 @@
   max-width: 58rem;
 }
 
+.card-demand-half {
+  overflow: hidden;
+  height: 150px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
+
 .card-demand img {
   min-width: 22rem;
   max-width: 22rem;
@@ -48,11 +59,24 @@
   opacity: .2;
 }
 
+.card-demand-half img {
+  height: 100%;
+  width: 150px;
+  object-fit: cover;
+}
+
 .card-demand h2 {
   padding-top: 20px;
   font-size: 18px;
   font-weight: bold;
   margin: 0;
+}
+
+.card-demand-half h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding-top: 10px;
 }
 
 .card-demand p {
@@ -64,8 +88,36 @@
   margin-top: 8px;
 }
 
+.card-demand-paragraph {
+  flex-grow: 1;
+}
+
+.card-demand-half p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-half-paragraph {
+  flex-grow: 1;
+}
+
 .card-demand .card-demand-infos {
-  padding: 16px;
+  padding: 8px;
+  padding-bottom: 0px;
+  height: 100%;
+}
+
+.card-demand-half .card-demand-half-infos {
+  padding-left: 12px;
+  padding-right: 40px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  text-align: justify;
 }
 
 .card-more-info {
@@ -112,4 +164,8 @@
 
 .card-demand-add-btn {
   font-size: 30px;
+}
+
+.show-demand-owner {
+  display: flex;
 }

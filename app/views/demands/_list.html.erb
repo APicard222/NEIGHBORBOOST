@@ -1,32 +1,72 @@
 <% demands.each do |demand| %>
-  <div class="card-demand" data-demands-index-target="info" data-id="<%= demand.id %>">
-    <%= cl_image_tag demand.photo.key, height: 300, width: 400, crop: :fill %>
-    <div class="card-demand-infos">
-      <h2><%= demand.title %></h2>
-      <p><%= demand.description %></p>
-      <% if demand.requester_id == current_user.id %>
-        <p><small>You posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-      <% else %>
-        <p><small><%= demand.requester.user_name %> posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
-      <% end %>
-      <% if demand.status == 'posted' %>
-        <% # do if user responder %>
-        <% if current_user == demand.requester %>
-          <i class="fa fa-info-circle card-info card-more-info-size" aria-hidden="true" ></i>
+  <% if current_user == demand.requester %>
+    <div class="card-demand-half" data-demands-index-target="info" data-id="<%= demand.id %>">
+      <%= cl_image_tag demand.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-demand-half-infos">
+        <h2><%= demand.title %></h2>
+        <div class="card-half-paragraph">
+          <p><%= demand.description %></p>
+        </div>
+        <% if demand.requester_id == current_user.id %>
+          <p><small>You posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
         <% else %>
-          <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+          <p><small><%= demand.requester.user_name %> posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
         <% end %>
-      <% else %>
-        <% if current_user.id == demand.requester.id %>
-          <% if demand.status == 'accepted'%>
-            <i class="fa fa-info-circle card-demand-accepted card-more-info-size" data-action="click->demands-index#openShowModal" aria-hidden="true"></i>
+        <% if demand.status == 'posted' %>
+          <% # do if user responder %>
+          <% if current_user == demand.requester %>
+            <i class="fa fa-info-circle card-info card-more-info-size" aria-hidden="true" ></i>
+          <% else %>
+            <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+          <% end %>
+        <% else %>
+          <% if current_user.id == demand.requester.id %>
+            <% if demand.status == 'accepted'%>
+              <i class="fa fa-info-circle card-demand-accepted card-more-info-size" data-action="click->demands-index#openShowModal" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+            <% end %>
           <% else %>
             <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
           <% end %>
-        <% else %>
-          <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="card-demand" data-demands-index-target="info" data-id="<%= demand.id %>">
+      <%= cl_image_tag demand.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-demand-infos">
+        <h2><%= demand.title %></h2>
+        <div class="card-demand-paragraph">
+          <p><%= demand.description %></p>
+        </div>
+        <% if demand.requester_id == current_user.id %>
+          <p><small>You posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+        <% else %>
+          <div class="show-demand-owner">
+            <%= cl_image_tag demand.requester.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered small" %>
+            <p><small><%= demand.requester.user_name %> posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+          </div>
+        <% end %>
+        <% if demand.status == 'posted' %>
+          <% # do if user responder %>
+          <% if current_user == demand.requester %>
+            <i class="fa fa-info-circle card-info card-more-info-size" aria-hidden="true" ></i>
+          <% else %>
+            <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true" data-action="click->demands-index#openShowModal"></i>
+          <% end %>
+        <% else %>
+          <% if current_user.id == demand.requester.id %>
+            <% if demand.status == 'accepted'%>
+              <i class="fa fa-info-circle card-demand-accepted card-more-info-size" data-action="click->demands-index#openShowModal" aria-hidden="true"></i>
+            <% else %>
+              <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+            <% end %>
+          <% else %>
+            <i class="fa fa-info-circle card-demand-not-available card-more-info-size" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
