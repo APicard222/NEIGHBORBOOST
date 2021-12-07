@@ -5,4 +5,13 @@ class Material < ApplicationRecord
   has_one_attached :photo
 
   validates :title, :description, presence: true
+
+  def available?
+    bookings.each do |booking|
+      if booking.start_time <= Date.today && booking.end_time >= Date.today
+        return false
+      end
+    end
+    return true
+  end
 end
