@@ -10,4 +10,17 @@ const showNavbar = () => {
   }
 }
 
-export { showNavbar }
+const menuItem = () => {
+  const menu = document.querySelector('.menu')
+  const items = Array.from(menu.children).slice(1, 6)
+
+  items.forEach(item => item.classList.remove('menu-item-active'))
+
+  items.forEach(item => {
+    if (location.href.includes(item.dataset.item)) {
+      item.classList.add('menu-item-active')
+    }
+  })
+}
+
+export { showNavbar, menuItem }
