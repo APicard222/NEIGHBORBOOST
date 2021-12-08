@@ -1,5 +1,5 @@
 <div class="exterior-container-materials" data-controller="demands-index">
-  <h1 style="text-align:center">L'Entrepôt '<%= current_user.building.name %>'</h1>
+  <h1 class="title" style="text-align:center">L'Entrepôt '<%= current_user.building.name %>'</h1>
 
   <div class="add_material">
     <div>
@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="object_counter">
-    <p><strong><%= @materials.count %></strong> objets mis à disposition</p>
+    <p><strong><%= @materials.count %></strong> Objets mis à disposition</p>
   </div>
 
   <div class="card-list">

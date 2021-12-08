@@ -1,12 +1,21 @@
 // Specific CSS for your home-page
 h1 {
 
-  font-family: 'Lato';
+  font-family: 'Poppins';
   letter-spacing: -2px;
   border-bottom: 4px solid #FFBE00;
   text-transform: uppercase;
   font-weight: bold;
 
+}
+
+body {
+  background-color: white;
+
+}
+
+.h1 title {
+  position: sticky;
 }
 
 .banner {
@@ -21,7 +30,7 @@ h1 {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 50px;
   font-weight: bold;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 6px;
   line-height: 58px;
 
@@ -32,7 +41,7 @@ h1 {
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn-flat {
@@ -54,11 +63,11 @@ h1 {
 }
 
 .about h2 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 40px;
-  color: 	#A9B63D;
+  color: 	#FFBE00;
   opacity: .7;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
   text-align: center;
 }
@@ -66,4 +75,8 @@ h1 {
 
 .button-box{
   margin-top: 15px;
+}
+
+h2 {
+  font-family: "Baloo 2";
 }
