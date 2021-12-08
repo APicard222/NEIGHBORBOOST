@@ -32,6 +32,7 @@ import { showNavbar, menuItem } from '../components/navBar';
 import { showFooter} from '../components/messages';
 import { simpleCalendar } from '../components/simpleCalendar'
 import { textWrapper } from '../components/animationTittle'
+import { notifications } from '../components/notifications'
 
 document.addEventListener('turbolinks:load', () => {
   initBuildingCable();
