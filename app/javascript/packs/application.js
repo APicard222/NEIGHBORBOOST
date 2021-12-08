@@ -39,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   showFooter();
   menuItem();
   simpleCalendar();
+  notifications();
 });
 
 import "controllers"
