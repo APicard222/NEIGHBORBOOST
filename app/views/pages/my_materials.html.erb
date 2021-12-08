@@ -1,5 +1,5 @@
 <div class="exterior-container-materials" data-controller="demands-index">
-  <h1>Ta contribution à L'Entrepôt</h1>
+  <h1>Votre contribution à L'Entrepôt</h1>
 
   <div class="add_material">
     <div>
@@ -15,9 +15,9 @@
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
           <% if material.available %>
-            <span class="badge available">Available</span>
+            <span class="badge available">Disponible</span>
           <% else %>
-            <span class="badge notavailable">In Use</span>
+            <span class="badge notavailable">Reservé</span>
           <% end %>
         <div class="card-trip-index">
           <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
