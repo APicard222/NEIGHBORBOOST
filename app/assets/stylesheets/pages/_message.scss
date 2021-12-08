@@ -2,13 +2,13 @@ p {
   margin-top: 0;
   margin-bottom: 0rem;
   font-family: 'Baloo 2', sans-serif;
+  color: rgb(0, 0, 0);
 }
 
 .messages-container {
   width: 70%;
   margin: 0 auto;
   padding-bottom: 20px;
-  background-color: 	#F2F2F2;
   height: calc(100vh - 50px);
   h1 {
     margin-bottom: 0%;
@@ -16,18 +16,14 @@ p {
 }
 
 .message-container {
-  border: 1px solid #067790d0;
   margin: 10px 0px;
   padding: 3px 20px;
   width: 700px;
   font-size: 12px;
-  -moz-box-shadow: 0 0 3px #888;
-  -webkit-box-shadow: 0 0 3px#888;
-  box-shadow: 0 0 3px #888;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
+  border-radius: 5px;
+  position: relative;
 }
+
 .messages{
   display: flex;
   flex-direction: column;
@@ -36,22 +32,44 @@ p {
 
 #messages {
   overflow: scroll;
-  height: 65vh;
+  height: 80vh;
   padding-right: 15px;
   padding-left: 15px;
-  background-color: white;
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #7EE081;
+  position: absolute;
+  top: 0;
+  left: -8px;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #6DAEDB;
+  position: absolute;
+  top: 0;
+  right: -8px;
 }
 
 .message-align-right{
   align-self: flex-end;
-  // background: #d5f5d5;
-  background: #d5f5d577;
+  background: #6DAEDB;
+  p {
+    padding-top: 5px;
+  }
 }
 
 .message-align-left{
   align-self: flex-start;
-  // background: #e4e8fb ;
-  background: #e4e8fb5d;
+  background: #7EE081;
 }
 
 .span1 {
@@ -63,12 +81,13 @@ p {
 }
 
 .date {
-  color: #747474;
+  color: #4e4e4e;
   font-size: 10px;
 }
 
 .textcontent {
-  height: 250px;
+  // height: 250px;
+  width: 50%;
 }
 
 .box-message  {
@@ -79,4 +98,12 @@ p {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 15px;
+  height: 80px;
+}
+
+.input-button-align {
+  display: flex;
+  .form-group {
+    width: 500%;
+  }
 }

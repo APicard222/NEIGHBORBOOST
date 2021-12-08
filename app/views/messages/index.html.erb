@@ -5,25 +5,26 @@
     <% @building.messages.each do |message| %>
       <% if message.user_id == current_user.id %>
         <div class="message-container message-align-right" id="message-<%= message.id %>">
-          <i class="author"><span class="span1">You</span></i>
+          <div class="triangle-right"></div>
           <p><%= message.content %></p>
           <small class="date"><%= message.created_at.strftime("%a %b %e at %l:%M%p ✓✓" ) %></small>
         </div>
       <% else %>
         <div class="message-container message-align-left" id="message-<%= message.id %>">
+          <div class="triangle-left"></div>
           <i class="author"><span class="span2"><%= message.user.user_name %></span></i>
           <p><%= message.content %></p>
-          <small class="date  "><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
         </div>
       <% end %>
     <% end %>
   </div>
     <div class="box-message">
         <%= simple_form_for @message  do |f| %>
-          <%= f.input :content, input_html: { class: 'textcontent' },label: false, placeholder: "Message #" %>
-          <%= f.button :submit, "Creer" do %>
-            <i class="far fa-save"></i>
-          <% end %>
+          <div class="input-button-align">
+            <%= f.input :content, input_html: { class: 'textcontent' },label: false, placeholder: "Message #" %>
+            <%= f.button :submit, "Envoyer" do %>
+            <% end %>
+          </div>
         <% end %>
     </div>
 </div>
