@@ -1,76 +1,90 @@
 <div class="container" data-controller="demands-index">
   <h1 class= "title" style="text-align:center" ><%= current_user.first_name%>'s Dashboard</h1>
 
-  <h2>Votre contribution à l'Entrepôt</h2>
-  <div class="add_material">
+  <div class="add_material_solo">
     <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
   </div>
-  <div class="card-list">
-    <% @materials.each do |material| %>
-      <div class="card-trip-outside-frame">
-          <% if material.available? %>
-            <span class="badge available">Disponible</span>
-          <% else %>
-            <span class="badge notavailable">Reservé</span>
-          <% end %>
-        <div class="card-trip-index">
-          <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-trip-index-infos">
-            <div class="card-trip-title-username">
-              <h2><%= link_to material.title, material_path(material) %></h2>
-              <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
-            </div>
-            <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <% if @booking == false %>
-    <h2>Vous n'avez actuellement aucune réservation</h2>
-  <% else %>
-    <h2>Vos réservations</h2>
-    <div class="card-list">
-      <% @bookings.each do |booking| %>
-        <div class="card-trip-outside-frame">
-          <span class="badge booking"><%= booking.start_time.strftime("%d %b") %> to <%= booking.end_time.strftime("%d %b") %></span>
-          <div class="card-trip-index">
-            <%= cl_image_tag booking.material.photo.key, height: 300, width: 400, crop: :fill %>
-            <div class="card-trip-index-infos">
-              <div class="card-trip-title-username">
-                <h2><%= link_to booking.material.title, material_path(booking) %></h2>
-                <h2 class="card-trip-index-pricing"><%= booking.material.user.user_name%></h2>
+  <div class="materials_in_dashboard">
+    <div class="dashboard_section_card">
+      <h2 class="titre_dashboard"> <%= @materials.count %> contributions à l'Entrepôt</h2>
+      <div class="dashboard-card-materials">
+        <% @materials.each do |material| %>
+          <div class="card-trip-outside-frame">
+              <% if material.available? %>
+                <span class="badge available">Disponible</span>
+              <% else %>
+                <span class="badge notavailable">Reservé</span>
+              <% end %>
+            <div class="card-trip-index">
+              <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
+              <div class="card-trip-index-infos">
+                <div class="card-trip-title-username">
+                  <h2><%= link_to material.title, material_path(material) %></h2>
+                  <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
+                </div>
+                <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
               </div>
-              <%= cl_image_tag booking.material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
             </div>
           </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="dashboard_section_card">
+      <% if @booking == false %>
+        <h2 class="titre_dashboard">Vous n'avez actuellement aucune réservation</h2>
+      <% else %>
+        <h2 class="titre_dashboard">Vous avez <%= @bookings.count %> réservations</h2>
+        <div class="dashboard-card-materials">
+          <% @bookings.each do |booking| %>
+            <div class="card-trip-outside-frame">
+              <span class="badge booking"><%= booking.start_time.strftime("%d %b") %> to <%= booking.end_time.strftime("%d %b") %></span>
+              <div class="card-trip-index">
+                <%= cl_image_tag booking.material.photo.key, height: 300, width: 400, crop: :fill %>
+                <div class="card-trip-index-infos">
+                  <div class="card-trip-title-username">
+                    <h2><%= link_to booking.material.title, material_path(booking) %></h2>
+                    <h2 class="card-trip-index-pricing"><%= booking.material.user.user_name%></h2>
+                  </div>
+                  <%= cl_image_tag booking.material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 
     <div class="row">
     <div class="col-sm">
-      <h2>Tes demandes</h2>
-      <div data-demands-index-target="list">
-        <%= render 'demands/list', demands: @demands %>
+      <div class="dashboard_section_card">
+        <h2 class="titre_dashboard">Vos demandes (<%= @demands.count %>)</h2>
+        <div class="dashboard_section_card_inner">
+          <div data-demands-index-target="list">
+            <%= render 'demands/list', demands: @demands %>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-sm">
-      <h2>Tes engagements</h2>
-      <% @acceptances.each do |acceptance| %>
-        <div class="card-demand-half">
-          <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
-          <div class="card-demand-half-infos">
-            <h2><%= acceptance.title %></h2>
-            <div class="card-half-paragraph">
-              <p><%= acceptance.description %></p>
+      <div class="dashboard_section_card">
+        <h2 class="titre_dashboard">Vos engagements (<%= @acceptances.count %>)</h2>
+        <div class="dashboard_section_card_inner">
+          <% @acceptances.each do |acceptance| %>
+            <div class="card-demand-half">
+              <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
+              <div class="card-demand-half-infos">
+                <h2><%= acceptance.title %></h2>
+                <div class="card-half-paragraph">
+                  <p><%= acceptance.description %></p>
+                </div>
+                <p><small><%= acceptance.requester.user_name %> - <%= acceptance.start_date.strftime("%a, %d %B, %Y") %></small></p>
+                <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
+              </div>
             </div>
-            <p><small><%= acceptance.requester.user_name %> - <%= acceptance.start_date.strftime("%a, %d %B, %Y") %></small></p>
-            <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 
