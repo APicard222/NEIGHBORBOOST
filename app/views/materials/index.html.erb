@@ -23,11 +23,10 @@
           <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-trip-index-infos">
             <div class="card-trip-title-username">
+              <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered-small" %>
               <h2><%= link_to material.title, material_path(material) %></h2>
-              <p class="card-trip-index-pricing"><%= material.user.user_name%></p>
+              <%= link_to('Reserver', material_path(material), class: "button_book") %>
             </div>
-            <%= link_to('Reserver', material_path(material), class: "button_book") %>
-            <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
           </div>
         </div>
       </div>

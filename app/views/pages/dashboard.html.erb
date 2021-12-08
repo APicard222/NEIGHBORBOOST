@@ -41,7 +41,7 @@
                 <%= cl_image_tag booking.material.photo.key, height: 300, width: 400, crop: :fill %>
                 <div class="card-trip-index-infos">
                   <div class="card-trip-title-username">
-                    <h2><%= link_to booking.material.title, material_path(booking) %></h2>
+                    <h2><%= link_to booking.material.title, material_path(booking.material) %></h2>
                     <h2 class="card-trip-index-pricing"><%= booking.material.user.user_name%></h2>
                   </div>
                   <%= cl_image_tag booking.material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
