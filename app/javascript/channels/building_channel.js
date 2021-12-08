@@ -2,6 +2,7 @@ import consumer from "./consumer";
 
 const initBuildingCable = () => {
   const messagesContainer = document.getElementById('messages');
+
   if (messagesContainer) {
     const id = messagesContainer.dataset.buildingId;
 

@@ -29,13 +29,15 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initBuildingCable } from '../channels/building_channel';
 import { showNavbar, menuItem } from '../components/navBar';
-import { simpleCalendar } from '../components/simpleCalendar'
+import { simpleCalendar } from '../components/simpleCalendar';
+import { notifications } from '../components/notifications';
 
 document.addEventListener('turbolinks:load', () => {
   initBuildingCable();
   showNavbar();
   menuItem();
   simpleCalendar();
+  notifications();
 });
 
 import "controllers"
