@@ -22,7 +22,8 @@
         <%= simple_form_for @message  do |f| %>
           <div class="input-button-align">
             <%= f.input :content, input_html: { class: 'textcontent' },label: false, placeholder: "Message #" %>
-            <%= f.button :submit, "Envoyer" do %>
+            <%= button_tag(class: "button-send") do %>
+              <i class="fas fa-paper-plane"></i>
             <% end %>
           </div>
         <% end %>
