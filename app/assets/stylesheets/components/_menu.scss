@@ -8,13 +8,14 @@ html {
   left: 0;
   width: 75px;
   height: 100%;
-  background:#00A6B4;
+  background: linear-gradient(#0D1F50, #0d1f50c5);
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
   flex: 1;
   z-index: 1;
+
 }
 
 .menu__item {
@@ -24,12 +25,12 @@ html {
   justify-content: center;
   padding: 15px 0;
   text-decoration: none;
-  color: #666666;
+  color: white;
   transition: background-color  1s;
 }
 
 .good_color {
-  color: #333333;
+  color: white;
 }
 
 focus:focus {
@@ -42,7 +43,7 @@ focus:focus {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #333333;
+  color: white;
   transition: background-color  1s;
 }
 
@@ -62,7 +63,7 @@ focus:focus {
 
 .material-icons {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }
 
 .icon_text {
