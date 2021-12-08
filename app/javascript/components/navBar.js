@@ -17,6 +17,7 @@ const menuItem = () => {
   items.forEach(item => item.classList.remove('menu-item-active'))
 
   items.forEach(item => {
+    console.log(item)
     if (location.href.includes(item.dataset.item)) {
       item.classList.add('menu-item-active')
     }

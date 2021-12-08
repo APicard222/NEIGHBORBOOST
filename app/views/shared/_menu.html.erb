@@ -7,8 +7,8 @@
     <%= link_to(dashboard_users_path, class: "menu__item", data: {tooltip: "Dashboard", item: 'dashboard'}) do %>
       <i class="material-icons">dashboard</i>
     <% end %>
-    <div class='notification-continer'>
-      <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages", item: 'messages'}) do %>
+    <div class='notification-continer' data-item='messages'>
+      <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages"}) do %>
         <i class="fas fa-comments good_color"></i>
       <% end %>
       <span class='notification-badge' id='notifications'></span>
