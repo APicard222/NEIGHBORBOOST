@@ -7,14 +7,16 @@
     <%= link_to(dashboard_users_path, class: "menu__item", data: {tooltip: "Dashboard", item: 'dashboard'}) do %>
       <i class="material-icons">dashboard</i>
     <% end %>
-    <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages", item: 'messages'}) do %>
-      <i class="fas fa-comments good_color"></i>
-    <% end %>
+    <div class='notification-continer'>
+      <%= link_to(messages_path, class: "menu__item", data: {tooltip: "Messages", item: 'messages'}) do %>
+        <i class="fas fa-comments good_color"></i>
+      <% end %>
+      <span class='notification-badge' id='notifications'></span>
+    </div>
     <%= link_to(demands_path, class: "menu__item", data: {tooltip: "Demandes", item: 'demands'}) do %>
       <i class="material-icons">question_answer</i>
     <% end %>
-
-    <%= link_to(materials_path, class: "menu__item", data: {tooltip: "Objects", item: 'materials'}) do %>
+    <%= link_to(materials_path, class: "menu__item", data: {tooltip: "Objets", item: 'materials'}) do %>
       <i class="material-icons">warehouse</i>
     <% end %>
     <a href="#" class="menu__item" data-tooltip="Documents" data-item='documents'>

@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[create]
   end
   resources :documents, only: %i[index]
-  resources :messages, only: %i[index create]
+  resources :messages, only: %i[index create] do
+    collection do
+      get :count, to: 'messages#count'
+    end
+  end
   resources :buildings, only: %i[show]
   resources :users do
     collection do

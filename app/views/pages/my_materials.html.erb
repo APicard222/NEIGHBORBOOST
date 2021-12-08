@@ -15,18 +15,18 @@
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
           <% if material.available %>
-            <span class="badge available">Available</span>
+            <span class="badge available">Disponible</span>
           <% else %>
-            <span class="badge notavailable">In Use</span>
+            <span class="badge notavailable">Reservé</span>
           <% end %>
         <div class="card-trip-index">
           <%= cl_image_tag material.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-trip-index-infos">
             <div class="card-trip-title-username">
+              <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered-small" %>
               <h2><%= link_to material.title, material_path(material) %></h2>
-              <h2 class="card-trip-index-pricing"><%= material.user.user_name%></h2>
+              <%= link_to('Voir', material_path(material), class: "button_book") %>
             </div>
-            <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
           </div>
         </div>
       </div>

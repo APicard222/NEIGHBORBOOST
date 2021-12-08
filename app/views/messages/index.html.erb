@@ -1,7 +1,7 @@
 <div class="messages-container">
   <h1 style="text-align:center"><%= @building.name  %>'s Chat</h1>
 
- <div class="messages" id="messages" data-building-id="<%= @building.id %>">
+ <div class="messages" id="messages" data-building-id="<%= @building.id %>" data-count=<%=@building.messages.size%>>
     <% @building.messages.each do |message| %>
       <% if message.user_id == current_user.id %>
         <div class="message-container message-align-right" id="message-<%= message.id %>">
@@ -21,7 +21,7 @@
     <div class="box-message">
         <%= simple_form_for @message  do |f| %>
           <%= f.input :content, input_html: { class: 'textcontent' },label: false, placeholder: "Message #" %>
-          <%= f.button :submit do %>
+          <%= f.button :submit, "Creer" do %>
             <i class="far fa-save"></i>
           <% end %>
         <% end %>

@@ -1,13 +1,19 @@
+body {
+  background: white;
+}
 .exterior-container-materials {
   width: 90%;
   margin: 0px auto;
+  background-color: white;
 }
 
 .card-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  row-gap: 20px;
+  column-gap: 25px;
   margin: 20px 0px;
+  background: white;
 }
 
 .card-trip-show {
@@ -17,7 +23,6 @@
 .card-trip-index {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 100%;
 }
 
@@ -29,6 +34,7 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+  border-radius: 12px;
 }
 
 .card-trip-index h2 {
@@ -53,22 +59,7 @@
 }
 
 .card-trip-index-infos {
-  height: 70px;
-}
-
-.card-trip-index .card-trip-index-infos {
-  padding: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-trip-index-infos .card-trip-index-user {
-  position: absolute;
-  right: 12px;
-  top: -20px;
-  width: 40px;
+  height: 40px;
 }
 
 .button_book {
@@ -78,7 +69,7 @@
  border-color: rgb(202, 202, 202);
  padding: 4px 8px;
  font-size: 12px;
- border-radius: 5px;
+ border-radius: 8px;
 }
 
 .button_book:hover {
@@ -88,10 +79,12 @@
 }
 
 .card-trip-title-username {
+  width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 3px;
 }
 
 .add_material {
@@ -121,8 +114,7 @@
   border-color: rgb(202, 202, 202);
   padding: 4px 8px;
   font-size: 12px;
-  border-radius: 5px;
-  background-color: #F4F4F4;
+  border-radius: 8px;
   font-weight: bold;
 }
 
@@ -140,7 +132,7 @@
   background-color: #FFBE00;
   padding: 4px 8px;
   font-size: 12px;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .add_material_button_selected:hover {
