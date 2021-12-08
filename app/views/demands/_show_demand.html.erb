@@ -1,16 +1,17 @@
 <div class="show-card-demand-container" data-id="<%= demand.id %>">
   <div class="show-card-demand-header">
     <%= cl_image_tag demand.photo.key, height: 250, width: 350, crop: :fill %>
-    <h1><%= demand.title %></h1>
+    <h2><%= demand.title %></h2>
   </div>
   <hr>
+  <div class="line"></div>
   <div class="show-card-demand-description">
     <% if demand.requester == current_user %>
       <p><%= demand.responder.first_name %> <%= demand.responder.last_name %> accepte de vous aider.</p>
     <% else %>
       <p><%= demand.description %></p>
       <div class="show-card-date-accept">
-        <p>Start: <%= demand.start_date %> End: <%= demand.end_date %></p>
+        <p>Début: <%= demand.start_date.strftime("%d %b") %></p> <p>Fin: <%= demand.end_date.strftime("%d %b") %></p>
       </div>
         <p><small><strong>Author:</strong> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
     <% end %>

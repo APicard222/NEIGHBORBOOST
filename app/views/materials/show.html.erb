@@ -20,10 +20,10 @@
           <% end %>
         </div>
         <div class="show-material-available">
-          <% if @material.available %>
-            <p><%= "'#{@material.title}' is currently availbale "  %></p>
+          <% if @material.available? %>
+            <p><%= "'#{@material.title}' est disponible "  %></p>
           <% else %>
-            <p><%= "Come back soon ... #{@material.title} is reserved" %></p>
+            <p><%= "Un peu de patience ... '#{@material.title}' est actuellement reservé!" %></p>
           <% end %>
         </div>
     </div>
@@ -35,12 +35,10 @@
       </div>
       <div class="card-show-booking">
         <% if current_user == @material.user%>
-          <%# link_to('Edit', edit_material_path(@material), class: "button_book") %>
           <button class="button-edit-material" data-action="click->demands-index#openEditModal"> Edit </button>
           <%= link_to('Delete', material_path(@material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book_delete") %>
         <% else %>
-          <%# link_to('Book', '#', class: "button_book_show") %>
-          <button class='button-booking' id='booking'>Book</button>
+          <button class='button-booking' id='booking'>Reserver</button>
         <% end %>
       </div>
     </div>

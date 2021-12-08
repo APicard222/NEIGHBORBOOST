@@ -1,6 +1,5 @@
 <div class='container' data-controller="demands-index">
-  <h1 style="text-align:center">Demands</h1>
-  <h1>Demands</h1>
+  <h1 style="text-align:center">Demandes</h1>
 
   <div class="add_material">
     <div>
@@ -8,12 +7,14 @@
       <%= link_to "Mes demandes", demands_users_path, class: "add_material_button" %>
     </div>
   </div>
+  <div class="object_counter">
+    <p><strong><%= @pending.count %></strong> demande en attente - <%= @demands.count - @pending.count %> demandes attribuées</p>
+  </div>
   <div class="card-demands" data-demands-index-target="list">
     <%= render 'list', demands: @demands %>
   </div>
 
-  <!-- > Button add  <!-->
-  <div class='card-demand-add-btn' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> New demand </div>
+
 
   <!-- > Modal add demand  <!-->
   <div class='new-demand-container' data-demands-index-target='add'>
