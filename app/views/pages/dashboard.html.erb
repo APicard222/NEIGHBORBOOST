@@ -3,7 +3,7 @@
 
   <h2>Votre contribution à l'Entrepôt</h2>
   <div class="add_material">
-    <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
+    <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Ajoutez un objet </div>
   </div>
   <div class="card-list">
     <% @materials.each do |material| %>
@@ -51,13 +51,13 @@
 
     <div class="row">
     <div class="col-sm">
-      <h2>Tes demandes</h2>
+      <h2>Vos demandes</h2>
       <div data-demands-index-target="list">
         <%= render 'demands/list', demands: @demands %>
       </div>
     </div>
     <div class="col-sm">
-      <h2>Tes engagements</h2>
+      <h2>Vos engagements</h2>
       <% @acceptances.each do |acceptance| %>
         <div class="card-demand-half">
           <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>

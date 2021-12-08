@@ -23,7 +23,7 @@
               <h2><%= link_to material.title, material_path(material) %></h2>
               <p class="card-trip-index-pricing"><%= material.user.user_name%></p>
             </div>
-            <%= link_to('Book', material_path(material), class: "button_book") %>
+            <%= link_to('Reserver', material_path(material), class: "button_book") %>
             <%= cl_image_tag material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
           </div>
         </div>
