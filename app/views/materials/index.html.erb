@@ -7,6 +7,9 @@
       <%= link_to "Mes Objets", materials_users_path, class: "add_material_button" %>
     </div>
   </div>
+  <div class="object_counter">
+    <p><strong><%= @materials.count %></strong> objets mis à disposition</p>
+  </div>
 
   <div class="card-list">
     <% @materials.each do |material| %>

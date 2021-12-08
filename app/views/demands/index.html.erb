@@ -7,6 +7,9 @@
       <%= link_to "Mes demandes", demands_users_path, class: "add_material_button" %>
     </div>
   </div>
+  <div class="object_counter">
+    <p><strong><%= @pending.count %></strong> demande en attente - <%= @demands.count - @pending.count %> demandes attribuées</p>
+  </div>
   <div class="card-demands" data-demands-index-target="list">
     <%= render 'list', demands: @demands %>
   </div>

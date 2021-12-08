@@ -20,6 +20,7 @@ class PagesController < ApplicationController
 
   def my_demands
     @demands = Demand.where(requester_id: current_user)
+    @pending = Demand.where(requester_id: current_user, responder_id: nil)
     @demand = Demand.new
     @acceptances = Demand.where(responder_id: current_user)
   end

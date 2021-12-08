@@ -140,6 +140,21 @@ material9.photo.attach(
 material9.save!
 puts "Materials created!"
 
+puts "Creating Bookings"
+booking1 = Booking.new(start_time: date, end_time: date + 3)
+booking1.booker = user1
+booking1.material = material1
+booking1.save!
+booking2 = Booking.new(start_time: date - 1, end_time: date)
+booking2.booker = user1
+booking2.material = material2
+booking2.save!
+booking3 = Booking.new(start_time: date + 3, end_time: date + 7)
+booking3.booker = user4
+booking3.material = material5
+booking3.save!
+puts "Booking Created"
+
 puts "Creating demands ..."
 demand1 = Demand.new(title: 'Baby-sitting de Noé Samedi soir', description: 'Nous avons une soirée au Bristol samedi soir, et aimerions déléguer la garde de notre enfant (5ans). Nourriture + indémnisation prévue', end_date: date + 1, start_date: date + 1, status: "confirmed")
 demand1.responder_id = user2.id
@@ -201,6 +216,10 @@ message5 = Message.new(content: "Hello les voisins, vous avez de l'eau chaude en
 message5.user = user4
 message5.building = building1
 message5.save!
+message6 = Message.new(content: "Je suis dans le Sud cette semaine, je ne peux pas vous aider. Toutes mes excuses... ")
+message6.user = user2
+message6.building = building1
+message6.save!
 puts "Messages created!"
 
 puts "Finish ...!!!"

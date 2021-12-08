@@ -98,6 +98,20 @@
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+  margin-bottom: 10px;
+}
+
+.object_counter {
+  border-bottom: solid 1px rgb(189, 189, 189);
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-weight: lighter;
+}
+
+.add_material_solo {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
 }
 
 .add_material_button {
