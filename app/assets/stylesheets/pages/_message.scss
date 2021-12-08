@@ -86,7 +86,6 @@ p {
 }
 
 .textcontent {
-  // height: 250px;
   width: 50%;
 }
 
@@ -95,15 +94,20 @@ p {
   width: 100%;
   bottom: 0;
   background-color: white;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
+  padding: 10px;
   height: 80px;
 }
 
 .input-button-align {
   display: flex;
   .form-group {
-    width: 500%;
+    width: 100%;
   }
+}
+
+.button-send {
+  width: 100px;
+  background: white;
+  border: 0px;
+  align-items: center;
 }
