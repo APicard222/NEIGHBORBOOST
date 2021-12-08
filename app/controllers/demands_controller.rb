@@ -3,6 +3,7 @@ class DemandsController < ApplicationController
 
   def index
     @demands = Demand.where.not(requester_id: current_user)
+    @pending = Demand.where(responder_id: nil).where.not(requester_id: current_user)
     @demand = Demand.new
   end
 

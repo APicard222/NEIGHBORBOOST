@@ -8,6 +8,9 @@
     </div>
     <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
   </div>
+  <div class="object_counter">
+    <p>Vous avez mis <strong><%= @materials.count %></strong> objets à disposition de la communauté 👏🏼</p>
+  </div>
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
