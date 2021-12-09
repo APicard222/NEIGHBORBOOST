@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :count
   def index
     @building = current_user.building
-
     @message = Message.new
   end
 
