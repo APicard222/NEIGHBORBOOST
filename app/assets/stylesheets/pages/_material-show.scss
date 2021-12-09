@@ -6,9 +6,10 @@
 .card-trip-show {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
   width: 100%;
   display: flex;
+  border-radius: 12px;
 }
 
 .card-show-calendar {

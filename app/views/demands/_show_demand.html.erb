@@ -1,40 +1,46 @@
-<div class="show-card-demand-container" data-id="<%= demand.id %>">
-  <div class="show-card-demand-header">
-    <div class="show-card-demand-header-img">
-      <%= cl_image_tag demand.photo.key, height: 300, width: 300, crop: :fill %>
-    </div>
+<div class="show-container" data-controller="demands-index">
+  <h1>Welcome to the material show</h1>
 
-    <div class="show-card-demand-header-details">
-      <div class="show-card-demand-content">
-        <h2><%= demand.title %>
-        <hr>
-          <span><small> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></span>
-        </h2>
-      </div>
-
-      <div class="show-card-demand-description">
-        <% if demand.requester == current_user %>
-          <p><%= demand.responder.first_name %> <%= demand.responder.last_name %> accepte de vous aider.</p>
-        <% else %>
-          <p><%= demand.description %></p>
-        <% end %>
-      </div>
-
-      <div class="show-card-date-accept-btn">
-        <div class="show-card-date-accept">
-              <p><strong>Début:</strong> <%= demand.start_date.strftime("%d %b") %></p>
-              <p> &nbsp; &nbsp;<strong>Fin:</strong> <%= demand.end_date.strftime("%d %b") %></p>
-            </div>
-        <div class="show-card-demand-btns ">
-          <% if demand.requester.id == current_user.id %>
-            <div class="btn-accept" data-status="confirmer" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
-            <div data-status="posted" class="btn-decline" data-action="click->demands-index#updateStatus"><i class="fas fa-undo-alt"></i>Decline</div>
+  <div class="card-trip-show" data-id=<%= @material.id %>>
+    <%= cl_image_tag @material.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-trip-show-infos">
+        <div class="show-material-title">
+          <h2> <%= @material.title%></h2>
+        </div>
+        <div class="show-material-description">
+          <i class="fas fa-question-circle"></i>
+          <p><%= @material.description%></p>
+        </div>
+        <div class="show-material-owner">
+          <%= cl_image_tag @material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered small" %>
+          <% if current_user == @material.user%>
+          <h2>Vous êtes le propriétaire</h2>
           <% else %>
-            <div data-status="accepted" class="btn-accept" data-action="click->demands-index#updateStatus"><i class="fas fa-check"></i>Accept</div>
+            <h2 class="card-trip-index-pricing"> - <%= @material.user.first_name %><%= @material.user.last_name %></h2>
           <% end %>
         </div>
+        <div class="show-material-available">
+          <% if @material.available? %>
+            <p><%= "'#{@material.title}' est disponible "  %></p>
+          <% else %>
+            <p><%= "Un peu de patience ... '#{@material.title}' est actuellement reservé!" %></p>
+          <% end %>
+        </div>
+    </div>
+    <div class="card-show-calendar">
+      <div class="card-show-calendar-overview" style="object-fit:contain">
+        <%= month_calendar(events: @bookings) do |date, bookings| %>
+          <%= date.strftime("%d") %>
+        <% end %>
       </div>
-      <i class="far fa-times-circle close-show-demand" aria-hidden="true" data-action="click->demands-index#closeShowModal"></i>
-    </div>  
+      <div class="card-show-booking">
+        <% if current_user == @material.user%>
+          <button class="button-edit-material" data-action="click->demands-index#openEditModal"> Edit </button>
+          <%= link_to('Delete', material_path(@material), method: :delete, data: { confirm: "Are you sure?" }, class: "button_book_delete") %>
+        <% else %>
+          <button class='button-booking' id='booking'>Reserver</button>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
+</div>            
