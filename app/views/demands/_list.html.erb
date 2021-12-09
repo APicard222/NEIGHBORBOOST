@@ -8,9 +8,9 @@
           <p><%= demand.description %></p>
         </div>
         <% if demand.requester_id == current_user.id %>
-          <p><small>You posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+          <p><small>Vous avez posté le: <%= l(demand.created_at, format: "%a, %d %B, %Y") %></small></p>
         <% else %>
-          <p><small><%= demand.requester.user_name %> posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+          <p><small><%= demand.requester.user_name %> a posté le: <%= l(demand.created_at, format: "%a, %d %B, %Y") %></small></p>
         <% end %>
         <% if demand.status == 'posted' %>
           <% # do if user responder %>
@@ -41,11 +41,11 @@
           <p><%= demand.description %></p>
         </div>
         <% if demand.requester_id == current_user.id %>
-          <p><small>You posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+          <p><small>Vous avez posté le: <%= l(demand.created_at, format: "%a, %d %B, %Y") %></small></p>
         <% else %>
           <div class="show-demand-owner">
             <%= cl_image_tag demand.requester.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered small" %>
-            <p><small><%= demand.requester.user_name %> posted: <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></p>
+            <p><small><%= demand.requester.user_name %> a posté le: <%= l(demand.created_at, format: "%a, %d %B, %Y") %></small></p>
           </div>
         <% end %>
         <% if demand.status == 'posted' %>
