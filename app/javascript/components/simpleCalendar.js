@@ -37,7 +37,6 @@ const btnBooking = (start_day, end_day, month, year) => {
   }
 
   btn.addEventListener('click', () => {
-    console.log(url);
     fetch(url, {
       method: 'POST',
       headers: {
@@ -46,8 +45,10 @@ const btnBooking = (start_day, end_day, month, year) => {
         "X-CSRF-Token": getMetaValue("csrf-token")
       },
       body: JSON.stringify({
-        start_time: `${year}-${month}-${start_day}`,
-        end_time: `${year}-${month}-${end_day}`
+        start_time: `${year}-${month.normalize("NFD").replace(/\p{Diacritic}/gu, "")
+}-${start_day}`,
+        end_time: `${year}-${month.normalize("NFD").replace(/\p{Diacritic}/gu, "")
+}-${end_day}`
       })
     })
       .then(response => response.text())
@@ -65,9 +66,8 @@ const btnBooking = (start_day, end_day, month, year) => {
           },
         }).showToast();
         setTimeout(() => {
-
-        }, 4000);
-        window.location.href = "/users/dashboard";
+          window.location.href = "/users/dashboard";
+        }, 3000);
       })
     })
 }
