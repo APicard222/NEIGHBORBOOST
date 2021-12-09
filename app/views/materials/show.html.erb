@@ -1,24 +1,19 @@
 <div class="show-container" data-controller="demands-index">
   <h1>Welcome to the material show</h1>
 
-  <div class="card-trip-show" data-id=<%= @material.id %>>
-    <%= cl_image_tag @material.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-trip-show" data-id=<%= @material.id %>> 
     <div class="card-trip-show-infos">
-        <div class="show-material-title">
-          <h2> <%= @material.title%></h2>
-        </div>
+      <div class="show-material-img">
+        <h2> <%= @material.title%></h2>
+        <%= cl_image_tag @material.photo.key, height: 400, width: 500  %> 
+      </div>
+      <div class="show-material-infos">
         <div class="show-material-description">
-          <i class="fas fa-question-circle"></i>
           <p><%= @material.description%></p>
         </div>
-        <div class="show-material-owner">
-          <%= cl_image_tag @material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered small" %>
-          <% if current_user == @material.user%>
-          <h2>Vous êtes le propriétaire</h2>
-          <% else %>
-            <h2 class="card-trip-index-pricing"> - <%= @material.user.first_name %><%= @material.user.last_name %></h2>
-          <% end %>
-        </div>
+      </div>
+    </div>
+    <div class="card-show-calendar">
         <div class="show-material-available">
           <% if @material.available? %>
             <p><%= "'#{@material.title}' est disponible "  %></p>
@@ -26,8 +21,6 @@
             <p><%= "Un peu de patience ... '#{@material.title}' est actuellement reservé!" %></p>
           <% end %>
         </div>
-    </div>
-    <div class="card-show-calendar">
       <div class="card-show-calendar-overview" style="object-fit:contain">
         <%= month_calendar(events: @bookings) do |date, bookings| %>
           <%= date.strftime("%d") %>
@@ -41,6 +34,14 @@
           <button class='button-booking' id='booking'>Reserver</button>
         <% end %>
       </div>
+      <div class="show-material-owner">
+          <%= cl_image_tag @material.user.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered small" %>
+          <% if current_user == @material.user%>
+          <h3>Vous êtes le propriétaire</h3>
+          <% else %>
+            <h4 class="card-trip-index-pricing"> - <%= @material.user.first_name %><%= @material.user.last_name %></h4>
+          <% end %>
+        </div>
     </div>
   </div>
 

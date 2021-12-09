@@ -4,7 +4,7 @@
     <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Ajoutez un objet </div>
   </div>
   <div class="materials_in_dashboard">
-    <div class="dashboard_section_card">
+    <div class="dashboard_section_card ">
       <h2 class="titre_dashboard"> <%= @materials.count %> contributions à l'Entrepôt</h2>
       <div class="dashboard-card-materials">
         <% @materials.each do |material| %>
@@ -28,7 +28,7 @@
         <% end %>
       </div>
     </div>
-    <div class="dashboard_section_card">
+    <div class="dashboard_section_card ">
       <% if @booking == false %>
         <h2 class="titre_dashboard">Vous n'avez actuellement aucune réservation</h2>
       <% else %>
@@ -54,10 +54,10 @@
     </div>
   </div>
 
-    <div class="row">
-    <div class="col-sm">
-      <div class="dashboard_section_card">
-        <h2 class="titre_dashboard">Vos demandes (<%= @demands.count %>)</h2>
+    <div class="demand-engagements">
+    <div class="col-demand">
+      <div class="dashboard_section_card ">
+        <h2 class="titre_dashboard"><%= @demands.count %> demande(s)</h2>
         <div class="dashboard_section_card_inner">
           <div data-demands-index-target="list">
             <%= render 'demands/list', demands: @demands %>
@@ -65,9 +65,9 @@
         </div>
       </div>
     </div>
-    <div class="col-sm">
-      <div class="dashboard_section_card">
-        <h2 class="titre_dashboard">Vos engagements (<%= @acceptances.count %>)</h2>
+    <div class="col-engagements">
+      <div class="dashboard_section_card ">
+        <h2 class="titre_dashboard"><%= @acceptances.count %> engagement(s)</h2>
         <div class="dashboard_section_card_inner">
           <% @acceptances.each do |acceptance| %>
             <div class="card-demand-half">
