@@ -4,6 +4,7 @@
     <div>
       <%= link_to "Demandes", demands_path, class: "add_material_button" %>
       <%= link_to "Mes demandes", demands_users_path, class: "add_material_button_selected" %>
+      <%= link_to "Mes engagements", demands_pending_users_path, class: "add_material_button" %>
     </div>
     <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Nouvelle demande </div>
   </div>
@@ -17,22 +18,6 @@
       <div data-demands-index-target="list">
         <%= render 'demands/list', demands: @demands %>
       </div>
-    </div>
-    <div class="col-sm">
-      <h2>Vos engagements</h2>
-      <% @acceptances.each do |acceptance| %>
-        <div class="card-demand-half">
-          <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
-          <div class="card-demand-half-infos">
-            <h2><%= acceptance.title %></h2>
-            <div class="card-half-paragraph">
-              <p><%= acceptance.description %></p>
-            </div>
-            <p><small><%= acceptance.requester.user_name %> - <%= acceptance.start_date.strftime("%a, %d %B, %Y") %></small></p>
-            <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 

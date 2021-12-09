@@ -8,7 +8,7 @@
       <div class="show-card-demand-content">
         <h2><%= demand.title %>
         <hr>
-          <span><small> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></span>
+          <span><small> <%= demand.requester.user_name %> - <%= l(demand.created_at, format: "%a, %d %B, %Y") %></small></span>
         </h2>
       </div>
 
@@ -35,6 +35,6 @@
         </div>
       </div>
       <i class="far fa-times-circle close-show-demand" aria-hidden="true" data-action="click->demands-index#closeShowModal"></i>
-    </div>  
+    </div>
   </div>
 </div>

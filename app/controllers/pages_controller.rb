@@ -24,4 +24,9 @@ class PagesController < ApplicationController
     @demand = Demand.new
     @acceptances = Demand.where(responder_id: current_user)
   end
+
+  def my_demands_pending
+    @demand = Demand.new
+    @acceptances = Demand.where(responder_id: current_user)
+  end
 end
