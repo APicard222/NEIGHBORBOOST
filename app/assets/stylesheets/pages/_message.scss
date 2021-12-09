@@ -10,6 +10,7 @@ p {
   margin: 0 auto;
   padding-bottom: 20px;
   height: calc(100vh - 50px);
+
   h1 {
     margin-bottom: 0%;
   }
@@ -31,8 +32,8 @@ p {
 }
 
 #messages {
-  overflow: scroll;
-  height: 80vh;
+  overflow-y: scroll;
+  height: 75vh;
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -42,7 +43,7 @@ p {
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid #7EE081;
+  border-top: 8px solid #D3E4CD;
   position: absolute;
   top: 0;
   left: -8px;
@@ -53,7 +54,7 @@ p {
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid #6DAEDB;
+  border-top: 8px solid #D3E4CD;
   position: absolute;
   top: 0;
   right: -8px;
@@ -61,7 +62,7 @@ p {
 
 .message-align-right{
   align-self: flex-end;
-  background: #6DAEDB;
+  background: #D1E8E4;
   p {
     padding-top: 5px;
   }
@@ -69,7 +70,7 @@ p {
 
 .message-align-left{
   align-self: flex-start;
-  background: #7EE081;
+  background: #7ee0814d;
 }
 
 .span1 {
@@ -90,12 +91,14 @@ p {
 }
 
 .box-message  {
+  margin-top: 20px;
   position: sticky;
   width: 100%;
   bottom: 0;
-  background-color: white;
   padding: 10px;
   height: 80px;
+  border: 1px solid #FFBE00;
+  border-radius: 10px;
 }
 
 .input-button-align {
@@ -106,8 +109,15 @@ p {
 }
 
 .button-send {
-  width: 100px;
+  width: 50px;
+  height: 50px;
   background: white;
   border: 0px;
-  align-items: center;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+
+.button-send-font {
+  font-size: 50px;
+  color: rgba(87, 233, 87, 0.582);
 }

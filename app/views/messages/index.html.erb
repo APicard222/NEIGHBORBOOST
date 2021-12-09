@@ -7,7 +7,7 @@
         <div class="message-container message-align-right" id="message-<%= message.id %>">
           <div class="triangle-right"></div>
           <p><%= message.content %></p>
-          <small class="date"><%= message.created_at.strftime("%a %b %e at %l:%M%p ✓✓" ) %></small>
+          <small class="date"><%= l(message.created_at, format: "%a %b %e at %l:%M%p ✓✓") %></small>
         </div>
       <% else %>
         <div class="message-container message-align-left" id="message-<%= message.id %>">
@@ -23,7 +23,7 @@
           <div class="input-button-align">
             <%= f.input :content, input_html: { class: 'textcontent' },label: false, placeholder: "Message #" %>
             <%= button_tag(class: "button-send") do %>
-              <i class="fas fa-paper-plane"></i>
+              <i class="fas fa-paper-plane button-send-font"></i>
             <% end %>
           </div>
         <% end %>
