@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :count
   def index
     @building = current_user.building
+
     @message = Message.new
   end
 
@@ -17,7 +18,8 @@ class MessagesController < ApplicationController
       )
       redirect_to messages_path(BuildingChannel, anchor: "message-#{@message.id}")
     else
-      render :new
+      @building = current_user.building
+      render :index
     end
   end
 
