@@ -12,8 +12,22 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
 }
 
+.dashboard_section_card_inner::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+.dashboard_section_card_inner::-webkit-scrollbar-track {
+  background: #ffbe00b2;        /* color of the tracking area */
+}
+
+.dashboard_section_card_inner::-webkit-scrollbar-thumb {
+  background-color: #303f69;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 1px solid #ffbe00b2;  /* creates padding around scroll thumb */
+}
+
 .dashboard_section_card::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 8px;               /* width of the entire scrollbar */
 }
 
 .dashboard_section_card::-webkit-scrollbar-track {
@@ -23,11 +37,11 @@ body::-webkit-scrollbar-thumb {
 .dashboard_section_card::-webkit-scrollbar-thumb {
   background-color: #303f69;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
+  border: 1px solid #ffbe00b2;  /* creates padding around scroll thumb */
 }
 
 .dashboard-card-materials::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 8px;               /* width of the entire scrollbar */
 }
 
 .dashboard-card-materials::-webkit-scrollbar-track {
@@ -37,12 +51,12 @@ body::-webkit-scrollbar-thumb {
 .dashboard-card-materials::-webkit-scrollbar-thumb {
   background-color: #303f69;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
+  border: 1px solid #ffbe00b2;  /* creates padding around scroll thumb */
 }
 
 
 .messages::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 8px;               /* width of the entire scrollbar */
 }
 
 .messages::-webkit-scrollbar-track {
@@ -52,5 +66,5 @@ body::-webkit-scrollbar-thumb {
 .messages::-webkit-scrollbar-thumb {
   background-color: #303f69;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
+  border: 1px solid #ffbe00b2;  /* creates padding around scroll thumb */
 }
