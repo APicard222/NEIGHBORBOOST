@@ -16,7 +16,7 @@ building1.save!
 puts "Building created!"
 
 puts "Creating Users..."
-user1 = User.new(user_name: 'jacky2', first_name: 'Jack', last_name: 'Miller', email: 'b.p@gmail.com', password: '123456')
+user1 = User.new(user_name: 'emma_2', first_name: 'Emma', last_name: 'Miller', email: 'emma.m@gmail.com', password: '123456')
 user1.building = building1
 user1.photo.attach(
   io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638440857/user1_thsdku.jpg'),
@@ -24,24 +24,24 @@ user1.photo.attach(
   content_type: 'image/png'
 )
 user1.save!
-user2 = User.new(user_name: 'Stefano', first_name: 'Stefano', last_name: 'Fiorenzi', email: 's.s@gmail.com', password: '123456')
+user2 = User.new(user_name: 'stefano', first_name: 'Stefano', last_name: 'Fiorenzi', email: 'stefano.f@gmail.com', password: '123456')
 user2.building = building1
 user2.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638440857/user2_jye2qe.jpg'),
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639122156/stefano_y4ffga.jpg'),
   filename: "u2.png",
   content_type: 'image/png'
 )
 user2.save!
 puts "No worries, already 2 users created..."
-user3 = User.new(user_name: 'Ed', first_name: 'Eddie', last_name: 'Smith', email: 'b.n@gmail.com', password: '123456')
+user3 = User.new(user_name: 'Ed_smith', first_name: 'Eddie', last_name: 'Smith', email: 'eddie.smith@gmail.com', password: '123456')
 user3.building = building1
 user3.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638440857/user3_f2kxhk.png'),
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639122513/eddie_bfuocp.jpg'),
   filename: "u3.png",
   content_type: 'image/png'
 )
 user3.save!
-user4 = User.new(user_name: 'P_Duchampt', first_name: 'Paloma', last_name: 'Duchampt', email: 'p.d@gmail.com', password: '123456')
+user4 = User.new(user_name: 'Paloma_D', first_name: 'Paloma', last_name: 'Duchampt', email: 'p.d@gmail.com', password: '123456')
 user4.building = building1
 user4.photo.attach(
   io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638525216/user_4_za2bua.jpg'),
@@ -49,30 +49,100 @@ user4.photo.attach(
   content_type: 'image/png'
 )
 user4.save!
-puts "Users created!"
+user5 = User.new(user_name: 'Giselle', first_name: 'Giselle', last_name: 'Martin', email: 'giselle.m@gmail.com', password: '123456')
+user5.building = building1
+user5.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639122157/touriste_user_j7djzk.jpg'),
+  filename: "u5.png",
+  content_type: 'image/png'
+)
+user5.save!
+user6 = User.new(user_name: 'Fabio', first_name: 'Fabio', last_name: 'Dupasquier', email: 'fabio.d@gmail.com', password: '123456')
+user6.building = building1
+user6.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639122805/fabio_doxdqg.jpg'),
+  filename: "u6.png",
+  content_type: 'image/png'
+)
+user6.save!
+user7 = User.new(user_name: 'pierro', first_name: 'Pierre', last_name: 'Desgranges', email: 'pierre.d@gmail.com', password: '123456')
+user7.building = building1
+user7.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639123048/user_7_jmffjn.jpg'),
+  filename: "u7.png",
+  content_type: 'image/png'
+)
+user7.save!
+
+puts "--------------------------------------------------"
+puts "-----------------Users created!-------------------"
+puts "--------------------------------------------------"
 
 puts "Creating Materials..."
 puts "Downloading images..."
-puts "Image downloaded !"
-material1 = Material.new(title: 'SUP de qualité', description: "J'ai reçu ce superbe Stand up Paddle pour mon anniversaire mais je m'en sers que très peu car trop lourd pour moi... Si vous voulez l'utiliser, laissez moi un petit message. Il est en parfait état.", start_time: date + 1, end_time: date + 6)
-material1.user = user1
-material1.building = building1
-material1.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638438599/SUP_hihr2r.jpg'),
-  filename: "m1.png",
+
+material1_1 = Material.new(title: 'Raquettes à neige', description: "Hello les voisins. J'aimerais mettre à disposition de l'entrepôt mes superbes raquettes à neige afin que vous puissiez profiter pleinement des belles journées hivernales qui nous attendent. Elle sont compatibles pour les pointures allant du 36 au 43. N'hésitez pas! Evadez vous !")
+material1_1.user = user1
+material1_1.building = building1
+material1_1.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638526039/raquettes_ghk3oz.jpg'),
+  filename: "m1_1.png",
   content_type: 'image/png'
 )
-puts "Passed ?"
-material1.save!
-material2 = Material.new(title: 'Boîte à Outil', description: "Salut les voisins! Je vous mets à disposition de l'entrepôt ma superbe boîte à outil qui n'arrête pas de me sauver la vie dans cet immeuble... Ce n'est pas le sujet. N'hésitez pas à la réserver c'est avec plaisir que je vous la prête contre une petite Bière 🍺 ", start_time: date + 5, end_time: date + 7)
-material2.user = user1
-material2.building = building1
-material2.photo.attach(
+material1_1.save!
+material1_2 = Material.new(title: 'Sun Tzu', description: "Hello les voisins. J'aimerais vous mettre à disposition ce mon Sun Tzu. Ce jeu d'origine chinoise est l'élément indispensable pour passer des moments inoubliables entre amis ou en famille. Il faut faire preuve de tactique, d'interpretation et de malice pour performer de la meilleure des façons. Je peux vous expliquer les règles avec plaisir.")
+material1_2.user = user1
+material1_2.building = building1
+material1_2.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639123529/SunTzu_zpwghb.jpg'),
+  filename: "m1_2.png",
+  content_type: 'image/png'
+)
+material1_2.save!
+
+puts "------------Materials User 1 created-------------------"
+
+material2_1 = Material.new(title: 'Jeux de 4 pneus Été', description: "Ciao les copains ! Je viens d'arriver depuis Torino en Italie où je possédais une superbe fiat Punto. Elle n'a malheureusement pas passée le contrôle technique. Si jamais vous êtes intéressés par ce train de pneu, je vous l'offre volontiers. Mieux vaut donner que jeter. Bonne journée à tous !")
+material2_1.user = user2
+material2_1.building = building1
+material2_1.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638438599/pneus_rvaqxe.jpg'),
+  filename: "m2_1.png",
+  content_type: 'image/png'
+)
+material2_1.save!
+
+material2_2 = Material.new(title: 'Four à Pizza 🍕', description: "Ciao les copains ! J'ai ramené de Torino ce Four à Pizza. Il est magique. Tu peux faire des Pizzas incroyables avec et il est très simple pour l'utiliser. Tu invites tes amis, tu me demandes le four à Pizza, tu sors le Campari, et tout va bien se passer c'est sûr. Viva Italia, viva la Pizza!")
+material2_2.user = user2
+material2_2.building = building1
+material2_2.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639124614/four_pizza_tgi0nl.jpg'),
+  filename: "m2_2.png",
+  content_type: 'image/png'
+)
+material2_2.save!
+
+puts "-----------Materials User 2 created----------------------"
+
+material3_1 = Material.new(title: 'Boîte à Outil', description: "Salut les voisins! Je vous mets à disposition de l'entrepôt ma superbe boîte à outil qui n'arrête pas de me sauver la vie dans cet immeuble... Ce n'est pas le sujet. N'hésitez pas à la réserver c'est avec plaisir que je vous la prête contre une petite Bière 🍺 ", start_time: date + 5, end_time: date + 7)
+material3_1.user = user2
+material3_1.building = building1
+material3_1.photo.attach(
   io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638438599/boite%C3%A0outil_rofpy1.jpg'),
-  filename: "m2.png",
+  filename: "m3_1.png",
   content_type: 'image/png'
 )
-material2.save!
+material3_1.save!
+
+material2_2 = Material.new(title: 'Boîte à Outil', description: "Salut les voisins! Je vous mets à disposition de l'entrepôt ma superbe boîte à outil qui n'arrête pas de me sauver la vie dans cet immeuble... Ce n'est pas le sujet. N'hésitez pas à la réserver c'est avec plaisir que je vous la prête contre une petite Bière 🍺 ", start_time: date + 5, end_time: date + 7)
+material2_2.user = user2
+material2_2.building = building1
+material2_2.photo.attach(
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638438599/boite%C3%A0outil_rofpy1.jpg'),
+  filename: "m2_2.png",
+  content_type: 'image/png'
+)
+material2_2.save!
 material3 = Material.new(title: 'Appareil à Raclette', description: "Je mets à disposition mon appareil à raclette XXL pouvant acceuilir 8 convives simultanéments. C'est avec plaisir que je vous mets cet objet à disposition. La planête nous en sera que reconaissante.   ", start_time: date + 12, end_time: date + 12)
 material3.user = user2
 material3.building = building1
@@ -92,15 +162,6 @@ material4.photo.attach(
   content_type: 'image/png'
 )
 material4.save!
-material5 = Material.new(title: 'Jeux de 4 pneus Été', description: "Je viens d'emménager ici. Vivant auparavant en France je possédais une superbe 206. Elle n'a malheureusement pas passée le contrôle technique. Si jamais vous êtes intéressés par ce train de pneu, je vous l'offre volontiers. Mieux vaut donner que jeter.")
-material5.user = user3
-material5.building = building1
-material5.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1638438599/pneus_rvaqxe.jpg'),
-  filename: "m5.png",
-  content_type: 'image/png'
-)
-material5.save!
 material6 = Material.new(title: 'Echelle', description: "Bonjour à tous ! Ici Gérard, le voisin du 5ième. Je n'ai pas tout à fait compris le fonctionnement de ce nouveau outil... A vrai dire je préferais le papier. Mais voila, si quelqun à besoin d'une échelle, j'ai ce qu'il vous faut.", start_time: date - 2, end_time: date)
 material6.user = user3
 material6.building = building1
