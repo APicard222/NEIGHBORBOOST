@@ -25,6 +25,10 @@ export default class extends Controller {
   openShowModal(evt) {
     const url = `/demands/${evt.target.closest(".card-demand").dataset.id}`
 
+    if(window.pageYOffset) {
+      window.scroll(0,0)
+    }
+
     fetch(url, { headers: { 'Accept': 'text/plain' } })
       .then(response => response.text())
       .then((data) => {
