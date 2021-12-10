@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     if @message.save
       BuildingChannel.broadcast_to(
         current_user.building,
-        render_to_string(partial: "message", locals: { message: @message })
+        render_to_string(partial: "message", locals: { message: @message, user_id: current_user.id })
       )
       redirect_to messages_path(BuildingChannel, anchor: "message-#{@message.id}")
     else
