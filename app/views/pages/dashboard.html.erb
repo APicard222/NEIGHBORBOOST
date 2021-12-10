@@ -55,36 +55,36 @@
   </div>
 
     <div class="demand-engagements">
-    <div class="col-demand">
-      <div class="dashboard_section_card ">
-        <h2 class="titre_dashboard"><%= @demands.count %> demande(s)</h2>
-        <div class="dashboard_section_card_inner">
-          <div data-demands-index-target="list">
-            <%= render 'demands/list', demands: @demands %>
+      <div class="col-demand">
+        <div class="dashboard_section_card ">
+          <h2 class="titre_dashboard"><%= @demands.count %> demande(s)</h2>
+          <div class="dashboard_section_card_inner">
+            <div data-demands-index-target="list">
+              <%= render 'demands/list', demands: @demands %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-engagements">
-      <div class="dashboard_section_card ">
-        <h2 class="titre_dashboard"><%= @acceptances.count %> engagement(s)</h2>
-        <div class="dashboard_section_card_inner">
-          <% @acceptances.each do |acceptance| %>
-            <div class="card-demand-half">
-              <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user avatar-bordered" %>
-              <div class="card-demand-half-infos">
-                <h2><%= acceptance.title %></h2>
-                <div class="card-half-paragraph">
-                  <p><%= acceptance.description %></p>
+      <div class="col-engagements">
+        <div class="dashboard_section_card ">
+          <h2 class="titre_dashboard"><%= @acceptances.count %> engagement(s)</h2>
+          <div class="dashboard_section_card_inner">
+            <% @acceptances.each do |acceptance| %>
+              <div class="card-demand-half">
+                <%= cl_image_tag acceptance.photo.key, crop: :fill, class: "card-trip-index-user" %>
+                <div class="card-demand-half-infos">
+                  <h2><%= acceptance.title %></h2>
+                  <div class="card-half-paragraph">
+                    <p><%= acceptance.description %></p>
+                  </div>
+                  <p><small><%= acceptance.requester.user_name %> - <%= l(acceptance.start_date, format: "%a, %d %B, %Y") %></small></p>
+                  <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
                 </div>
-                <p><small><%= acceptance.requester.user_name %> - <%= acceptance.start_date.strftime("%a, %d %B, %Y") %></small></p>
-                <i class="fa fa-info-circle card-more-info card-more-info-size" aria-hidden="true"></i>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 
 <!-- > Modal add demand  <!-->

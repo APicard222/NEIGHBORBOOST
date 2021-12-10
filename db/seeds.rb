@@ -27,7 +27,7 @@ user1.save!
 user2 = User.new(user_name: 'stefano', first_name: 'Stefano', last_name: 'Fiorenzi', email: 'stefano.f@gmail.com', password: '123456')
 user2.building = building1
 user2.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639122156/stefano_y4ffga.jpg'),
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639138770/italien_ru1j0k.jpg'),
   filename: "u2.png",
   content_type: 'image/png'
 )
@@ -52,7 +52,7 @@ user4.save!
 user5 = User.new(user_name: 'Giselle', first_name: 'Giselle', last_name: 'Martin', email: 'giselle.m@gmail.com', password: '123456')
 user5.building = building1
 user5.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639122157/touriste_user_j7djzk.jpg'),
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639138771/m%C3%A8refamille_s0gg40.jpg'),
   filename: "u5.png",
   content_type: 'image/png'
 )
@@ -60,7 +60,7 @@ user5.save!
 user6 = User.new(user_name: 'Fabio', first_name: 'Fabio', last_name: 'Dupasquier', email: 'fabio.d@gmail.com', password: '123456')
 user6.building = building1
 user6.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639122805/fabio_doxdqg.jpg'),
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639138771/jeunehomme_hbvdug.jpg'),
   filename: "u6.png",
   content_type: 'image/png'
 )
@@ -68,7 +68,7 @@ user6.save!
 user7 = User.new(user_name: 'pierro', first_name: 'Pierre', last_name: 'Desgranges', email: 'pierre.d@gmail.com', password: '123456')
 user7.building = building1
 user7.photo.attach(
-  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639123048/user_7_jmffjn.jpg'),
+  io: URI.open('https://res.cloudinary.com/dvzoubga6/image/upload/v1639138770/bob_fq7c55.jpg'),
   filename: "u7.png",
   content_type: 'image/png'
 )
@@ -391,7 +391,7 @@ puts "--------------------------------------------------"
 
 puts "Creating Messages..."
 message1 = Message.new(content: "Vraiment top cette appli. Je me réjouis d'apprendre à vous connaître :)")
-message1.user = user1
+message1.user = user3
 message1.building = building1
 message1.save!
 message2 = Message.new(content: "En effet! J'ai rempli l'entrepôt avec les objets dont je n'avais plus besoin. N'hésitez pas à aller y jeter un coup d'oeil.")
