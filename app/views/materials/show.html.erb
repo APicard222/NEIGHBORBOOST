@@ -1,5 +1,5 @@
 <div class="show-container" data-controller="demands-index">
-  <h1>Welcome to the material show</h1>
+  <h1>Disponibilité de <%= @material.title%></h1>
   <div class="card-trip-show" data-id=<%= @material.id %>>
     <%= cl_image_tag @material.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-trip-show-infos">
