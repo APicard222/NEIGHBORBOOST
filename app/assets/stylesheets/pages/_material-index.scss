@@ -133,11 +133,13 @@ body {
   padding: 4px 8px;
   font-size: 12px;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .add_material_button_selected:hover {
   text-decoration: none;
-  color: white;
+  color: black;
+  font-size: 12px;
 }
 
 @media(max-width: 1200px) {
