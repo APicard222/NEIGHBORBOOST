@@ -16,7 +16,7 @@
 }
 
 .card-show-calendar {
- 
+
 }
 
 .card-show-calendar-overview {
@@ -50,7 +50,7 @@
 }
 
 .button_book_delete {
-  color: rgb(160, 160, 160);
+  color: black;
   border-style: solid;
   border-width: 0.5px;
   border-color: rgb(202, 202, 202);
@@ -58,6 +58,7 @@
   font-size: 12px;
   border-radius: 5px;
   margin-left: 10px;
+  background-color: white;
 }
 
 .button_book_delete:hover {
@@ -95,7 +96,7 @@
   width: 100%;
   padding-top: 40px;
   padding-left: 60px;
-  
+
 }
 
 .card-trip-show .card-trip-show-infos {
@@ -114,7 +115,7 @@
   padding: 10px;
   bottom: 0;
   left: 15px;
-  
+
 }
 
 .show-material-title {
