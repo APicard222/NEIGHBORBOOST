@@ -263,7 +263,7 @@ booking4.material = material2_2
 booking4.save!
 
 booking5 = Booking.new(start_time: date + 11, end_time: date + 15)
-booking5.booker = user7
+booking5.booker = user5
 booking5.material = material2_2
 booking5.save!
 

@@ -14,7 +14,7 @@
   <div class="card-list">
     <% @materials.each do |material| %>
       <div class="card-trip-outside-frame">
-          <% if material.available %>
+          <% if material.available? %>
             <span class="badge available">Disponible</span>
           <% else %>
             <span class="badge notavailable">Reservé</span>
