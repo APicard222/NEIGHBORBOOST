@@ -6,7 +6,7 @@
       <%= link_to "Entrepôt", materials_path, class: "add_material_button" %>
       <%= link_to "Mes Objets", materials_users_path, class: "add_material_button_selected" %>
     </div>
-    <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Add Material </div>
+    <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Ajoutez un objet </div>
   </div>
   <div class="object_counter">
     <p>Vous avez mis <strong><%= @materials.count %></strong> objets à disposition de la communauté 👏🏼</p>

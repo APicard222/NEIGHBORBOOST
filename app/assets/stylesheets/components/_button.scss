@@ -1,4 +1,4 @@
-.button-booking {
+/*.button-booking {
   width: 100%;
   color: rgb(160, 160, 160);
   background-color: white;
@@ -10,15 +10,32 @@
   border-radius: 5px ;
   font-weight: bold;
   padding-top: 10px;
+}*/
+
+.button-booking {
+ color: black;
+ border-style: solid;
+ border-width: 0.5px;
+ border-color: rgb(202, 202, 202);
+ padding: 4px 8px;
+ font-size: 12px;
+ border-radius: 8px;
+ background-color: white;
 }
+
+/* .button-booking:hover {
+//   text-decoration: none;
+//   color: white;
+//   background-color: rgb(200, 200, 200);
+}*/
 
 .button-booking:hover {
   text-decoration: none;
   color: white;
-  background-color: rgb(200, 200, 200);
+  background-color: #FFBE00;
 }
 
-.button-edit-material {
+/*.button-edit-material {
   color: rgb(160, 160, 160);
   background-color: white;
   border-style: solid;
@@ -27,10 +44,21 @@
   padding: 4px 8px;
   font-size: 12px;
   border-radius: 5px;
+}*/
+.button-edit-material {
+  color: black;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgb(202, 202, 202);
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+  background-color: white;
 }
 
 .button-edit-material:hover {
   text-decoration: none;
   color: white;
-  background-color: rgb(200, 200, 200);
+  /*background-color: rgb(200, 200, 200);*/
+  background-color: #FFBE00;
 }

@@ -2,7 +2,6 @@
   width: 90%;
   margin: 0 auto;
 }
-
 .card-trip-show {
   overflow: hidden;
   background: white;
@@ -10,27 +9,22 @@
   width: 100%;
   display: flex;
   border-radius: 12px;
-  height: 500px;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
 }
-
 .card-show-calendar {
- 
+  padding: 10px;
 }
-
 .card-show-calendar-overview {
-  height: 50%;
+  height: 82%;
 }
-
 .card-show-booking {
+  border-top: 0.5px solid grey;
+  height: 18%;
   display: flex;
   justify-content: flex-end;
   text-align: center;
   align-items: center;
   margin-bottom: 0%;
 }
-
 .card-show-booking:hover {
   .button_book_show {
     background-color: rgb(182, 182, 182);
@@ -38,7 +32,6 @@
     text-decoration: none;
   }
 }
-
 .button_book_show {
   font-size: 22px;
   color: rgb(71, 71, 71);
@@ -48,7 +41,6 @@
   border-color: rgb(85, 85, 85);
   border-radius: 4px;
 }
-
 .button_book_delete {
   color: rgb(160, 160, 160);
   border-style: solid;
@@ -59,64 +51,42 @@
   border-radius: 5px;
   margin-left: 10px;
 }
-
 .button_book_delete:hover {
   text-decoration: none;
   color: white;
   background-color: rgba(255, 0, 0, 0.664);
 }
-
 .simple-calendar {
   height: 100%;
   background-color: white;
 }
-
 .card-trip-show > img {
   height: 100%;
-  width: 100%;
+  width: 40%;
   object-fit: cover;
 }
-
 .card-trip-show h2 {
-  font-size: 26px;
+  font-size: 16px;
   font-weight: bold;
   margin: 0;
-  padding-bottom: 15px;
-  text-transform: uppercase;
 }
-
 .card-trip-show p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
-
 .card-show-calendar {
-  width: 100%;
-  padding-top: 40px;
-  padding-left: 60px;
-  
+  width: 40%;
 }
-
 .card-trip-show .card-trip-show-infos {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: rgb(255, 255, 255);
-  position:relative;
-  padding-left: 15px;
+  width: 30%;
+  margin: 8px;
+  padding: 8px;
 }
-
-.show-material-infos {
-  position: absolute;
-  background-color: rgba(255,255,255,1);
-  color: #000;
-  padding: 10px;
-  bottom: 0;
-  left: 15px;
-  
-}
-
 .show-material-title {
   align-items: center;
   display: flex;
@@ -127,30 +97,26 @@
     font-family: 'Roboto', sans-serif;
   }
 }
-
 .show-material-owner {
   display: flex;
   align-items: center;
   margin-top: auto;
   margin-bottom: 15px;
-  padding-top: 50px;
 }
-
 .show-material-available {
   display: flex;
   margin-top: auto;
   justify-content: center;
   align-items:center;
   height: 17%;
+  border-top: 0.5px solid grey;
   p {
     font-size: 14px;
   }
 }
-
 .show-material-description {
   align-items: center;
   flex-grow: 1;
-
   p {
     font-size: 12px;
     font-family: 'Lato';
