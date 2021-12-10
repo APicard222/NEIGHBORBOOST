@@ -11,3 +11,31 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 3px solid orange;  /* creates padding around scroll thumb */
 }
+
+.dashboard_section_card::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.dashboard_section_card::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
+}
+
+.dashboard_section_card::-webkit-scrollbar-thumb {
+  background-color: blue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid orange;  /* creates padding around scroll thumb */
+}
+
+.dashboard-card-materials::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.dashboard-card-materials::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
+}
+
+.dashboard-card-materials::-webkit-scrollbar-thumb {
+  background-color: blue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid orange;  /* creates padding around scroll thumb */
+}
