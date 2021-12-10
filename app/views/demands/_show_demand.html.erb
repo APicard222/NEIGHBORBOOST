@@ -8,7 +8,7 @@
       <div class="show-card-demand-content">
         <h2><%= demand.title %>
         <hr>
-          <span><small> <%= demand.requester.user_name %> - <%= demand.created_at.strftime("%a, %d %B, %Y") %></small></span>
+          <span style="font-size: 16px"><small> <%= demand.requester.user_name %> - <%= l(demand.created_at, format: "%a, %d %B, %Y") %></small></span>
         </h2>
       </div>
 
@@ -22,8 +22,8 @@
 
       <div class="show-card-date-accept-btn">
         <div class="show-card-date-accept">
-              <p><strong>Début:</strong> <%= demand.start_date.strftime("%d %b") %></p>
-              <p> &nbsp; &nbsp;<strong>Fin:</strong> <%= demand.end_date.strftime("%d %b") %></p>
+              <p style="font-size: 14px"><strong>Début:</strong> <%= demand.start_date.strftime("%d %b") %></p>
+              <p style="font-size: 14px"> &nbsp; &nbsp;<strong>Fin:</strong> <%= demand.end_date.strftime("%d %b") %></p>
             </div>
         <div class="show-card-demand-btns ">
           <% if demand.requester.id == current_user.id %>
@@ -35,6 +35,6 @@
         </div>
       </div>
       <i class="far fa-times-circle close-show-demand" aria-hidden="true" data-action="click->demands-index#closeShowModal"></i>
-    </div>  
+    </div>
   </div>
 </div>

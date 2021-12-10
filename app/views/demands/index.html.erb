@@ -1,11 +1,13 @@
 <div class='container' data-controller="demands-index">
-  <h1 style="text-align:center">Demandes</h1>
+  <h1>Demandes</h1>
 
   <div class="add_material">
     <div>
       <%= link_to "Demandes", demands_path, class: "add_material_button_selected" %>
       <%= link_to "Mes demandes", demands_users_path, class: "add_material_button" %>
+      <%= link_to "Mes engagements", demands_pending_users_path, class: "add_material_button" %>
     </div>
+    <div class='add_material_button_selected' data-action="click->demands-index#openAddModal"><i class="far fa-plus-square"></i> Nouvelle demande </div>
   </div>
   <div class="object_counter">
     <p><strong><%= @pending.count %></strong> demande en attente - <%= @demands.count - @pending.count %> demandes attribuées</p>

@@ -1,0 +1,56 @@
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #ffbe00b2;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #303f69;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
+}
+
+.dashboard_section_card::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.dashboard_section_card::-webkit-scrollbar-track {
+  background: #ffbe00b2;        /* color of the tracking area */
+}
+
+.dashboard_section_card::-webkit-scrollbar-thumb {
+  background-color: #303f69;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
+}
+
+.dashboard-card-materials::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.dashboard-card-materials::-webkit-scrollbar-track {
+  background: #ffbe00b2;        /* color of the tracking area */
+}
+
+.dashboard-card-materials::-webkit-scrollbar-thumb {
+  background-color: #303f69;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
+}
+
+
+.messages::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.messages::-webkit-scrollbar-track {
+  background: #ffbf00b2;        /* color of the tracking area */
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: #303f69;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #ffbe00b2;  /* creates padding around scroll thumb */
+}

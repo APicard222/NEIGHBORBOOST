@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :dashboard, to: 'pages#dashboard'
       get :materials, to: 'pages#my_materials'
       get :demands, to: 'pages#my_demands'
+      get :demands_pending, to: 'pages#my_demands_pending'
     end
   end
   get '/user' => "materials#index", :as => :user_root
