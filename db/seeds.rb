@@ -134,7 +134,7 @@ material3_1.photo.attach(
 )
 material3_1.save!
 
-material3_2 = Material.new(title: 'Skate Electrique 400W', description: "Bonjour les voisins. J'ai ramené cette merveille technologique de mon séjour aux Etats Unis l'année dernière. C'est la Rolls Royce des planches à roulettes électrique. La puissance est folle et l'autonmie autour des 40km. Si il y a des amateurs de sensations fortes je vous conseille d'essayer cet engin. Vous n'allez pas être déçu. 💨💨💨 ")
+material3_2 = Material.new(title: 'Scate Electrique 400W', description: "Bonjour les voisins. J'ai ramené cette merveille technologique de mon séjour aux Etats Unis l'année dernière. C'est la Rolls Royce des planches à roulettes électrique. La puissance est folle et l'autonmie autour des 40km. Si il y a des amateurs de sensations fortes je vous conseille d'essayer cet engin. Vous n'allez pas être déçu. 💨💨💨 ")
 material3_2.user = user3
 material3_2.building = building1
 material3_2.photo.attach(
